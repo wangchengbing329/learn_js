@@ -1,0 +1,25 @@
+<template name="goods">
+<view class="mainGoods">
+    
+    <view class="goodsContent" wx:for ="{{goodsDetails}}" wx:key = "index"  bindtap="showDetail">
+        
+            
+       
+          
+        <image  src="{{goodsImg}}" mode="widthFix" lazy-load="true" />
+        <text  >{{goodsId}} </text>
+        <text  >{{goodsDec}} </text>
+        <text  >{{goodsPrice}} </text>
+        <!-- <text class="originPrice"wx:if="{{discount?true:false}}"></text> -->
+            
+        
+          
+            
+       
+          
+          
+
+    </view>
+     
+</view>
+</template>

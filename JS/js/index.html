@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document1</title>
+</head>
+<body>
+    <script>
+        // construction 构造对象
+        function Otaku(name,age){
+            this.name=name;
+            this.age=age;
+            this.habbit='Game';
+        }
+        // 构造函数有一个prototype函数 原型是对象 基于原型的面向对象 原型对象
+        Otaku.prototype.strength=60;
+        Otaku.prototype.sayYouName=function(){
+            console.log('I am'+this.name);
+        }
+        // var lidan=new Otaku('李丹',18);
+        function objectFactory(contructorFunc,name,age){
+            // 空对象
+            var obj=new Object();
+
+            // otaku函数里面？this.name.....
+            // 怎么拿到构造函数里的属性？
+            contructorFunc.call(obj,name,age);
+            // 如何让obj拥有prototype链上的属性和方法
+            console.log(obj);
+            // 怎么拿到原型对象？
+            obj._proto_=contructorFunc.prototype
+            return obj;
+        }
+        // 不new可以获得一个实例吗？构造函数是类的源泉
+        var lidan=objectFactory(Otaku,"李丹",18);
+        console.log(lidan);
+        </script>
+</body>
+</html>

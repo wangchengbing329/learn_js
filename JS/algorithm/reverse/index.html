@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- reverse 颠倒顺序算法 -->
+    <!-- <script>
+        let arr = [1,2,3,4,5]
+        function res(num){
+            let s =num.toString()
+            // console.log(s.length)
+            let a = []
+            for (let i=0;i<s.length;i++){
+                // s[i] = 
+            a.unshift (s[i])  
+                // console.log('a[]')
+            }
+return a.join('-')//join拼接
+
+        }
+        
+        // res(arr)
+        console.log(res('abc'))
+        
+        
+        </script> -->
+        <script>
+        function minNumber(numbers){
+        numbers.sort(compare)
+        let res = ''
+        for(let i =0;i<numbers.length;i++){
+            res +=numbers[i]
+        }
+        return res
+        }
+        function compare(a,b){
+            var str1 = a + "" +b
+            var str2 = b + "" +a
+            // console.log(str1)()
+            // console.log(str1.charAt(0))
+            for( let i = 0;i<str1.length;i++){
+                if(str1.charAt(i)>str2.charAt(i)){
+                    return 1
+                }
+                if(str1.charAt(i)<str2.charAt(i)){
+                    return -1
+                }
+            }
+            return 1
+        }
+        // minNumber([3,4,6,9,1])
+        // 
+        compare(2,3)
+        console.log(minNumber([32,41,65,97,16]))
+        </script>
+</body>
+</html>    

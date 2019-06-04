@@ -1,0 +1,33 @@
+<!--pages/mine/mine.wxml-->
+<!-- <text>pages/mine/mine.wxml</text> -->
+<view class="header">
+
+<image class="avatarPic"></image>
+<view class="name">
+    <view class="nickname"></view>
+    <view class="countChange" bindtap="change">绑定小米账号</view>
+</view>
+<view class="erweima">
+    <image class="" src="" mode="aspectFit"  />
+      
+</view>
+
+
+
+</view>
+<view class="test">
+    <img src="../../icons/minus.png" alt="">
+    <text class="testName">小米精品推荐（内测） </text>
+       
+        
+      
+</view>
+
+<view class="selection">
+<block wx:for="{{selection}}"> 
+    <view class="selectName">{{item.name}}</view>
+    
+</block>
+  
+
+</view>

@@ -1,0 +1,11 @@
+{
+  "name": "juejin",
+  "version": "1.0.0",
+  "description": "写的stylus.styl 在浏览器运行的是.css\r 前端工作流在发生改变\r 界面开发工作被重新定义了，从小米加步枪变生产线\r stylus main.styl -o main.css\r 编译 -o 输出，\r stylus 提供了css不具备的变量定义，模块化，函数，快捷  新的语法\r -w watch 监听文件修改同时编译stylus -w main.styl -o main.css\r 1. 变量\r 2. 减少输入{",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

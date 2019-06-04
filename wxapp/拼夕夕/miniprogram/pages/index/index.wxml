@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="container">
+
+  <!-- 用户 openid -->
+  <view class="userinfo">
+  <button open-type="getUserInfo" class="userinfo-nickname" bindgetuserinfo="onWeixinLogin" wx:if="{{!isLogin}}">微信授权登录</button>
+ <image class="userInfo.avatar" src="{{userInfo.avatarUrl}}"  wx:if="{{islogin}}" />
+   
+ </view>
+
+
+
+
+</view>

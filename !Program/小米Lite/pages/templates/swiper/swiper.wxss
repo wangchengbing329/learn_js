@@ -1,0 +1,12 @@
+/* pages/templates/swiper/swiper.wxss */
+.swiper .content{
+    width: 100%;
+    height: 380rpx;
+    position: absolute;
+}
+.swiperImg{
+    /* display: block; */
+    width: 100%;
+    /* height: 100%; */
+    
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    html,body{
+         height: 100%;
+       width: 100%;
+  background: #f6e0d6;
+    }
+.content{
+position: absolute;
+  height: 80%;
+    width: 100%;
+
+
+    }
+    .maoshenti{
+        height: 200px;
+        width: 117px;
+        background: url(./maoshenti.png);
+        /* top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0; */
+        /* margin: auto auto; */
+         left: 50%;
+         top: 50%;  
+        transform: translate(-50%); 
+        position: absolute;
+        z-index: 3;
+    }
+    .maowei{
+        position: absolute;
+        background: url(./maowei.png);
+        width: 64px;
+        height: 194px;
+        left: -9px;
+        top: -187px;
+        z-index: 2;
+        transform-origin: 100% 100%;
+        animation: ani-maowei 2s ease-in-out infinite;
+        
+
+    }
+    @keyframes ani-maowei{
+        0%{
+            transform: rotate(0deg);
+        }
+        30%{
+            transform: rotate(-10deg);
+
+        }
+        100%{
+            transform: rotate(0deg);
+        }
+    }
+    .maozhua{
+        position: absolute;
+        background: url(./maozhua.png) no-repeat;
+        width: 35px;
+        height: 81px;
+        top: 188px;
+        left: 61px;
+        z-index: 2;
+        transform-origin: 60% 4%;
+        animation: ani-maozhua 2s ease-in-out infinite;
+    }
+    @keyframes ani-maozhua{
+        0%{
+            transform: rotate(0deg);
+        }
+        50%{
+            transform: rotate(-5deg);
+
+        }
+        100%{
+            transform: rotate(0deg);
+        }
+    }
+    .maoyan1{
+        position: absolute;
+        background-image: url(./manyan1.png);
+        width: 6px;
+        height: 6px;
+        z-index: 4;  
+    }
+    .maoyan2{
+        position: absolute;
+        background: url(./maoyan2.png) no-repeat;
+        width: 6px;
+        height: 6px;
+        z-index: 4;
+    }
+    .maozui{
+        position: absolute;
+        background: url(./maozui.png);
+        z-index: 4;
+        width: 6px;
+        height: 6px;
+    }
+    
+    
+    
+    
+    
+    
+    
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="maoshenti">
+        <!-- <div class="manyan"></div> -->
+        <div class="maozui"></div>
+        <div class="maoyan1 "></div>
+        <div class="maoyan2"></div>
+        <div class="maozhua"></div>
+        <div class="maowei"></div>
+    </div></div>
+</body>
+</html>

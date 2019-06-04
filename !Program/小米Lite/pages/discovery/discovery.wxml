@@ -1,0 +1,53 @@
+<!--pages/discovery/discovery.wxml-->
+<!-- <text>pages/discovery/discovery.wxml</text> -->
+<view class="discovery">
+
+
+<!-- 选择框 -->
+<view class="selector">
+<view class="select">
+<view class="goodsOrder">
+<image class="orderImg" src="../../assets/icons/heart.png" mode="aspectFit"  />
+<text class="orderText" >新品预约</text>
+   </view> 
+
+  
+
+<view class="line"></view>
+<view class="activity">
+<image class="activityImg" src="../../assets/icons/activity.png" mode="aspectFit"  />
+<text class="activityText" >活动频道</text>
+     </view>
+<view class="line1"></view>
+  <view class="store">
+<image class="storeImg" src="../../assets/icons/store.png" mode="aspectFit"  />
+<text class="storeText" >线下门店</text>
+     </view>
+</view>
+</view>
+
+
+<!-- 活动板块 -->
+<view class="prize" >
+     <block wx:for="{{prizeContent}}" wx:key="index">
+          <navigator  url="{{item.prizeUrl}}" >
+          <image class="prizeImg" src="{{item.prizeImg}}" mode="widthFix"  />
+         <view class="prizeBtn">{{prize === true?'专题':'抽奖'}}</view>  
+          <text class="prizeText" > {{item.prizeName}} </text>
+               
+        
+            
+
+       </navigator>
+     </block>
+</view>
+  
+
+
+
+
+
+
+
+
+</view>

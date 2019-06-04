@@ -1,0 +1,17 @@
+<!--pages/templates/swiper/swiper.wxml-->
+<!-- <text>pages/templates/swiper/swiper.wxml</text> -->
+<template name = "swiper">
+<swiper class="swiper content" indicator-dots="true" indicator-color="grey" autoplay="true" 
+     interval="3000" duration="1000" circular="true"  >
+     <block wx:for="{{swipers}}" wx:key="index">
+         
+    
+       
+     <swiper-item  >
+         <image class="swiperImg" src="{{item.url}}" mode="widthFix" lazy-load="true"data-id="{{item.id}}" />
+           
+     </swiper-item>
+        </block>
+    
+</swiper>
+  </template>

@@ -1,0 +1,70 @@
+<!-- pages/index/index.wxml -->
+<import src="../templates/swiper/swiper.wxml" />
+<!-- <import src="../templates/goods/goods.wxml" /> -->
+<view class="container">
+  <!-- 搜索框 -->
+  <view class="searchBox">
+    <view class="searchContent" bindtap="goToSearch">
+      <image class="searchImg" src="../../assets/icons/search.png" mode="aspectFill" lazy-load="false" />
+      <input name="searchInput" type="text" password="false" placeholder="搜索商品" placeholder-class="placeholder" disabled="false" maxlength="140" focus="false"></input>
+    </view>
+  </view>
+  <!-- swiper轮播图 -->
+  <template is="swiper" data="{{swipers}}"></template>
+  <!-- 分类框 -->
+  <view class="categoryBox">
+    <!-- 上面分类框 -->
+    <view class="top">
+      <view class="categoryListT" wx:for="{{categroies}}" wx:key="index">
+        <navigator url="{{item.url}}" hover-class="none">
+          <view class="categoryContent">
+            <image class="cateImg" src="{{item.imgUrl}}" mode="aspectFill" />
+            <text class="cateName">{{item.name}}</text>
+          </view>
+        </navigator>
+      </view>
+    </view>
+    <!-- 下面分类框 -->
+    <view class="bottom">
+      <view class="categoryListB" wx:for="{{categroiesB}}" wx:key="index" wx:for-item="product">
+        <navigator url="{{product.Burl}}" hover-class="none">
+          <view class="categoryContentB">
+            <image class="cateImgB" src="{{product.imgUrlB}}" mode="widthFix" />
+            <text class="cateNameB">{{product.Bname}}</text>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <!-- 下半部分商品板块 -->
+  <view class="main">
+    <!-- 商品框 -->
+    <view class="goodsRecommend" bindtap="showDetail">
+      <text class="recommendHeader">   人气推荐</text>
+     
+      
+      <image class="recommendImg" src="https://i1.mifile.cn/a1/pms_1498564154.53184175!220x220.jpg" mode="aspectFit" style="width:100%;height:40%;" />
+      <view class="recommendContent">
+        <text class="recommendId">米家电动牙刷</text>
+        <text class="recommendDec">高效能磁悬浮声波马达/高密度无锈无金属植毛刷头/多种刷牙模式/刷牙姿势识别与报告生成</text>
+        <text class="recommendPrice">￥199</text>
+      </view>
+    </view>
+    <!-- 商品列表 -->
+    <!-- <block > -->
+      <view class="mainGoods" >
+        <block wx:for="{{goosDetail}}" wx:key="index" data-id="{{item.id}}">
+ 
+        <view class="goodsContent" >
+          <image class="goodsImg" src="{{item.img}}" mode="widthFix" />
+          <view class="goodsContent">
+            <text class="goodsId">{{item.id}}</text>
+            <text class="goodsDec">{{item.dec}}</text>
+            <text class="goodsPrice">{{item.price}}</text>
+          </view>
+        </view> 
+         </block>
+      </view>
+    <!-- </block> -->
+  </view>
+</view>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>function expand </title>
+</head>
+<body>
+  <script>
+    // es5 时候 赋默认值 两种常见的做法
+    function Person(name = 'default name') {
+      // 赋默认值
+      // if (!name) {
+      //   name = 'default name';
+      // }
+      this.name = name;
+    }
+    const p1 = new Person('cst');
+    // {name: 'cst'}
+    const p2 = new Person();
+    // {name: 'default name'}
+  </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+.mainGoods{
+    position: relative;
+    height: 50%;
+    width: 100%;
+    /* left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%); */
+    margin-top: 10rpx;
+    /* overflow: hidden; */
+
+}
+.goodsContent{
+    /* position: absolute; */
+    width: 49%;
+    height: 250px;
+    margin-right: 2px;
+    float: left;
+}

@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#48a6fd",
+    "navigationBarTitleText": "HELLO",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar":{
+"selectedColor":"grey",
+"borderStyle":"black",
+"backgroundColor": "#000000",
+  
+  "list": [
+    {
+      "text": "首页",
+      "pagePath": "pages/index/index",
+      "iconPath": "assets/icons/home.png",
+      "selectedIconPath": "assets/icons/home-active.png"
+    },
+    {
+      "text": "热点",
+      "pagePath": "pages/posts/create",
+      "iconPath": "assets/icons/add.png",
+      "selectedIconPath": "assets/icons/add-active.png"
+    },
+    {
+      "text": "我的",
+      "pagePath": "pages/users/show",
+      "iconPath": "assets/icons/face.png",
+      "selectedIconPath": "assets/icons/face-active.png"
+    }
+  ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

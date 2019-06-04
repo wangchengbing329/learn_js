@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>function expand</title>
+</head>
+<body>
+    <script>
+    function Person(name){
+    //    赋默认值
+        if(!name){
+name='default name';
+        }
+        this.name=name;
+
+    }
+   const p1= new Person('cst');
+   const p2= new Person();
+//    rest 参数 形式（...变量名）
+// 获取函数多余参数）（作用）
+// 搭配的变量是一个数组
+// Rest parameter must be last formal parameter
+
+   const  arrow_sum=(a,...args)=>{
+console.log(a,args);
+   }
+   arrow_sum(1,2,3,4);
+
+
+    
+    </script>
+</body>
+</html>
