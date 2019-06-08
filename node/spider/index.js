@@ -1,4 +1,4 @@
-const https = require ('https')
+    const https = require ('https')
 const cheerio = require('cheerio');
 const fs =require('fs')
 const path = require('path')
@@ -18,18 +18,18 @@ function doSpider(start){
         const $ = cheerio.load(html);
     //    li.item
     let movies = [];
-        $('.item').each(function(){
+        $('.category-item').each(function(){
             // this 限制第一个参数的选择区域 li
             // 默认是全局 第一个
-            const picUrl = $('.pic img',this).attr('src');
+            const picUrl = $('.thumb',this).attr('src');
             // console.log(picUrl),this
-            const title = $('.info .title',this).text()
-            const star =$('.star .rating_num',this).text()
-            const link = $('.hd a',this).attr('href')
+            const title = $('.children-list children-list-col children-list-col-1 .text',this).text()
+            // const star =$('.star .rating_num',this).text()
+            const link = $('.link',this).attr('href')
 
             const movie ={
                 title,
-                star,
+                // star,
                 link,
                 picUrl
             }

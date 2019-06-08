@@ -8,26 +8,22 @@
     <view class="countChange" bindtap="change">绑定小米账号</view>
 </view>
 <view class="erweima">
-    <image class="" src="" mode="aspectFit"  />
+    <image class="erweima" src="../../assets/icons/qrcode.png" mode="aspectFit"  />
+</view>
+</view>
       
-</view>
-
-
-
-</view>
-<view class="test">
-    <img src="../../icons/minus.png" alt="">
-    <text class="testName">小米精品推荐（内测） </text>
-       
-        
-      
-</view>
-
 <view class="selection">
-<block wx:for="{{selection}}"> 
-    <view class="selectName">{{item.name}}</view>
-    
-</block>
+<view class="selection-box" wx:for="{{selection}}">
+<view class="imgBox" >
+<image class="selectionImg" src="{{sellectionImg}}" mode="aspectFit"  />
   
+</view>
+<view class="selection-name">
+{{item.name}}</view>
+</view>
 
 </view>
+
+
+
+
