@@ -1,29 +1,69 @@
 <!--pages/mine/mine.wxml-->
 <!-- <text>pages/mine/mine.wxml</text> -->
 <view class="header">
-
-<image class="avatarPic"></image>
+<!-- <open-data  type="userAvatarUrl" class="thumb"></open-data> -->
+    
+<image class="avatarPic" mode="aspectFit"src="{{userAvatar}}"></image>
 <view class="name">
-    <view class="nickname"></view>
+    <view class="nickname">{{userNickName}}</view>
+  <!-- <open-data class="userName" type="userNickName" lang="zh-CN"></open-data> -->
     <view class="countChange" bindtap="change">绑定小米账号</view>
 </view>
 <view class="erweima">
     <image class="erweima" src="../../assets/icons/qrcode.png" mode="aspectFit"  />
 </view>
 </view>
+       
+<view class="jingxuan" bindtap="jingxuan">
+    <!-- <img src="../../assets/icons/jingxuan.png" alt=""> -->
+    <image class="accomendImg" src="../../assets/icons/jingxuan.png" mode="aspectFit"  />
       
-<view class="selection">
-<view class="selection-box" wx:for="{{selection}}">
-<view class="imgBox" >
-<image class="selectionImg" src="{{sellectionImg}}" mode="aspectFit"  />
-  
+    <text class="accomendName" >小米精品推荐</text>
+      <text class="attr" >(内测) </text>
+          
 </view>
-<view class="selection-name">
-{{item.name}}</view>
+<view class="order" bindtap="order">
+    <!-- <img src="../../assets/icons/jingxuan.png" alt=""> -->
+    <image class="orderImg" src="../../assets/icons/order.png" mode="aspectFit"  />
+      
+    <text class="orderName" >我的订单</text>
+      
+          
 </view>
-
+<view class="vip" bindtap="vip">
+    <!-- <img src="../../assets/icons/jingxuan.png" alt=""> -->
+    <image class="vipImg" src="../../assets/icons/vip.png" mode="aspectFit"  />
+      
+    <text class="vipName" >会员中心</text>
+      
+          
 </view>
-
-
-
+     <view class="coupon" bindtap="coupon">
+    <!-- <img src="../../assets/icons/jingxuan.png" alt=""> -->
+    <image class="couponImg" src="../../assets/icons/coupon.png" mode="aspectFit"  />
+      
+    <text class="couponName" >我的优惠券</text>
+      
+          
+</view>
+     <view class="fcode" bindtap="fcode">
+    <!-- <img src="../../assets/icons/jingxuan.png" alt=""> -->
+    <image class="fcodeImg" src="../../assets/icons/fcode.png" mode="aspectFit"  />
+      
+    <text class="fcodeName" >我的F码</text>
+      
+          
+</view>
+     <view class="setting" bindtap="setting">
+    <!-- <img src="../../assets/icons/jingxuan.png" alt=""> -->
+    <image class="settingImg" src="../../assets/icons/setting.png" mode="aspectFit"  />
+      
+    <text class="settingName" >设置</text>
+      
+          
+</view>
+     
+          
+    
+      
 

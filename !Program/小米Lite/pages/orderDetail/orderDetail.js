@@ -1,46 +1,18 @@
-// pages/mine/mine.js
+// pages/orderDetail/orderDetail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userNickName:"",
-    userAvatar:""
 
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  order(){
-    wx.navigateTo({
-      url: '../orderDetail/orderDetail',
-      success: (result) => {
-        
-      },
-      fail: () => {},
-      complete: () => {}
-    });
-      
-  },
-
   onLoad: function (options) {
-    const self =this;
-    wx.getUserInfo({
-      withCredentials: 'false',
-      lang: 'zh_CN',
-      timeout:10000,
-      success: (res) => {
-        self.setData({
-          userAvatar:res.userInfo.avatarUrl,
-          userNickName:res.userInfo.nickName
-        })
-      },
-      fail: () => {},
-      complete: () => {}
-    });
-      
+
   },
 
   /**

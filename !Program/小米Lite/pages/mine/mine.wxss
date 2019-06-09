@@ -1,1 +1,78 @@
 /* pages/mine/mine.wxss */
+page{
+    background-color: #ebebeb;
+}
+.header{
+    width:100%;
+    height: 15%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    margin: 20rpx 0;
+}
+.avatarPic{
+height: 100rpx;
+width: 140rpx;
+
+
+}
+.name{
+    height: 40%;
+    width: 60%;
+}
+.nickname {
+font-size: 35rpx;
+font-weight: bold;
+
+}
+.countChange{
+    font-size: 25rpx;
+    background: #ebebeb;
+    width:160rpx;
+    text-align: center;
+    
+}
+.erweima{
+    width: 60rpx;
+    height: 60rpx;
+}
+.jingxuan{
+    width: 100%;
+    height: 10%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+  
+    margin-bottom: 20rpx;
+}
+.order,.fcode,.coupon,.vip{
+    width: 100%;
+    height: 10%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    /* box-sizing: border-box; */
+    border: 1rpx solid #ebebeb;
+}
+.setting{
+    width: 100%;
+    height: 10%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+   
+    margin-top: 20rpx;
+}
+.accomendImg ,.orderImg,.settingImg,.fcodeImg,.couponImg,.vipImg{
+    width: 60rpx;
+    height: 60rpx;
+    margin:0 10rpx 0 30rpx;
+
+}
+.accomendName ,.orderName,.settingName,.fcodeName,.couponName,.vipName{
+    font-size: 30rpx;
+
+}
+.attr{
+    font-size: 20rpx;
+}

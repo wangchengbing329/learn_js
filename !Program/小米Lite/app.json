@@ -5,7 +5,8 @@
     "pages/discovery/discovery",
     "pages/category/category",
     "pages/cart/cart",
-    "pages/templates/swiper/swiper"
+    "pages/templates/swiper/swiper",
+    "pages/orderDetail/orderDetail"
   ],
   "window": {
     "backgroundTextStyle": "dark",

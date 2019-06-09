@@ -22,7 +22,7 @@ Page({
       success: (result) => {
         self.setData({
           thumb:result.userInfo.avatarUrl,
-          nickname:result.userInfo.nickName,
+          nickname:result.userInfo.nickName
 
         })
       },
