@@ -1,41 +1,13 @@
-// pages/cart/cart.js
+// pages/buy/buy.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-hasList:false,
-carts:[],
-ammount:1,
-price:100,
-selectAll:true,
-totalPrice:0,
-totalGoods:0
+
   },
-goToArround(){
- wx.switchTab({
-   url: '../index/index',
-   success: (result) => {
-     
-   },
-   fail: () => {},
-   complete: () => {}
- });
-   
-    
-}
-,
-change(e){
-  console.log(e)
-  let index = e.currentTarget.dataset.index;
-  let carts = this.data.carts
-let selected = carts[index].selected;
-selected = !selected; 
-this.setData({
-  carts:carts
-})
-},
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -54,13 +26,7 @@ this.setData({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-this.setData({
-  hasList:true,
-  carts:[
-  {selected:false,url:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',attr:'Redmi K20 Pro 8GB+256GB 火焰红'}
 
-  ]
-})
   },
 
   /**

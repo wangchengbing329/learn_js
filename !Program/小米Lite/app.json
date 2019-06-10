@@ -6,7 +6,9 @@
     "pages/category/category",
     "pages/cart/cart",
     "pages/templates/swiper/swiper",
-    "pages/orderDetail/orderDetail"
+    "pages/orderDetail/orderDetail",
+    "pages/detail/detail",
+    "pages/buy/buy"
   ],
   "window": {
     "backgroundTextStyle": "dark",
