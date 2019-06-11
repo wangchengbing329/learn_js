@@ -15,8 +15,8 @@
                     <text class="goodsAttr" selectable="false" space="false" decode="false">   {{item.attr}}</text>
                       
                    
-                    <text class="ammount">{{ammount}} x </text>
-                    <text class="price">{{price}}元</text>
+                    <text class="ammount">{{item.num}} x </text>
+                    <text class="price">{{item.price}}元</text>
                 </navigator>
             </view>
         </view>
@@ -24,8 +24,8 @@
         <view class="cart-foot">
             <view class="countBox">
                 <view class="selectStatus">
-                    <icon  wx:if="{{selectAll}}" type="success" size="18" color="#fe6900" bindtap="selelctAll"> </icon>
-                  <icon wx:else type="circle" size="18" color="gray" bind:tap="selectAll"></icon>
+                    <icon  wx:if="{{selectAll}}" type="success" size="18" color="#fe6900" bindtap="selectAllStatus"> </icon>
+                  <icon wx:else type="circle" size="18" color="gray" bindtap="selectAllStatus"></icon>
                    <text class="all" > 全选 </text>
                        
                   

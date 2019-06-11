@@ -114,7 +114,9 @@ width: 100%;
     font-size: 30rpx;
 }
 .countPrice{
-    width: 200rpx;
+    width: 500rpx;
+    font-size: 40rpx;
+    text-align: center;
 }
 .count{
     color: #fe6900;
