@@ -31,11 +31,12 @@ change(e){
 let selected = carts[index].selected;
 carts[index].selected = !selected; 
 // 只要一个取消就全选取消 
-const check = carts.some(ch =>{
+let check = carts.some(ch =>{
+  console.log(ch)
   return ch.selected === false
 })
 if(check){
-  selectAll ===false;
+  selectAll === false;
 }else{
   selectAll ===true;
 }
