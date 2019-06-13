@@ -26,10 +26,18 @@ this.setData({
   selectList(e){
     console.log(e)
     let index=e.currentTarget.dataset.index
-    let carts = this.data.carts
+    let carts = this.data.carts5
+    let selectAllStatus = this.data.selectAllStatus
     let selected = this.data.carts[index].selected
-    selected = !selected
-
+    carts[index].selected = !selected
+    const check = carts.some(ch=>{
+return  ch.selected ===false
+    })
+    if(check){
+      this.data.selectAllStatus =false
+    }else{
+      this.data.selectAllStatus =true 
+    }
 //  let selected = this.data.selected
   // selected = !selected
   // selected = this.data.carts[index].selected
@@ -39,7 +47,8 @@ this.setData({
     
     this.setData({
     // selected:selected,
-      carts:carts
+      carts:carts,
+      selectAllStatus:this.data.selectAllStatus
     })
   },
   getTotalPrice(){
