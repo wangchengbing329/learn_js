@@ -54,15 +54,22 @@
           </li>
         </ul>
       </div>
+      <shopcart ref="shopcart" :selctFoods = "selectFoods" :deliveryPrice= "seller.deliveryPrice" :minPrice = "seller.minPrice"></shopcart>
     </div>
   </div>
 </template>
 
 <script>
 import BScorll from 'better-scroll'
+import shopcart from '../shopcart/shopcart'
 import cartcontrol from '@/components/cartcontrol/cartcontrol'
 export default {
   name: 'Goods',
+  props:{
+seller:{
+  type:Object
+}
+  },
   data () {
     return {
       classMap: [],
@@ -72,7 +79,8 @@ export default {
     }
   },
   components: {
-    cartcontrol
+    cartcontrol,
+    shopcart
   },
   methods: {
     _initScroll () { // 私有方法
@@ -130,6 +138,17 @@ return i
     }
   }
   return 0 
+},
+selectFoods (){
+  let foods = [];
+  this.goods.forEach(good=>{
+    good.foods.forEach(food =>{
+      if(food.count){
+        foods.push(food)
+      }
+    })
+  })
+return foods
 }
 
   },
