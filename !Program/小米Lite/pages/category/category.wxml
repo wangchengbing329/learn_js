@@ -1,8 +1,7 @@
 <view class="container">
 <!-- 左边选择栏 -->
 <scroll-view class="cate-left"  scroll-y="true" 
-     scroll-into-view="" scroll-with-animation="true" enable-back-to-top="true" 
-    bindscrolltoupper="" bindscrolltolower="" bindscroll="">
+      scroll-with-animation="true" enable-back-to-top="true" >
     <view class="cate" wx:for="{{cates}}" wx:key = "index" data-index="index" bindtap="switch" data-id="{{item.id}}" >
     
     
@@ -14,10 +13,23 @@
     
 </scroll-view>
 <!-- 右边的选择框 -->
-  <scroll-view class="cate-rigth"  scroll-y="true"  
-      scroll-top="0" scroll-left="0" scroll-into-view="{{toView}}" scroll-with-animation="true" enable-back-to-top="true" 
-       bindscroll="scrollHeight">
+<scroll-view class="cate-right"  scroll-y  scroll-into-view="{{toView}}" scroll-with-animation="true" enable-back-to-top="true" bindscroll="scrollHeight">
+       <view class="cateBox" wx:for="{{goods}}" wx:key="index" wx:for-item="cate">
+         <view class="header">
+
+         <view class="lineLeft"></view>
+         <view class="title">{{cate.title}}</view>
+         <view class="lineRight"></view>
+           
+        
+           
        
+         
+       
+         
+
+</view>
+       </view>
       
   </scroll-view>
     
