@@ -14,7 +14,9 @@
     height: 100%;
     width: 20%;
     border-right: 1px solid #e7e8e9;
-    -webkit-overflow-scrolling: none;
+    /* -webkit-overflow-scrolling: none; */
+    display: flex;
+    flex-direction: column;
 }
 .cate{
     width: 100%;
@@ -33,4 +35,8 @@ height: 80rpx;
 }
 .cate-name.on{
     color:#fe6900
+}
+.cate-right{
+    display: flex;
+    flex-direction: column;
 }

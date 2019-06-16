@@ -1,4 +1,7 @@
 // pages/category/category.js
+const app =  getApp();
+
+  
 Page({
 
   /**
@@ -31,6 +34,7 @@ cates:[
   {name:'服务',id:'server'}
 
 ],
+
 toView:'new',
 curIndex:0
   },
@@ -39,7 +43,7 @@ curIndex:0
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+const  goods = app.globalData.goods
   },
 
   /**

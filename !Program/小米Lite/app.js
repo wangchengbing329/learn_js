@@ -1,7 +1,11 @@
 //app.js
+import detail from './utils/detail'
 App({
   onLaunch: function () {
+
+    Object.assign(this.globalData,detail    )
     // 展示本地存储能力
+
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
@@ -34,6 +38,7 @@ App({
     })
   },
   globalData: {
+
     userInfo: null
   }
 })
