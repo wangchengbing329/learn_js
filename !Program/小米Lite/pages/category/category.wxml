@@ -15,14 +15,14 @@
 <!-- 右边的物品框 -->
 <!-- <view class="right"> -->
 <scroll-view class="cate-right"  scroll-y  scroll-into-view="{{toView}}" scroll-with-animation="true" enable-back-to-top="true" bindscroll="scrollHeight">
-     <view class="content">
+     
        <view class="cateBox" wx:for="{{goods}}" wx:key="index" >
          <view class="header">
         <view class="lineLeft"></view>
          <view class="title">{{item.title}}</view>
          <view class="lineRight"></view>
        </view>  
-       <view class="catelist" wx:for="{{cateLists}}" wx:for-item="cate" >
+       <view class="catelist" wx:for="{{item.cateLists}}" wx:for-item="cate" wx:key="item.title" >
          <view class="imgBox" bindtap="detail">
            <image class="catelist-img" src="{{cate.img}}" mode="aspectFit" lazy-load="false" binderror="" bindload="" />
            <text class="cateID" >{{cate.name}}</text>
@@ -39,7 +39,7 @@
          
 
 
-       </view>
+      
       
   </scroll-view>
     <!-- </view> -->

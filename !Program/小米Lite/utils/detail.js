@@ -1,9 +1,49 @@
 export default{
     goods:[
-        {title:'新品'},
-  {title:'众筹'},
-  {title:'手机'},
-  {title:'电视'  },
+        {title:'新品', cateLists:[
+          { img:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',name:'小米9' },
+          { img:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',name:'小米9' },
+          { img:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',name:'小米9' },
+          { img:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',name:'小米9' },
+          { img:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',name:'小米9' },
+          { img:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',name:'小米9' },
+          { img:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',name:'小米9' },
+    
+         
+       ]},
+  {title:'众筹', cateLists:[
+    { img:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',name:'小米9' },
+    { img:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',name:'小米9' },
+    { img:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',name:'小米9' },
+    { img:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',name:'小米9' },
+    { img:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',name:'小米9' },
+    { img:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',name:'小米9' },
+    { img:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',name:'小米9' },
+
+   
+ ]},
+  {title:'手机', cateLists:[
+    { img:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',name:'小米9' },
+    { img:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',name:'小米9' },
+    { img:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',name:'小米9' },
+    { img:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',name:'小米9' },
+    { img:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',name:'小米9' },
+    { img:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',name:'小米9' },
+    { img:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',name:'小米9' },
+
+   
+ ]},
+  {title:'电视' , cateLists:[
+    { img:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',name:'小米9' },
+    { img:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',name:'小米9' },
+    { img:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',name:'小米9' },
+    { img:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',name:'小米9' },
+    { img:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',name:'小米9' },
+    { img:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',name:'小米9' },
+    { img:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',name:'小米9' },
+
+   
+ ] },
   {title:'电脑'},
   {title:'智能'},
   {title:'家用电器'},
@@ -24,8 +64,5 @@ export default{
   {title:'礼品'},
   {title:'服务'}
     ],
-    cateLists:[
-      { img:'',name:'' },
-     
-   ]
+   
 }
