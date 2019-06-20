@@ -12,7 +12,7 @@ export default{
   {title:'家居家装'},
   {title:'电源插座'},
   {title:'出行车载'},
-    {title:'耳机音响'},
+  {title:'耳机音响'},
   {title:'路由器'},
   {title:'个护健康'},
   {title:'日用百货'}, 
@@ -23,5 +23,9 @@ export default{
   {title:'儿童用品'},
   {title:'礼品'},
   {title:'服务'}
-    ]
+    ],
+    cateLists:[
+      { img:'',name:'' },
+     
+   ]
 }

@@ -34,7 +34,7 @@ cates:[
   {name:'服务',id:'server'}
 
 ],
-
+goods:[],
 toView:'new',
 curIndex:0
   },
@@ -44,6 +44,9 @@ curIndex:0
    */
   onLoad: function (options) {
 const  goods = app.globalData.goods
+this.setData({
+  goods
+})
   },
 
   /**
