@@ -38,16 +38,32 @@ goods:[],
 toView:'new',
 curIndex:0
   },
-  scrollHeight(){
-
+  scrollHeight(e){
+console.log(e)
+const scrollTop = e.detail.scrollTop;
+for( let i=0;i<cates.length;i++){
+  height += cates[i].clientHeight
+  height1 = scrollTop-height
+}
   },
 switch(e){
-console.log(e)
+// console.log(e)
  let curIndex = e.currentTarget.dataset.index ?e.currentTarget.dataset.index:0
 this.setData({
   toView:e.currentTarget.dataset.id,
   curIndex
 })
+},
+detail(){
+  wx.navigateTo({
+    url: '../detail/detail',
+    success: (result) => {
+      
+    },
+    fail: () => {},
+    complete: () => {}
+  });
+    
 },
   /**
    * 生命周期函数--监听页面加载
