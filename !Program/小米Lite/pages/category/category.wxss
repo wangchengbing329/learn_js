@@ -4,6 +4,7 @@
     height: 100%;
     display: flex;
     flex-direction: row;
+    /* justify-content: center; */
 }
 ::-webkit-scrollbar{  
     height: 0;
@@ -12,7 +13,7 @@
   }
 .cate-left{
     height: 100%;
-    width: 20%;
+    width: 30%;
     border-right: 1px solid #e7e8e9;
     /* -webkit-overflow-scrolling: none; */
     display: flex;
@@ -33,7 +34,7 @@ text-align: center;
 width: 100%;
 height: 80rpx;
 }
-.cate-name.on{
+.cate-nameon{
     color:#fe6900
 }
 
@@ -43,24 +44,27 @@ height: 80rpx;
     height: 100%; */
     display: flex;
     flex-direction: column;
+    /* justify-content: center; */
 
    
 }
 .cateBox{
 width: 500rpx;
 margin: 0 auto;
+/* display: flex; */
+/* justify-content: center; */
 }
 .header{
     width: 100%;
     height: 100rpx;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
 }
 .lineLeft,.lineRight{
     height: 0;
     border: 1rpx solid grey;
-    width: 40rpx;
+    width: 60rpx;
 }
 .title{
     color:black;
@@ -70,19 +74,24 @@ margin: 0 auto;
     width: 100%;
     display: flex;
     flex-direction: row;
+/* justify-content: center; */
     flex-wrap: wrap;
 }
 .imgBox{
-    display: inline-block;
-    width: 100rpx;
-    height: 100rpx;
+    /* display: inline-block; */
+    width: 165rpx;
+    height: 165rpx;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
 .catelist-img{
-    width: 60rpx;
-    height: 60rpx;
+    width: 100rpx;
+    height: 100rpx;
 }
 .cateID{
     font-size: 25rpx;
+
 }

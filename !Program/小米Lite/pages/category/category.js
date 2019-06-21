@@ -41,7 +41,14 @@ curIndex:0
   scrollHeight(){
 
   },
-
+switch(e){
+console.log(e)
+ let curIndex = e.currentTarget.dataset.index ?e.currentTarget.dataset.index:0
+this.setData({
+  toView:e.currentTarget.dataset.id,
+  curIndex
+})
+},
   /**
    * 生命周期函数--监听页面加载
    */

@@ -2,10 +2,10 @@
 <!-- 左边选择栏 -->
 <scroll-view class="cate-left"  scroll-y="true" 
       scroll-with-animation="true" enable-back-to-top="true" >
-    <view class="cate" wx:for="{{cates}}" wx:key = "index" data-index="index" bindtap="switch" data-id="{{item.id}}" >
+    <view class="cate" wx:for="{{cates}}" wx:key = "index" data-index="{{index}}" bindtap="switch" data-id="{{item.id}}"   >
     
     
-    <view class="cate-name{{curIndex === index?on:''}}">{{item.name}}</view>
+    <view class="cate-name{{curIndex === index?'on':''}}">{{item.name}}</view>
     </view>
         
     
@@ -16,14 +16,14 @@
 <!-- <view class="right"> -->
 <scroll-view class="cate-right"  scroll-y  scroll-into-view="{{toView}}" scroll-with-animation="true" enable-back-to-top="true" bindscroll="scrollHeight">
      
-       <view class="cateBox" wx:for="{{goods}}" wx:key="index" >
+       <view class="cateBox" wx:for="{{goods}}" wx:key="index" id="{{item.id}}" >
          <view class="header">
         <view class="lineLeft"></view>
          <view class="title">{{item.title}}</view>
          <view class="lineRight"></view>
        </view>  
-       <view class="catelist" wx:for="{{item.cateLists}}" wx:for-item="cate" wx:key="item.title" >
-         <view class="imgBox" bindtap="detail">
+       <view class="catelist" >
+         <view class="imgBox" bindtap="detail"  wx:for="{{item.cateLists}}" wx:for-item="cate" wx:key="item.title">
            <image class="catelist-img" src="{{cate.img}}" mode="aspectFit" lazy-load="false" binderror="" bindload="" />
            <text class="cateID" >{{cate.name}}</text>
              
