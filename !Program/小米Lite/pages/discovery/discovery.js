@@ -5,13 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-prize:false,
+
 
 prizeContent:[
   {prizeUrl:'',prizeImg:'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ce962003c2bb75b79e2c9fee1e639d58.jpg',prize:true,prizeName:"小米体脂称2 x 3"},
   {prizeUrl:'',prizeImg:'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/21f3929e1e66e52ef57ffbced4047b8a.jpg',prize:true,prizeName:"米家空调伴侣2 x 3"},
   {prizeUrl:'',prizeImg:'https://c1.mifile.cn/f/i/16/chain/redmiairdots/redmiairdots-1.jpg',prize:true,prizeName:"Redmi Airdots 真无线蓝牙耳机F码 x 3"},
-  {prizeUrl:'',prizeImg:'https://c1.mifile.cn/f/i/16/chain/camera-360/camera360-01.jpg',prize:'专题',prizeName:"你所向往的生活，小米为你实现"},
+  {prizeUrl:'',prizeImg:'https://c1.mifile.cn/f/i/16/chain/camera-360/camera360-01.jpg',prize:false,prizeName:"你所向往的生活，小米为你实现"},
 
   
 

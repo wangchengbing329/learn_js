@@ -36,19 +36,49 @@ cates:[
 ],
 goods:[],
 toView:'new',
-curIndex:0
+curIndex:0,
+lastOn:0,
+curHeight:0,
+heights:[]
+
   },
   scrollHeight(e){
 console.log(e)
 const scrollTop = e.detail.scrollTop;
-for( let i=0;i<cates.length;i++){
-  height += cates[i].clientHeight
-  height1 = scrollTop-height
+let cateHeight = this.data.heights
+if(scrollTop>= cateHeight[cateHeight.length -1]-(this.data.curHeight/2)){
+  // return
 }
+else{
+  for(let i=0;i<cateHeight.length;i++){
+    if(scrollTop>0 && scrollTop<cateHeight[0]){
+      if(0 != this.data.lastOn){
+         this.setData({
+lastOn:0,
+curIndex:0
+      })
+      }
+     
+     
+    } else if(scrollTop >=cateHeight[i-1] && scrollTop<cateHeight[i]){
+      if(i != this.data.lastOn){
+        this.setData({
+          curIndex:i,
+          lastOn:i
+        })
+      }
+    }
+
+
+  }
+
+}
+ 
+
   },
 switch(e){
 // console.log(e)
- let curIndex = e.currentTarget.dataset.index ?e.currentTarget.dataset.index:0
+ let curIndex = e.currentTarget.dataset.index  
 this.setData({
   toView:e.currentTarget.dataset.id,
   curIndex
@@ -69,9 +99,22 @@ detail(){
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that = this
 const  goods = app.globalData.goods
-this.setData({
-  goods
+wx.getSystemInfo({
+  success: (result) => {
+    let height1 = (result.windowHeight * (750  / result.windowHeight)) 
+    console.log(height1)
+    that.setData({
+      curHeight:height1
+    })
+  },
+ 
+});
+  
+that.setData({
+  goods,
+  // curHeight:height1
 })
   },
 
@@ -79,7 +122,25 @@ this.setData({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    let that = this;
+    let heights = that.data.heights
+    let h = 0;
+  let  query = wx.createSelectorQuery();
+  query.selectAll('.cateBox').boundingClientRect();
 
+    query.exec(function(res){
+      // console.log( res)
+res[0].forEach((item)=>{
+  // console.log(item)
+  h +=  item.height;
+heights.push(h);
+// console.log(h)
+})
+that.setData({
+  heights
+})
+    })
+    
   },
 
   /**

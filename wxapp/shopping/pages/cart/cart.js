@@ -6,7 +6,9 @@ Page({
    */
   data: {
   hasList:false,
-  carts:[],
+  carts:[
+    {selected:true,image:'',name:'',num:'',price:'',}
+  ],
   selectAllStatus:true,
   totalPrice :0,
   // selected:false
@@ -30,14 +32,7 @@ this.setData({
     let selectAllStatus = this.data.selectAllStatus
     let selected = this.data.carts[index].selected
     carts[index].selected = !selected
-    const check = carts.some(ch=>{
-return  ch.selected ===false
-    })
-    if(check){
-      this.data.selectAllStatus =false
-    }else{
-      this.data.selectAllStatus =true 
-    }
+    
 //  let selected = this.data.selected
   // selected = !selected
   // selected = this.data.carts[index].selected
@@ -47,8 +42,7 @@ return  ch.selected ===false
     
     this.setData({
     // selected:selected,
-      carts:carts,
-      selectAllStatus:this.data.selectAllStatus
+      carts:carts
     })
   },
   getTotalPrice(){
