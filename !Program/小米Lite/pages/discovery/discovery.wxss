@@ -1,20 +1,18 @@
 /* pages/discovery/discovery.wxss */
 .discovery{
     width: 100%;
-    /* height: 100%; */
+  
     background-color: #ebebeb;
-    /* position: relative; */
-    /* overflow: hidden; */
-
+   
 }
 .select{
     width: 100%;
     height: 15%;
     display: flex;
     justify-content: center;
-    /* align-content: center; */
+  
     background-color: #fff;
-    /* flex: 1; */
+  
     
 }
 .goodsOrder,.activity,.store{
@@ -24,24 +22,20 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* align-content: space-around; */
-    /* background-color: #fff; */
+   
 }
 .orderImg,.activityImg,.storeImg{
     width: 50rpx;
     height: 50rpx;
     display: flex;
-    /* align-self: center; */
+   
     justify-self: center;
     margin-top: 14rpx;
 }
 .orderText,.activityText,.storeText{
     font-size: 30rpx;
     color:#999;
-    /* display: flex; */
-    /* align-self: flex-end; */
-    /* justify-self: center; */
-    /* text-align: end; */
+  
     margin-top: 40rpx;
 }
 .line,.line1{
@@ -56,13 +50,25 @@
     height:90%;
     margin: 14rpx auto;
     background-color: #fff;
-    /* display: flex; */
-    box-sizing: content-box;
-    border: 1px solid #ebebeb;
+    border: 1rpx solid #ebebeb;
 
 }
+.content{
+    box-sizing: content-box;
+    margin-bottom: 25rpx 0;
+    /* overflow: hidden; */
+}
+
+.theme{
+    height: 100rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .prizeImg{
     width: 100%;
+     height: 300rpx; 
 
 }
 .prizeBtn{
@@ -73,13 +79,13 @@
     height: 60rpx; 
     border-radius: 10rpx;
     color:#fff; 
-    margin: 10rpx auto;
+    margin: 0 10rpx;
     line-height: 60rpx;
-    display: inline-block;
+    /* display: inline-block; */
 }
 .prizeText{
-    margin-top: 10rpx;
+    /* margin-top: 10rpx; */
   font-size: 30rpx;
   color: #999;  
-  display:inline-block;
+  /* display:inline-block; */
 }

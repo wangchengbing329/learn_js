@@ -29,17 +29,17 @@
 
 <!-- 活动板块 -->
 <view class="prize" >
-     <block wx:for="{{prizeContent}}" wx:key="index">
-          <navigator  url="{{item.prizeUrl}}" >
-          <image class="prizeImg" src="{{item.prizeImg}}" mode="widthFix"  />
-         <view class="prizeBtn">{{prize === true?'专题':'抽奖'}}</view>  
-          <text class="prizeText" > {{item.prizeName}} </text>
-               
-        
-            
 
+          <view class="content" wx:for="{{prizeContent}}" wx:key="index">
+          <navigator  url="{{item.prizeUrl}}" >   
+          <image class="prizeImg" src="{{item.prizeImg}}" mode="widthFix"  />
+          <view class="theme"> 
+         <view class="prizeBtn">{{item.theme}}</view>  
+          <text class="prizeText" > {{item.prizeName}} </text>
+            </view>
        </navigator>
-     </block>
+       </view>
+   
 </view>
   
 
