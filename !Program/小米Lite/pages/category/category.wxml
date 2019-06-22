@@ -26,9 +26,6 @@
          <view class="imgBox" bindtap="detail"  wx:for="{{item.cateLists}}" wx:for-item="cate" wx:key="item.title">
            <image class="catelist-img" src="{{cate.img}}" mode="aspectFit" lazy-load="true" />
            <text class="cateID" >{{cate.name}}</text>
-             
-           
-             
            </view>
        </view>  
         </view>
