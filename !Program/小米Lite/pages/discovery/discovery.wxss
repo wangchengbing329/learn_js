@@ -2,7 +2,7 @@
 .discovery{
     width: 100%;
   
-    background-color: #ebebeb;
+    background-color: #ebebebe5;
    
 }
 .select{
@@ -47,15 +47,26 @@
 }
 .prize{
     width: 700rpx;
-    height:90%;
+    /* height:90%; */
     margin: 14rpx auto;
-    background-color: #fff;
-    border: 1rpx solid #ebebeb;
+    /* background-color: #fff; */
+    /* border: 1rpx solid #ebebeb; */
+    
 
 }
+.imgbox{
+    height: 400rpx;
+    
+    
+}
 .content{
+    width: 700rpx;
     box-sizing: content-box;
-    margin-bottom: 25rpx 0;
+    margin: 25rpx 0;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow:2px 2px 2px #d4d4d4;
+
     /* overflow: hidden; */
 }
 
@@ -68,7 +79,8 @@
 
 .prizeImg{
     width: 100%;
-     height: 300rpx; 
+     height: 400rpx; 
+     border-radius: 10px 10px 0 0;
 
 }
 .prizeBtn{

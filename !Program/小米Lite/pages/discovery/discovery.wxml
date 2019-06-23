@@ -32,7 +32,10 @@
 
           <view class="content" wx:for="{{prizeContent}}" wx:key="index">
           <navigator  url="{{item.prizeUrl}}" >   
-          <image class="prizeImg" src="{{item.prizeImg}}" mode="widthFix"  />
+               <view class="imgbox">
+
+              
+          <image class="prizeImg" src="{{item.prizeImg}}" mode="aspectFill"  /> </view>
           <view class="theme"> 
          <view class="prizeBtn">{{item.theme}}</view>  
           <text class="prizeText" > {{item.prizeName}} </text>
