@@ -6,6 +6,6 @@ sequelize-cli 命令行工具
 ./node_modules/.bin/sequelize init
 ./node_modules/.bin/sequelize db:create 建数据库
 ./node_modules/.bin/sequelize migration:create --name create-shops-table 建表或修改表 
- ./node_modules/.bin/sequelize db:migrate 执行迁移
- ./node_modules/.bin/sequelize seed:create --name init-shops 初始化
+./node_modules/.bin/sequelize db:migrate 执行迁移
+./node_modules/.bin/sequelize seed:create --name init-shops 初始化
 

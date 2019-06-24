@@ -30,10 +30,10 @@ categroiesB:[
 
 ],
 goodsDetail:[
-  {goodsImg:"https://i1.mifile.cn/a1/pms_1504498936.11861982!220x220.jpg",goodsId:'米家电水壶',goodsDec:'一杯水，是一家人的安心',goodsPrice:'99元'},
-  {goodsImg:"https://i1.mifile.cn/a1/pms_1504498936.11861982!220x220.jpg",goodsId:'米家电水壶',goodsDec:'一杯水，是一家人的安心',goodsPrice:'99元'},
-  {goodsImg:"https://i1.mifile.cn/a1/pms_1504498936.11861982!220x220.jpg",goodsId:'米家电水壶',goodsDec:'一杯水，是一家人的安心',goodsPrice:'99元'},
-  {goodsImg:"https://i1.mifile.cn/a1/pms_1504498936.11861982!220x220.jpg",goodsId:'米家电水壶',goodsDec:'一杯水，是一家人的安心',goodsPrice:'99元'},
+  {Img:"https://i1.mifile.cn/a1/pms_1504498936.11861982!220x220.jpg",Id:'米家电水壶',Dec:'一杯水，是一家人的安心',Price:'99元'},
+  {Img:"https://i1.mifile.cn/a1/pms_1504498936.11861982!220x220.jpg",Id:'米家电水壶',Dec:'一杯水，是一家人的安心',Price:'99元'},
+  {Img:"https://i1.mifile.cn/a1/pms_1504498936.11861982!220x220.jpg",Id:'米家电水壶',Dec:'一杯水，是一家人的安心',Price:'99元'},
+  {Img:"https://i1.mifile.cn/a1/pms_1504498936.11861982!220x220.jpg",Id:'米家电水壶',Dec:'一杯水，是一家人的安心',Price:'99元'}
 
 
 ]

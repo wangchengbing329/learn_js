@@ -53,17 +53,17 @@
     <!-- 商品列表 -->
     <!-- <block > -->
       <view class="mainGoods" >
-        <block wx:for="{{goosDetail}}" wx:key="index" data-id="{{item.id}}">
+        
  
-        <view class="goodsContent" >
-          <image class="goodsImg" src="{{item.img}}" mode="widthFix" />
+        <view class="goodsContenter"  wx:for="{{goosDetail}}" wx:key="index">
+          <image class="goodsImg" src="{{item.Img}}" mode="widthFix" />
           <view class="goodsContent">
-            <text class="goodsId">{{item.id}}</text>
-            <text class="goodsDec">{{item.dec}}</text>
-            <text class="goodsPrice">{{item.price}}</text>
+            <text class="goodsId">{{item.Id}}</text>
+            <text class="goodsDec">{{item.Dec}}</text>
+            <text class="goodsPrice">{{item.Price}}</text>
           </view>
         </view> 
-         </block>
+        
       </view>
     <!-- </block> -->
   </view>

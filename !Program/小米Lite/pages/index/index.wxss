@@ -238,7 +238,7 @@ margin: 0 20rpx;
     width: 49%;
     height: 500rpx;
     margin-right: 4rpx;
-    float: left;
+    /* float: left; */
 }
 .goodsImg{
     width: 100%;
