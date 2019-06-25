@@ -1,23 +1,21 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
 import LoginStatus from './LoginStatus';
-import ShopCart from './ShopCart'
+import ShopCart from './ShopCart';
 import WithLogin from './WithLogin';
-import withLogin from './WithLogin';
-// const WithLoginStatus = withLogin(LoginStatus)
-// const WithShopCart = withLogin(ShopCart);
+import './App.css';
+
+// const WithLoginStatus = WithLogin(LoginStatus);
+// const WithShopCart = WithLogin(ShopCart);
 function App() {
   return (
     <>
-     {/* <React.Fragment> */}
-    <LoginStatus></LoginStatus>
-    <ShopCart></ShopCart>
-    {/* </React.Fragment> */}
-    {/* <WithLoginStatus></WithLoginStatus>
-    <WithShopCart a="1" b="2"></WithShopCart> */}
+      <LoginStatus />
+      <ShopCart />
+      {/* <WithLoginStatus />
+      <WithShopCart a="1" b="2"/> */}
     </>
-  );
+  )
 }
 
 export default App;
