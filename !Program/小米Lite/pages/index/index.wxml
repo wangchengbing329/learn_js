@@ -40,9 +40,7 @@
   <view class="main">
     <!-- 商品框 -->
     <view class="goodsRecommend" bindtap="showDetail">
-      <text class="recommendHeader">   人气推荐</text>
-     
-      
+      <text class="recommendHeader">人气推荐</text>
       <image class="recommendImg" src="https://i1.mifile.cn/a1/pms_1498564154.53184175!220x220.jpg" mode="aspectFit" style="width:100%;height:40%;" />
       <view class="recommendContent">
         <text class="recommendId">米家电动牙刷</text>
@@ -52,19 +50,19 @@
     </view>
     <!-- 商品列表 -->
     <!-- <block > -->
-      <view class="mainGoods" >
-        
- 
-        <view class="goodsContenter"  wx:for="{{goosDetail}}" wx:key="index">
-          <image class="goodsImg" src="{{item.Img}}" mode="widthFix" />
-          <view class="goodsContent">
-            <text class="goodsId">{{item.Id}}</text>
-            <text class="goodsDec">{{item.Dec}}</text>
-            <text class="goodsPrice">{{item.Price}}</text>
-          </view>
-        </view> 
-        
+    <view class="mainGoods">
+      <view class="goodsContenter" wx:for="{{goodsDetail}}" wx:key="index">
+        <view class="imgBox">
+
+          <image class="goodsImg" src="{{item.Img}}" mode="aspecFit" />
+        </view>
+        <view class="goodsContent">
+          <text class="goodsId">{{item.Id}}</text>
+          <text class="goodsDec">{{item.Dec}}</text>
+          <text class="goodsPrice">{{item.Price}}</text>
+        </view>
       </view>
+    </view>
     <!-- </block> -->
   </view>
 </view>
