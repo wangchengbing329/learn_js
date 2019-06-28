@@ -40,10 +40,35 @@ goodsDetail:[
 
   },
   goToSearch(){
-
+wx.showLoading({
+  title: '功能还没开发哦',
+  mask: false,
+  success: (result) => {
+    
+  },
+  fail: () => {},
+  complete: () => {}
+});
+setTimeout(()=>{
+wx.hideLoading();
+  
+},2000)
+  
   },
   cateDetail(){
-
+    wx.showLoading({
+      title: '功能还没开发哦',
+      mask: false,
+      success: (result) => {
+        
+      },
+      fail: () => {},
+      complete: () => {}
+    });
+    setTimeout(()=>{
+    wx.hideLoading();
+      
+    },2000)
   },
 
   /**
@@ -92,6 +117,8 @@ goodsDetail:[
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+   
+      
 
   },
 
@@ -99,6 +126,5 @@ goodsDetail:[
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
   }
 })

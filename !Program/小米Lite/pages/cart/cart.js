@@ -7,7 +7,9 @@ Page({
   data: {
 hasList:false,
 carts:[  {selected:true,url:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',num:1,price:100,attr:'Redmi K20 Pro 8GB+256GB 火焰红'},
+{selected:true,url:'https://i1.mifile.cn/f/i/g/2015/cn-index/m8se-80.png?width=80&height=80',num:1,price:9900,attr:'Redmi K20 Pro 8GB+256GB 火焰红'},
 {selected:true,url:'https://i1.mifile.cn/f/i/g/2015/cn-index/m8se-80.png?width=80&height=80',num:1,price:9900,attr:'Redmi K20 Pro 8GB+256GB 火焰红'}
+
   ],
 selectAll:true,
 totalPrice:0,
@@ -31,26 +33,25 @@ change(e){
 let selected = carts[index].selected;
 carts[index].selected = !selected; 
 // 只要一个取消就全选取消 
-// const check = carts.some( ch =>{
-  // console.log(ch)
-  for(let i=0;i<carts.length;i++){
-    if(carts[i].selected === false ){
-      this.data.selectAll === false
-    }else{
-      this.data.selectAll === true
-    }
+
+  const check = carts.some(ch=>{
+   
+    return ch.selected  ===false
+  })
+  if(check){
+    this.setData({
+      selectAll:false
+    })
+    
+  }else{
+    this.setData({
+      selectAll:true
+    })
   }
-  // return  ch.selected === false
-// });
-// console.log(check)
-// if(check){
-//   this.data.selectAll === false;
-// }else{
-//   this.data.selectAll ===true;
-// }
+  
 this.setData({
   carts,
-  selectAll:this.data.selectAll
+  // selectAll:this.data.selectAll
 
 })
 this.accountPrice()
