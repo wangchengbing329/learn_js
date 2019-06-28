@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { memberAPI } from '../../api/member';
 import { MemberEntity } from '../../model';
-
+import {MemberHeader } from './memberHeader';
+import {MemberRow} from './memberRow'
 interface State {
     members: MemberEntity[]
 }
@@ -21,10 +22,14 @@ export class MembersPage extends React.Component
         return (
             <div>
                 <table className="table">
-                    <thead></thead>
+                    <MemberHeader ></MemberHeader>
                     <tbody>
                         {
-                            this.state.members.map(MemberRow)
+                            this.state.members.map(
+                                (member)=>{
+                                    <MemberRow key = {member.id} member={member}></MemberRow>
+                                }
+                            )
                         }
                     </tbody>
                 </table>
@@ -33,15 +38,3 @@ export class MembersPage extends React.Component
     }
 }
 
-const MemberRow = (member: MemberEntity) => {
-    return (
-        <tr key={member.id}>
-            <td>
-                <img src={member.avatar_url}
-                 alt="" className="avatar"/>
-            </td>
-            <td><span>{member.id}</span></td>
-            <td><span>{member.login}</span></td>
-        </tr>   
-    )
-}
