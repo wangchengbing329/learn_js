@@ -6,7 +6,7 @@ Page({
    */
   data: {
 hasList:false,
-carts:[  {selected:true,url:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',num:1,price:100,attr:'Redmi K20 Pro 8GB+256GB 火焰红'},
+carts:[  { id :"rk20",selected:true,url:'https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-80.png?width=80&height=80',num:1,price:100,attr:'Redmi K20 Pro 8GB+256GB 火焰红'},
 {selected:true,url:'https://i1.mifile.cn/f/i/g/2015/cn-index/m8se-80.png?width=80&height=80',num:1,price:9900,attr:'Redmi K20 Pro 8GB+256GB 火焰红'},
 {selected:true,url:'https://i1.mifile.cn/f/i/g/2015/cn-index/m8se-80.png?width=80&height=80',num:1,price:9900,attr:'Redmi K20 Pro 8GB+256GB 火焰红'}
 
@@ -36,7 +36,7 @@ carts[index].selected = !selected;
 
   const check = carts.some(ch=>{
    
-    return ch.selected  ===false
+    return ch.selected  === false;
   })
   if(check){
     this.setData({
@@ -54,6 +54,9 @@ this.setData({
   // selectAll:this.data.selectAll
 
 })
+
+
+
 this.accountPrice()
 },
 selectAllStatus(){
@@ -85,6 +88,8 @@ for(let i =0;i<carts.length;i++){
   }
   
 }
+
+  
 this.setData({
   totalGoods:goods,
   totalPrice:Price
@@ -98,6 +103,40 @@ this.setData({
    */
   onLoad: function (options) {
 // console.log(options)
+wx.getStorage({
+  key: 'amount',
+  success: (res) => {
+   let carts =  this.data.carts
+   let num =0;
+    let curNum = 0;
+    for(let i = 0; i<carts.length;i++){
+
+    
+    
+      
+      
+     if( carts[i].id === res.data[1]){
+  
+         num = carts[i].num; 
+         curNum = res.data[0]
+         
+         console.log(num)
+       this.setData({
+         num:curNum
+        
+       })
+       
+        this.accountPrice()
+
+      //  console.log(num)
+     } 
+    
+     }
+  },
+  fail: () => {},
+  complete: () => {}
+});
+  
   },
 
   /**
@@ -110,7 +149,11 @@ this.setData({
   /**
    * 生命周期函数--监听页面显示
    */
+  
   onShow: function () {
+   
+    
+    
     setTimeout(()=>{
 
       this.setData({
@@ -120,6 +163,7 @@ this.setData({
       
       this.accountPrice()
     },1000)
+
   },
   
   /**
@@ -133,7 +177,7 @@ this.setData({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+   
   },
 
   /**

@@ -1,9 +1,43 @@
 <!--pages/detail/detail.wxml-->
 <!-- <text>pages/detail/detail.wxml</text> -->
 <view class="picker">
-<picker class="" mode="selector" range="[1,2,3,4,5,6,7,8,9,10,11,12,13,14]" range-key="" value="0"
-    disabled="false" bindchange="" bindcancel="">123131
+<view class="title">商品和数量</view>
+
+<!-- 种类选择 -->
+<view class="selBox"  bindtap="changeStatus">
+ <view class="cartDetail" wx:for="{{selections}}" wx:key="{{index}}" >
+
+  
+       
+   
+     
+ <view class="contentBox"   >
+      
+   <view class="selDec">{{item.attr}}</view>  
+   <view class="selPrice">{{item.price}}</view>
+   </view>
+   <icon class="icon" wx:if="{{item.selected}}" type="success_no_circle" size="23" color="green"></icon>
+       
+ 
     
-</picker>
+
+   
+ 
+ </view> 
+  </view>
+
+ 
+ <picker  mode="selector" range="{{Num}}"  value="{{curIndex}}"
+      bindchange="changeNum">
+     <view class="pickerBox">
+     <view class="picContent">购买数量</view>
+     <view class="goodsNum" >{{Num[curIndex]}}</view>
+     </view>
+ </picker>
+    
+
+  <view class="ok" bindtap="orderSure">确定</view>
+  <view class="delete" bindtap = "delete">删除</view>
+
   
 </view>
