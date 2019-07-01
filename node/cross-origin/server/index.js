@@ -3,10 +3,13 @@ const app = new Koa();
 const koaStatic = require('koa-static');
 const path = require('path');
 const router = require('koa-router')();
+app.use(koaStatic(
+  path.join(__dirname,'./public/')
+))
 // res.set
 app.use(async (ctx, next) => {
   // 允许哪个域名请求 *
-  ctx.set('Access-Control-Allow-Origin', 'http://localhost:8080');
+  ctx.set('Access-Control-Allow-Origin', 'http://127.0.0.1:8080');
   // 服务器支持的头部 x-custom
   ctx.set('Access-Control-Allow-Headers', 'x-custom,content-type');
   // 支持的方法

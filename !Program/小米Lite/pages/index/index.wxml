@@ -14,28 +14,19 @@
   <!-- 分类框 -->
   <view class="categoryBox">
     <!-- 上面分类框 -->
-    <view class="top">
-      <view class="categoryListT" wx:for="{{categroies}}" wx:key="index">
-        <navigator url="{{item.url}}" hover-class="none">
+    
+      <view class="categoryList" wx:for="{{categroies}}" wx:key="index"  bindtap="goDetail">
+        <!-- <navigator url="{{item.url}}" > -->
           <view class="categoryContent">
             <image class="cateImg" src="{{item.imgUrl}}" mode="aspectFill" />
             <text class="cateName">{{item.name}}</text>
           </view>
-        </navigator>
-      </view>
+        <!-- </navigator> -->
+    
+     </view>
+       
     </view>
-    <!-- 下面分类框 -->
-    <view class="bottom">
-      <view class="categoryListB" wx:for="{{categroiesB}}" wx:key="index" wx:for-item="product">
-        <navigator url="{{product.Burl}}" hover-class="none">
-          <view class="categoryContentB">
-            <image class="cateImgB" src="{{product.imgUrlB}}" mode="widthFix" />
-            <text class="cateNameB">{{product.Bname}}</text>
-          </view>
-        </navigator>
-      </view>
-    </view>
-  </view>
+   
   <!-- 下半部分商品板块 -->
   <view class="main">
     <!-- 商品框 -->

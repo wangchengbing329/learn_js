@@ -17,6 +17,21 @@ prizeContent:[
 
 ]
   },
+  detailPage(){
+wx.showToast({
+  title: '静待开发哦',
+  icon: 'success',
+  image: '',
+  duration: 1500,
+  mask: false,
+  success: (result) => {
+    
+  },
+  fail: () => {},
+  complete: () => {}
+});
+  
+  },
 
   /**
    * 生命周期函数--监听页面加载

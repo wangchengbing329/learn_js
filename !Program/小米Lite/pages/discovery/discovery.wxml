@@ -6,20 +6,19 @@
 <!-- 选择框 -->
 <view class="selector">
 <view class="select">
-<view class="goodsOrder">
+<view class="goodsOrder" bindtap="detailPage">
 <image class="orderImg" src="../../assets/icons/heart.png" mode="aspectFit"  />
 <text class="orderText" >新品预约</text>
    </view> 
 
   
-
 <view class="line"></view>
-<view class="activity">
+<view class="activity" bindtap="detailPage">
 <image class="activityImg" src="../../assets/icons/activity.png" mode="aspectFit"  />
 <text class="activityText" >活动频道</text>
      </view>
 <view class="line1"></view>
-  <view class="store">
+  <view class="store" bindtap="detailPage">
 <image class="storeImg" src="../../assets/icons/store.png" mode="aspectFit"  />
 <text class="storeText" >线下门店</text>
      </view>
@@ -30,7 +29,8 @@
 <!-- 活动板块 -->
 <view class="prize" >
 
-          <view class="content" wx:for="{{prizeContent}}" wx:key="index">
+          <view class="content" wx:for="{{prizeContent}}" wx:key="index" bindtap="detailPage">
+               <!-- navigator 是需要地址的 一定要加 我是懒，不要学我          -->
           <navigator  url="{{item.prizeUrl}}" >   
                <view class="imgbox">
 

@@ -18,17 +18,16 @@ categroies:[
   {url:"",imgUrl:'../../assets/nav_img/computer.png',name:'电脑'},
   {url:"",imgUrl:'../../assets/nav_img/zhineng.png',name:'智能'},
   {url:"",imgUrl:'../../assets/nav_img/jiaadian.png',name:'家电'},
+  {url:"",imgUrl:'../../assets/nav_img/xinpin.png',name:'新品'},
+  {url:"",imgUrl:'../../assets/nav_img/zhongchou.png',name:'小米众筹'},
+  {url:"",imgUrl:'../../assets/nav_img/huanxin.png',name:'以旧换新'},
+  {url:"",imgUrl:'../../assets/nav_img/pintuan.png',name:'拼团'},
+  {url:"",imgUrl:'../../assets/nav_img/zhenxuan.png',name:'每日臻选'},
+
  
 
 ],
-categroiesB:[
-  {Burl:"",imgUrlB:'../../assets/nav_img/xinpin.png',Bname:'新品'},
-  {Burl:"",imgUrlB:'../../assets/nav_img/zhongchou.png',Bname:'小米众筹'},
-  {Burl:"",imgUrlB:'../../assets/nav_img/huanxin.png',Bname:'以旧换新'},
-  {Burl:"",imgUrlB:'../../assets/nav_img/pintuan.png',Bname:'拼团'},
-  {Burl:"",imgUrlB:'../../assets/nav_img/zhenxuan.png',Bname:'每日臻选'},
 
-],
 goodsDetail:[
   {Img:"https://i1.mifile.cn/a1/pms_1504498936.11861982!220x220.jpg",Id:'米家电水壶',Dec:'一杯水，是一家人的安心',Price:'99元'},
   {Img:"https://i1.mifile.cn/a1/pms_1504498936.11861982!220x220.jpg",Id:'米家电水壶',Dec:'一杯水，是一家人的安心',Price:'99元'},
@@ -69,6 +68,21 @@ wx.hideLoading();
     wx.hideLoading();
       
     },2000)
+  },
+  goDetail(){
+wx.showToast({
+  title: '静待开发哦',
+  icon: 'success',
+  image: '',
+  duration: 1500,
+  mask: false,
+  success: (result) => {
+    
+  },
+  fail: () => {},
+  complete: () => {}
+});
+  
   },
 
   /**
