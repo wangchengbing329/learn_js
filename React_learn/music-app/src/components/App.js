@@ -4,7 +4,8 @@ import './App.styl';
 import Recommend from './recommend/Recommend'
 import Ranking from './ranking/Ranking'
 import Search from './search/Search'
-
+import '../assets/stylus/font.styl'
+import '../assets/stylus/reset.styl'
 function App() {
   return (
     <Router>

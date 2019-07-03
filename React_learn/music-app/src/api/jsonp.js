@@ -1,11 +1,23 @@
 import originalJsonp from 'jsonp';
+import {CODE_SUCCESS} from '../api/config'
+
+
 const jsonp =(url,data,option)=>{
      return new Promise ((resolve,reject)=>{
         originalJsonp(buildUrl(url,data),option,(err,res)=>{
             if(!err){
-                resolve(res)
+                if(res && res.code ===CODE_SUCCESS){
+
+                    resolve(res)
+                }else{
+                    // {code:1,msg:'xxx'}
+                    console.log('接口出错了')
+                    reject('接口错误了');
+                }
             }
             else{
+                console.log('接口出错了')
+
                 reject(err)
             }
         })
