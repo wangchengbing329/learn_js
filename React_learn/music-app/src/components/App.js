@@ -6,6 +6,7 @@ import Ranking from './ranking/Ranking'
 import Search from './search/Search'
 import '../assets/stylus/font.styl'
 import '../assets/stylus/reset.styl'
+import Player from '../containers/Player'
 function App() {
   return (
     <Router>
@@ -34,6 +35,7 @@ function App() {
         {/* <Redirect from ="/" to ="/recommend"></Redirect> */}
        </Switch>
       </div>
+      <Player></Player>
       </div>
     </Router>
   )

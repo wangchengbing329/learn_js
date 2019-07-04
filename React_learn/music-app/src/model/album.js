@@ -29,4 +29,15 @@ class Album {
       item.singers.map(sing => sing.singer_name).join('/'),
       item.public_time
     )
+
+  }
+  export  function createAlbumBydetail(detail){
+    return new  Album(
+      detail.id,
+      detail.mid,
+      detail.name,
+      `http://y.gtimg.cn/music/photo_new/T002R300x300M000${detail.mid}.jpg?max_age=2592000`,
+      detail.singername,
+      detail.aDate
+    )
   }

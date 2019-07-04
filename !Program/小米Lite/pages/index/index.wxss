@@ -171,7 +171,7 @@ margin: 20rpx 20rpx;
 
 .mainGoods{
     
-    width: 94%;
+    width: 95%;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
