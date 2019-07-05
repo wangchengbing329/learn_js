@@ -1,35 +1,37 @@
 import React, { Component } from 'react';
-import BScroll  from 'better-scroll';
-import './scroll.styl'
-// Scroll
+import BScroll from 'better-scroll';
+import './scroll.styl';
+
 class Scroll extends Component {
-    state = {  }
-    componentDidMount(){
-        if(!this.bscroll){
-            this.bscroll = new BScroll(this.refs.scrollView,{
-                probeType:3,
-                click:()=>{}
-            })
-            this.bscroll.on('scroll',(e)=>{
-                this.props.onScroll(e)
-            })
-        }
+  state = {  }
+  componentDidUpdate() {
+    if (this.bscrol && this.props.refresh) {
+      this.bscrol.refresh();
     }
-    componentWillUnmount(){
-        this.bscroll  = null
+  }
+  componentDidMount() {
+    if (!this.bscrol) {
+      this.bscrol = new BScroll(this.refs.scrollView, {
+        probeType: 3,
+        click: () => {}
+      })
+      this.bscrol.on('scroll', (e) => {
+        this.props.onScroll(e);
+      })
     }
-    componentDidUpdate(){
-        if(!this.bscroll && this.props.refresh){
-            this.bscroll.refresh()
-        }
-    }
-    render() { 
-        return ( 
-            <div className="scroll-view" ref="scrollView">
-                {this.props.children}
-            </div>
-         );
-    }
+  }
+  componentWillUnmount() {
+    this.bscrol = null;
+  }
+  render() { 
+    return (
+      <div className="scroll-view"
+      ref="scrollView"
+      >
+        { this.props.children }
+      </div>
+    );
+  }
 }
  
 export default Scroll;

@@ -1,10 +1,16 @@
-import { connect} from 'react-redux';
-import  Player from '../components/player/Player'
-
-const mapStateToprops = (state)=>{
-    return {
-        showStatus:state.showStatus,
-        currentSong:state.song
-    }
+import { connect } from 'react-redux';
+import Player from '../components/player/Player';
+import {showplayer} from '../redux/action'
+const mapStateToprops = (state) => {
+  return {
+    showStatus: state.showStatus,
+    currentSong: state.song
+  }
 }
-export default connect(mapStateToprops)(Player)
+const mapDispatchToProps = (dispatch)=>{
+  return {showMusicPlayer:(status)=>{
+    dispatch(showplayer(status))
+  }
+}
+}
+export default connect(mapStateToprops,mapDispatchToProps)(Player)

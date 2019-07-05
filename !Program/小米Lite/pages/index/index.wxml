@@ -41,8 +41,8 @@
     </view>
     <!-- 商品列表 -->
     <!-- <block > -->
-    <view class="mainGoods">
-      <view class="goodsContenter" wx:for="{{goodsDetail}}" wx:key="index">
+    <view class="mainGoods" >
+      <view class="goodsContenter" wx:for="{{goodsDetail}}" wx:key="index" bindtap="showDetail" data-id="{{item.id}}">
         <view class="imgBox">
 
           <image class="goodsImg" src="{{item.Img}}" mode="aspecFit" />

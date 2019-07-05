@@ -29,10 +29,10 @@ categroies:[
 ],
 
 goodsDetail:[
-  {Img:"https://i1.mifile.cn/a1/pms_1504498936.11861982!220x220.jpg",Id:'米家电水壶',Dec:'一杯水，是一家人的安心',Price:'99元'},
-  {Img:"https://i1.mifile.cn/a1/pms_1504498936.11861982!220x220.jpg",Id:'米家电水壶',Dec:'一杯水，是一家人的安心',Price:'99元'},
-  {Img:"https://i1.mifile.cn/a1/pms_1504498936.11861982!220x220.jpg",Id:'米家电水壶',Dec:'一杯水，是一家人的安心',Price:'99元'},
-  {Img:"https://i1.mifile.cn/a1/pms_1504498936.11861982!220x220.jpg",Id:'米家电水壶',Dec:'一杯水，是一家人的安心',Price:'99元'}
+  {Img:"https://i1.mifile.cn/a1/pms_1504498936.11861982!220x220.jpg",Id:'米家电水壶',Dec:'一杯水，是一家人的安心',Price:'99元',id:"shuihu"},
+  {Img:"https://i1.mifile.cn/a1/pms_1504498936.11861982!220x220.jpg",Id:'米家电水壶',Dec:'一杯水，是一家人的安心',Price:'99元',id:"shuihu"},
+  {Img:"https://i1.mifile.cn/a1/pms_1504498936.11861982!220x220.jpg",Id:'米家电水壶',Dec:'一杯水，是一家人的安心',Price:'99元',id:"shuihu"},
+  {Img:"https://i1.mifile.cn/a1/pms_1504498936.11861982!220x220.jpg",Id:'米家电水壶',Dec:'一杯水，是一家人的安心',Price:'99元',id:"shuihu"}
 
 
 ]
@@ -83,6 +83,19 @@ wx.showToast({
   complete: () => {}
 });
   
+  },
+  showDetail(e){
+    console.log(e)
+    let id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: `../goods/goods?id=${id}`,
+      success: (result) => {
+        
+      },
+      fail: () => {},
+      complete: () => {}
+    });
+      
   },
 
   /**

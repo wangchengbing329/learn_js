@@ -1,4 +1,4 @@
-'use strict';
+
 
 const fs = require('fs');
 const isWsl = require('is-wsl');
@@ -315,8 +315,6 @@ module.exports = function(webpackEnv) {
           ],
           include: paths.appSrc,
         },
-      
-
         {
           // "oneOf" will traverse all following loaders until one will
           // match the requirements. When no loader matches it will fall
@@ -453,7 +451,6 @@ module.exports = function(webpackEnv) {
                 },
                 'sass-loader'
               ),
-              
             },
             {
               test: /\.styl$/,

@@ -1,0 +1,19 @@
+<!--pages/goods/goods.wxml-->
+<view class="container">
+
+<swiper class="" indicator-dots="true" indicator-color="grey" autoplay="true" 
+     current-item-id="" interval="5000" duration="1000" circular="true" >
+    <block wx:for="{{Imgs}}">
+    <swiper-item class="imgBox" item-id="">
+    <image class="img" src="{{item.img}}" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
+      
+    </swiper-item>
+      
+        
+    </block>
+      
+    
+</swiper>
+  
+  
+</view>
