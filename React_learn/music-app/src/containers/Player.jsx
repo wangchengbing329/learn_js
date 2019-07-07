@@ -8,7 +8,8 @@ const mapStateToprops = (state) => {
   }
 }
 const mapDispatchToProps = (dispatch)=>{
-  return {showMusicPlayer:(status)=>{
+  return {
+    showMusicPlayer:(status)=>{
     dispatch(showplayer(status))
   }
 }

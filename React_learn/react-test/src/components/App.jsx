@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import ListItem from './ListItem'
 class App extends Component {
   state={
-    List:[] 
+   
   }
   render() {
     return (
@@ -12,7 +12,7 @@ class App extends Component {
       <input type="text"  />
       <button>增加</button>
       <ul>
-        <ListItem list={this.state.List}></ListItem>
+        <ListItem list={this.props.lists}></ListItem>
       </ul>
       </>
     )
