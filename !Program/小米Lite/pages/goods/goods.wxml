@@ -14,6 +14,17 @@
       
     
 </swiper>
+  <!-- 商品描述部分 -->
+  <view class="goodsDec">
+  <view class="goodsContent" wx:for="{{goods}}" wx:key="index" data-id="{{item.id}}">
+  <text class="gift">{{item.text}}</text>
+  <view class="attribute">{{item.attr}}</view>
+  </view>
+  <view class="goodsPrice">{{item.price}}</view>
+  </view>
+
+  <!-- 中间的特点部分 -->
+  <view class="specialize" >
   
-  
+  </view>
 </view>
