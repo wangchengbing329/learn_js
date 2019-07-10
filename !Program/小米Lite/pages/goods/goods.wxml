@@ -23,8 +23,8 @@
   <view class="goodsPrice">{{item.price}}</view>
   </view>
 
-  <!-- 中间的特点部分 -->
-  <view class="specialize" >
+  <!-- 中间的配件部分 -->
+  <view class="gadget" >
   
   </view>
 </view>
