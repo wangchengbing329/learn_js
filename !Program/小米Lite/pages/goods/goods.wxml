@@ -24,7 +24,34 @@
   </view>
 
   <!-- 中间的配件部分 -->
-  <view class="gadget" >
-  
+  <view class="gadget" wx:if="item.ownGadget">
+  <view class="gadgetBox"  wx:for={{item.gadget}} wx:for-item="gadget">
+    <image class="gadImg" src={{gadget.img}} mode="aspectFit" lazy-load="false" binderror="" bindload="" />
+     <text class="gadName" selectable="false" space="false" decode="false">{{gadget.name}} </text>
+       <view class="gadDes">{{gadget.dec}}</view>
+    
+        
+
+  </view>
+  </view>
+  <!-- 地址部分 -->
+  <view class="addressBox">
+    <view class="contentBox">送至</view>
+    <view class="address"></view>
+  </view>
+  <!-- 促销部分 -->
+  <view class="saleBox">
+    <view class="onSale"></view>
+    <view class="saleText" >
+      <view class="saleIndex"></view>
+      <view class="sale1">{{item.saleDec}}</view>
+    </view>
+  </view>
+
+  <!-- 已选部份 -->
+  <view class="hasSelected">
+<view class="selectTitle"></view>
+<view class="selectContent"></view>
+
   </view>
 </view>
