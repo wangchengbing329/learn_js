@@ -1,0 +1,46 @@
+page{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.App{
+  height: 100%;
+}
+.tabBar{
+  height: 6rem;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex: 1;
+  /* text-align: center; */
+  background-color: #ffffff;
+  z-index: 1;
+}
+.nav-link{
+  height: 4rem;
+  width: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-decoration: none;
+  margin: 1rem 0;
+}
+.nav-link .active{
+  color: blue;
+}
+.tab-item{
+  height: 6rem;
+  width: 6rem;
+  
+
+}
+.tab-view{
+  width: 100%;
+}
+.tabImg{
+  height: 2rem;
+  width: 2rem;
+}
