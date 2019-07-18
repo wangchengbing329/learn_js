@@ -1,0 +1,18 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    height: 2rem;
+    z-index: 1;
+
+}
+.dayNow,.message{
+    width: 4rem;
+    height: 2rem;
+    line-height: 2rem;
+    
+}
+.dayPic,.messagePic{
+    width: 2rem;
+    height: 2rem;
+
+}

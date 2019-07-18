@@ -11,7 +11,7 @@ class Index extends Component {
         return ( 
             <div>
         <Header></Header>
-        <Input size='large' prefix={} disabled={true} placeholder="全网包裹一键查"></Input>
+        <Input  color={{background:'grey' ,width:'85%'}} prefix={<Icon type="search"></Icon>} disabled={true} placeholder="全网包裹一键查"></Input>
 
             </div>
          );
