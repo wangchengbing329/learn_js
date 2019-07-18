@@ -33,14 +33,83 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-      icons:[index1,getPackage2,mail1,stage1,mine1],
-      slectedIcons:[index2,getPackage1,mail2,stage2,mine2],
-      selected:false,
-      index:0
+      selecedTab:'',
+      icons:[
+        {
+          path:'/',
+          icon:index1,
+          activeIcon:index2,
+          key:'/',
+          title:'首页',
+          color:'grey',
+          selectedColor:'blue'
 
+        },
+        {
+          path:'/getPackage',
+          icon:getPackage2,
+          activeIcon:getPackage1,
+          key:'getPackage',
+          title:'取件',
+          color:'grey',
+          selectedColor:'blue'
+
+
+        },
+        {
+          path:'/mail',
+          icon:mail1,
+          activeIcon:mail2,
+          key:'mail',
+          title:'寄件',
+          color:'grey',
+          selectedColor:'blue'
+
+
+        },
+        {
+          path:'/stage',
+          icon:stage1,
+          activeIcon:stage2,
+          key:'stage',
+          title:'驿站',
+          color:'grey',
+          selectedColor:'blue'
+
+
+        },
+        {
+          path:'/mine',
+          icon:mine1,
+          activeIcon:mine2,
+          key:'mine',
+          title:'我的',
+          color:'grey',
+          selectedColor:'blue'
+
+
+        }
+ ]
      }
+     
   }
+  componentWillReceiveProps(props){
+// console.log(props)
+  }
+  handleChangeIcon =(index)=>{
+    let  selectedTab = this.state.selecedTab
+    console.log(index)
+  let path = this.state.icons[ index].key
+  this.setState({
+    // [path]
+    selecedTab:path
+  })
+  console.log(selectedTab)
+
+  }
+
   render() { 
+    let menu = this.state.icons
     return ( 
       
       
@@ -49,56 +118,34 @@ class App extends Component {
          {/* <Input prefix={<Icon type="search" ></Icon>}></Input> */}
         <div className="tabBar">
 
-          <div className="tab-item" onClick={this.handleChangeIcon} >
-            <NavLink className="nav-link" exact to="/"  activeClassName="">
-             <img className="tabImg" src={this.state.icons[0]} alt=""/>
-                <span style={{color:'grey'}}>首页</span>  
+         
+        {  menu.map((item,index)=>{
+          return (<div className="tab-item" key={item.key} >
+            <NavLink className="nav-link" to={item.path} onClick={this.handleChangeIcon.bind(this,index)}>
+             <img className="tabImg" src={this.state.selecedTab === item.key?item.activeIcon:item.icon} alt=""/>
+                <span style={{color:this.state.selecedTab === item.key?item.selectedColor:item.color}}>{item.title}</span>  
                 </NavLink>
-          </div>
-
-          <div className="tab-item" onClick={this.handleChangeIcon}>
-            <NavLink className="nav-link" to="/getPackage">
-              <img className="tabImg" src={this.state.icons[1]} alt=""/>
-               <span  style={{color:'grey'}} >取件</span> 
-              </NavLink>
-          </div>
-
-          <div className="tab-item" onClick={this.handleChangeIcon}>
-            <NavLink className="nav-link" to="/mailing">
-              <img className="tabImg" src={this.state.icons[2]} alt=""/>
-            <span  style={{color:'grey'}}>寄件</span>
+                </div>)
+          })
+        }
           
-              </NavLink>
-          </div>
 
-          <div className="tab-item" onClick={this.handleChangeIcon}>
-            <NavLink className="nav-link" to="/stage">
-              <img className="tabImg" src={this.state.icons[3]} alt=""/>
-            <span  style={{color:'grey'}}>驿站</span> 
-              </NavLink>
-          </div>
-
-          <div className="tab-item" onClick={this.handleChangeIcon}>
-            <NavLink className="nav-link" to="/mine">
-              <img className="tabImg" src={this.state.icons[4]} alt=""/>
-                 <span  style={{color:'grey'}}>我</span> 
-              </NavLink>
-          </div>
+       
 
         </div>
-        <div className="tab-view" >
+        
        
-          <Switch>
-            <Route path="/" component={Index} />
+          
+            <Route path="/" exact component={Index} />
             <Route path="/getPackage" component={GetPackage} />
             <Route path="/mailling" component={Mailing} />
             <Route path="/state" component={Stage} />
             <Route path="/mine" component={Mine} />
 
            
-          </Switch>
+          
         </div>
-      </div>
+      
       </Router>
     );
   }
