@@ -9,10 +9,20 @@
     width: 4rem;
     height: 2rem;
     line-height: 2rem;
+    margin:0 1rem;
+    justify-content:last  baseline;
+    
     
 }
 .dayPic,.messagePic{
-    width: 2rem;
-    height: 2rem;
+    width: 1.5rem;
+    height: 1.5rem;
 
+}
+.dayTitle,.messageTitle{
+    /* margin-top: 0.2rem; */
+    /* display: block; */
+    box-sizing: content-box;
+ font-weight: bold;
+   
 }
