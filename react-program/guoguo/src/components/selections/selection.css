@@ -1,0 +1,26 @@
+.selectionsBox{
+width: 100%;
+height: 8rem;
+display: flex;
+justify-content: space-around;
+align-items: center;
+}
+.selections{
+height: 6rem;
+width: 7.5rem;
+border-radius: 4px;
+box-shadow: -5px 5px  1px #fefefe;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+.selectionImg{
+    width: 2.5rem;
+    height: 2.5rem;
+    
+}
+.selectionTitle{
+    font-size:20px;
+    color: #ffffff;
+}

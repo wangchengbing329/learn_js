@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as  Router, Route, Switch,
    NavLink} from 'react-router-dom';
-import Mine from './components/mine/Mine'
-import Index from './components/index/Index'
-import Stage from './components/stage/Stage'
-import GetPackage from './components/getPackage/GetPackage'
-import Mailing from './components/mailing/Mailing'
+import Mine from './pages/mine/Mine'
+import Index from './pages/index/Index'
+import Stage from './pages/stage/Stage'
+import GetPackage from './pages/getPackage/GetPackage'
+import Mailing from './pages/mailing/Mailing'
 import index1 from './utils/assets/index1.png'
 import index2 from './utils/assets/index2.png'
 import getPackage1 from './utils/assets/getPackage1.png'

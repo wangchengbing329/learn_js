@@ -1,4 +1,4 @@
-page{
+page,html{
   margin: 0;
   padding: 0;
   height: 100%;
@@ -13,7 +13,7 @@ page{
   left: 0;
   bottom: 0;
   display: flex;
-  flex: 1;
+  justify-content: space-between;
   /* text-align: center; */
   background-color: #ffffff;
   z-index: 1;
@@ -28,9 +28,8 @@ page{
   text-decoration: none;
   margin: 1rem 0;
 }
-.nav-link .active{
-  color: blue;
-}
+
+
 .tab-item{
   height: 6rem;
   width: 6rem;

@@ -20,9 +20,9 @@
 
 }
 .dayTitle,.messageTitle{
-    /* margin-top: 0.2rem; */
-    /* display: block; */
+    
     box-sizing: content-box;
- font-weight: bold;
+      /* font-weight: bold; */
+      font-size: 12px;
    
 }
