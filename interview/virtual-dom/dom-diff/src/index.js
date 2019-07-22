@@ -1,9 +1,40 @@
-import {createElement,render,renderDom} from './element';
+import { createElement, render, renderDOM } from './element';
 
-let virtualDOM = createElement('ul',{class:'list'},[createElement('li',{class:'item'},['周']),
-createElement('li',{class:'item'},['王']),
-createElement('li',{class:'item'},['林俊杰'])
-]);
-console.log(virtualDOM)
-let el = render(virtualDOM)
-renderDom(el,document.getElementById('root'))
+import diff from './diff';
+import patch from './patch';
+
+let virtualDOM = createElement('ul', {
+    class: 'list-group'
+}, [
+    createElement('li', { class: 'item' }, ['a']),
+    createElement('li', { class: 'item' }, ['b']),
+    createElement('li', { class: 'item' }, ['c']),
+])
+
+let virtualDOM2 = createElement('ul', {
+    class: 'list-group'
+}, [
+    createElement('li', { class: 'item' }, ['1']),
+    createElement('li', { class: 'item' }, ['2']),
+    createElement('li', { class: 'item' }, ['3']),
+    createElement('p', {class: 'page'}, [
+        createElement('a', {class: 'link', href:'https://www.baidu.com', target: '_blank'}, ['so'])
+    ])
+])
+
+let el = render(virtualDOM);
+renderDOM(el, document.getElementById('root'));
+
+
+
+
+
+
+
+
+
+
+
+let patches = diff(virtualDom,virtualDom2);
+console.log(patches);
+patch(el,patches)

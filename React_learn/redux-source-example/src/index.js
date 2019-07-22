@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { createStore,combineReducers } from './redux/index'
+import { createStore,combineReducers,applyMiddleware } from './redux/index';
+import ReduxThunk from './redux-thunk/index'
+// import { createStore,combineReducers,applyMiddleware } from 'redux';
+// import ReduxThunk from 'redux-thunk';
 
 function foo(state = 0, action) {
     switch (action.type) {
@@ -24,14 +27,31 @@ const index = combineReducers({
     foo,
     bar
 })
-
-const store = createStore(index)
+const logger = ({
+    dispatch,getState
+})=>next=>action =>{
+    console.log('[logger]即将执行')
+    return res;
+}
+const store = createStore(index,applyMiddleware(ReduxThunk,logger))
 
 class Home extends React.Component {
     handleAdd = () => {
         store.dispatch({
             type: 'ADD'
         })
+    }
+    handleAddAsync=()=>{
+        const asyncAdd =(dispatch)=>{
+        
+                setTimeout(()=>{
+                  dispatch({
+                      type:'ADD'
+                  })  
+                },1000)
+            
+        }
+        store.dispatch(asyncAdd());
     }
     render() {
         const reduxStore = store.getState();
@@ -40,6 +60,10 @@ class Home extends React.Component {
                 foo: { reduxStore.foo }
                 bar: { reduxStore.bar }
                 <button onClick={ this.handleAdd }>+</button>
+                <button onClick={ this.handleAddAsync }>async add </button>
+
+                
+
             </div>
         )
     }
