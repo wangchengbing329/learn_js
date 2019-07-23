@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {Input,Icon} from 'antd'
 import Header from '../../components/header/Header'
 import 'antd/dist/antd.css';
-import Selections from '../../components/selections/selection'
+import Selections from '../../components/selections/selection';
+import CooperativeFunction from '../../components/cooperativeFunction/CooperativeFunction'
 class Index extends Component {
     constructor(props) {
         super(props);
@@ -14,6 +15,7 @@ class Index extends Component {
         <Header></Header>
         <Input  color={{background:'grey' ,width:'85%'}} prefix={<Icon type="search"></Icon>} disabled={true} placeholder="全网包裹一键查"></Input>
             <Selections></Selections>
+            <CooperativeFunction></CooperativeFunction>
             </div>
          );
     }
