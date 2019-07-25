@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Router,Route,Link} from 'react-router-dom';
+import {Router,Route,Link,Switch} from 'react-router-dom';
 import GuojiangIcon from '../../utils/assets/cute.png'
 import FriendsIcon from '../../utils/assets/friends.png'
 import moveHomeIcon from '../../utils/assets/movehome.png';
@@ -70,7 +70,7 @@ class CooperativeFunction extends Component {
     
         let functions = this.state.functions   
         return ( 
-            <Router>
+            
                 <div className="function-wrapped">
 
                
@@ -78,31 +78,30 @@ class CooperativeFunction extends Component {
                     functions.map((item,index)=>{
                         return   (
                         <Router>
-                        <div key={index} className="linkBox" style={{backgroundColor:item.bgc}} onClick={this.item.function}>
+                        <div key={index} className="linkBox" style={{backgroundColor:item.bgc}} >
                             <img src={item.Ficon} alt="" className="function-img"/>
                             <span className="function-title">{item.Ftitle}</span>
                           
-                          <div>
-                          {
-                              this.state.status?<ShowAll></ShowAll>:
                               <Link to={item.pathName}></Link>
-
-                          }   
+                          <div>
+                         
                               </div> 
                             
                             
                         </div>
-                        
-                            <Route path={item.pathName} component={item.component}></Route>
+                          
 
-                         
-                        </Router>
+                        
+                          <Route path={item.pathName} component={item.component}></Route>
+
+                       
+                            </Router>
                         )
                     })
                 }
        </div>
 
-            </Router>
+         
          );
     }
 }
