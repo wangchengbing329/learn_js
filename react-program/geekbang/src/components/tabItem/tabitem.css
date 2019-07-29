@@ -1,0 +1,21 @@
+.tab-item{
+    width: 3rem;
+    height: 3rem;
+}
+.tab-item-icon{
+    width: 2rem;
+    height: 2rem;
+}
+.tab-item-name{
+    
+    color:grey;
+
+}
+.tab-item-name.tab-active{
+    color:#e16531;
+
+}
+.tab-img{
+    width: 2rem;
+    height: 2rem; 
+}
