@@ -27,9 +27,9 @@
     <script>
     function setRem(){
       let doc = document.documentElement
-      let width =doc.getBoundingClientRect().width
-      let rem = width / 750
-      doc.style.fontSize = rem + 'px'
+      let width =doc.getBoundingClientRect().width || document.body.clientWidth
+      let rem = width / 375
+      doc.style.fontSize = rem  * 20 + 'px'
     }
     addEventListener('resize',setRem)
     
