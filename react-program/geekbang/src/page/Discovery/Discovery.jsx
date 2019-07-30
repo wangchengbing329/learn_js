@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Link,Router,Route} from 'react-router-dom'
 import axios from 'axios'
-import SearchContent from '../searchContent/searchContent'
+import SearchContent from '../searchContent/SearchContent'
 import Search from '../../components/searchBox/Search'
 // import   from 
 import {Carousel} from 'antd';
@@ -10,7 +10,7 @@ import 'antd/dist/antd.css'
 // import searchContent from '../searchContent/searchContent';
 class Discovery extends Component {
     state = { 
-        readOnly:'readOnly',
+       disabled:'disabled',
         bannerList:[]
      }
     
@@ -26,7 +26,7 @@ class Discovery extends Component {
      }
     render() { 
         
-        let readOnly = this.state.readOnly 
+        let disabled = this.state.disabled 
         
         
        
@@ -35,10 +35,14 @@ class Discovery extends Component {
             
             <div>
              <h1 style={{margin:"0.2rem 1rem"}}>发现</h1> 
+            
+             <Search select={disabled} > 
              <Link to='/search'>
 
-             <Search select={readOnly} ></Search>
-             </Link>
+</Link>
+
+             </Search>
+             
 
              <div className="carousel">
             <Carousel dotPosition="bottom" autoplay="true"  >

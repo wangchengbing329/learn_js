@@ -1,8 +1,21 @@
-.avatar{
+.mine{
+    overflow: scroll; 
+    height: 100%;
+
+}
+.mine::-webkit-scrollbar{  
+    height: 0;
+    width: 0;
+    color: transparent;
+    display: none;
+  }
+  .avatar{
     height: 6rem;
     display: flex;
     justify-content: flex-start;
+
 }
+
 .avatar-wrapper{
     width: 6rem;
     display: flex;
