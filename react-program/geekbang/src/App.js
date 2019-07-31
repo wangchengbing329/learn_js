@@ -44,20 +44,21 @@ return (
 })
     return (
       <Router>
-      <div>
+      <div className="name">
 
      
         <div className="tarBar">
           {tabList}
         </div>
+       
         <Route path='/' exact component={Discovery}></Route>
   <Route path='/courses'  component={Courses}></Route>
   <Route path='/study'  component={Study}></Route>
   <Route path='/mine'  component={Mine}></Route>
   
  </div>
+ <div className="space"></div>
    </Router>
-     
       );
   }
 }

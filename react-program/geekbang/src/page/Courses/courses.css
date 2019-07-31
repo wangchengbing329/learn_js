@@ -1,0 +1,27 @@
+.link-wrapper{
+    height: 6rem;
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem 0;
+
+}
+.link:nth-child(3) .course-icon{
+    height: 2.5rem;
+    width: 2.5rem;
+    margin: -0.5rem 0 0 0 ;
+   border:0;
+    box-sizing: border-box;
+}
+.link{
+    height: 4rem;
+    width: 4rem;
+    text-align: center;
+}
+.course-icon{
+    height: 2rem;
+    width: 2rem;
+}
+.course-name{
+    color:#4f4f4f;
+    font-weight: bold;
+}

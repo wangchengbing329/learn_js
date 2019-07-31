@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        
+        
+        // console.log('start')
+        // setTimeout(()=>{
+        //     console.log('A');
+
+        // },0);
+        // console.log('end')
+        // let promise = new Promise(function (resolve,reject){
+        //     console.log('Promise');
+        //     resolve();
+        // })
+        // promise.then(function(){
+        //     console.log('resolved')
+        // })
+        // console.log('Hi')    // promise =>hi=>resolve   .then 进入队列
+
+        // console.log(1)
+        // setTimeout(function() {
+        //     console.log(2);
+        // },0)
+        // Promise.resolve().then(function() {
+        //     console.log(3)
+        // }).then(function(){
+        //     console.log(4)
+        // })  //1-》3=>4=>2
+        setTimeout(()=>{
+            console.log('A')
+        },0);
+        var obj = {
+            func:function (){
+                setTimeout(function() {
+                    console.log("b")
+                },0);
+                return new Promise(function (resolve){
+                    console.log('C')
+                    reslove();
+                })
+            }
+        }
+        obj.func().then(function(){
+            console.log('D')
+        })
+        console.log('E');
+        // c->e->d-a->b
+        
+        </script>
+</body>
+</html>

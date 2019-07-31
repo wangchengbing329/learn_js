@@ -68,7 +68,7 @@ axios.get('https://www.easy-mock.com/mock/5ca457ff4767c3737055c8c2/example/geekb
                    })
                }
            </div>
-           <div style={{height:"6rem"}}></div>
+          
             </div>
          );
     }
