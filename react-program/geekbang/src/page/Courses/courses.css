@@ -1,8 +1,9 @@
 .link-wrapper{
-    height: 6rem;
+    height: 4rem;
     display: flex;
     justify-content: space-around;
-    margin: 1rem 0;
+    margin: 1rem 0 0 0;
+    padding: 0;
 
 }
 .link:nth-child(3) .course-icon{
@@ -24,4 +25,86 @@
 .course-name{
     color:#4f4f4f;
     font-weight: bold;
+}
+
+/* .course-content{
+
+} */
+.course-content-title{
+border-top: 0.5rem solid #f8f8f8;
+}
+.course-content-hearder{
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.course-title{
+    font-size: 1.5rem;
+    color:#404040;
+    font-weight: bold;
+    margin-left: 0.8rem;
+    
+}
+.more{
+    margin-right: 1rem;
+}
+/* .course-cover{
+   
+} */
+.every-content{
+    display: flex;
+    /* justify-content: space-between;   */
+  
+    height: 8rem;
+}
+.column_detail{
+    margin-left: 1rem;
+    
+}
+.column-img{
+    width: 5rem;
+    height: 7rem;
+    font-size: 0;
+    margin-left: 0.6rem;
+    
+   
+}
+.author_cover{
+    width: 4.8rem;
+    height: 6.5rem;
+    border-radius: 4px;
+    line-height: 9rem;
+  
+}
+.column_detail_title{
+    font-size: 1rem;
+    color:#404040;
+    font-weight: bold;
+    height: 1.5rem;
+    
+    margin: -0.2rem 0 0.2rem 0 ;
+    /* word-wrap: break-word;
+    word-break:break-all; */
+    /* overflow: hidden; */
+    /* width: 25rem; */
+
+    
+}
+.author_name{
+    border-radius: 2px;
+    background-color: #f1f1f1;
+    margin:0.2rem 0.8rem 1rem 0;
+    
+
+    
+    
+}
+.intro{
+    width: 6.5rem;
+    background-color: #f1f1f1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    
 }
