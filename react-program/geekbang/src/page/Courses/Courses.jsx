@@ -5,10 +5,11 @@ import './courses.css'
 class Courses extends Component {
     state = {
         nav: [],
-        list: []
+        list: [],
+        inFix:false
     }
     componentDidMount() {
-        const { nav, list } = this.state;
+        const { nav, list,isFix } = this.state;
         axios.get('https://www.easy-mock.com/mock/5ca457ff4767c3737055c8c2/example/geekbang/course')
             .then(res => {
                 console.log(res.data.data)
@@ -17,13 +18,26 @@ class Courses extends Component {
                     list: res.data.data.list
                 })
             })
+
+            // window.onscroll()=()=>{
+            //     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            //     var headerHeight = this.refs.courseHeader.style.height
+            //     if(scrollTop>headerHeight){
+            //         this.setState({
+            //             isFix:true
+            //         })
+            //     }
+            // }
     }
+    
     render() {
         const { nav, list } = this.state
         return (
             <div className="course">
+                <div className="course-header" ref="courseHeader">
 
                 <h1 style={{ margin: "0.2rem 1rem" }}>讲堂</h1>
+                </div>
                 <div className="link-wrapper">
                     {nav.map(item => {
                         return (
@@ -60,10 +74,12 @@ class Courses extends Component {
                                                     <span className='column_detail_title'>{it.column_title}</span>
                                                     <div>
 
+                                                    <div className="intro_content">
                                                     <span className="author_name">{it.author_name}</span>
-                                                    <span className="intro">{it.author_intro}</span>
-                                                    <div className="unit">{it.column_unit}|{it.sub_count}人已学习</div>
-                                                    <div style={{display:it.price_type ===1?'none':'inline'}}>{it.price_type===2?'限时':''|it.price_type===3?'拼团':''}</div>
+                                                    <div className="intro" title="value">{it.author_intro}</div></div>
+                                                    <div  className="unit">{it.column_unit}|{it.sub_count}人已学习</div>
+                                                    
+                                                    <div className={it.price_type ===2?'index':'' || it.price_type ===3?'index1':''} style={{display:it.price_type ===1?'none':'inline'}}>{it.price_type===2?'限时':''||it.price_type===3?'拼团':''}</div>
                                                     <span className="column_price_sale">￥{it.column_price_sale/ 100 }</span>
                                                     <span className="cloumn_price_market" style={{display:it.column_price_market === it.column_price_sale?'none':'inlineBlock' }}>￥{it.column_price_market/ 100 }</span>
                                                     <span className="read">试读</span>

@@ -34,6 +34,26 @@
 
 ## q5 数组去重  
 Set indexOf includes map reduce  
+
+## q16 类的创建与继承
     
+
+
+## q17 click 在ios 手机上有300 ms 延迟，原因及解决方法
+1. <meta >  
+    <meta name="viewport" content="width=device-width, initial-scale=no" >
+    2. FastClick, 其原理是检测到touchend 事件后立刻发出模拟click事件，并把浏览器300ms 之后真实发出的事件阻断
+
+
+## q18 cookie  localStorage sessionStorage
+cookie: 数据始终在同源的http 请求中携带（即使不需要）即cookie 在浏览器和服务器之间来回传递，而sessionStoreage 和 localStorage 不会自动把数据发给服务器，仅在本地存储。cookie 还有路径（path）的概念，可以限制cookie 只属于某个路径下，存储大小只有4K 左右
+
+
+sessionStorage：仅在当前浏览器窗口关闭前有效，不能长久保存，
+
+
+localStorage: 在所有的同源窗口都是共享的，cookie 在所有同源窗口中也是共享的，localStorage的大小在5M左右
+
+
 
 
