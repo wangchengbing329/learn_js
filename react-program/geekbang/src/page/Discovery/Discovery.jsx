@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Link,Router,Route} from 'react-router-dom'
+import {Route,Link} from 'react-router-dom'
 import axios from 'axios'
 import SearchContent from '../searchContent/SearchContent'
 import Search from '../../components/searchBox/Search'
@@ -35,13 +35,15 @@ class Discovery extends Component {
             
             <div>
              <h1 style={{margin:"0.2rem 1rem"}}>发现</h1> 
+        
+        
+                 <Link to={{pathname:'/search'}} >
+             <Search select={disabled} > </Search>
+             
+             </Link>
+        
             
-             <Search select={disabled} > 
-             <Link to='/search'>
-
-</Link>
-
-             </Search>
+            
              
 
              <div className="carousel">
@@ -58,7 +60,10 @@ class Discovery extends Component {
                 }
             </Carousel>
             </div> 
-            <Route  path="/search" component={SearchContent}></Route>
+            
+
+            <Route  path="/search"  component={SearchContent}></Route>
+            
             </div>
               
          );
