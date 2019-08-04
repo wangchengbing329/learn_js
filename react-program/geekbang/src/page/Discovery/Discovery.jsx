@@ -61,8 +61,10 @@ class Discovery extends Component {
             </Carousel>
             </div> 
             
+                <div>
 
             <Route  path="/search"  component={SearchContent}></Route>
+                </div>
             
             </div>
               
