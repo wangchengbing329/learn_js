@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import './App.css';
 import {BrowserRouter as Router,Route,NavLink} from 'react-router-dom';
 import TabItem from './components/tabItem/TabItem';
+import SearchContent from './page/searchContent/SearchContent'
+
 import Discovery from './page/Discovery/Discovery';
 import Courses from './page/Courses/Courses';
 import Study from './page/Study/Study';
@@ -55,6 +57,8 @@ return (
   <Route path='/courses'  component={Courses}></Route>
   <Route path='/study'  component={Study}></Route>
   <Route path='/mine'  component={Mine}></Route>
+  <Route path="/search" component={SearchContent}></Route>
+
   
  </div>
  <div className="space"></div>
