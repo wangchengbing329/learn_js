@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom'
+import {  Link } from 'react-router-dom'
 import axios from 'axios'
 import Search from '../../components/searchBox/Search'
 // import   from 
@@ -10,7 +10,8 @@ import 'antd/dist/antd.css'
 class Discovery extends Component {
     state = {
         disabled: 'disabled',
-        bannerList: []
+        bannerList: [],
+        isPlay:true
     }
 
     componentDidMount() {
@@ -25,7 +26,7 @@ class Discovery extends Component {
     }
     render() {
 
-        let disabled = this.state.disabled
+        let {disabled,isPlay} = this.state
 
 
 
@@ -59,7 +60,7 @@ class Discovery extends Component {
                             <div className="audio-text">
                                 <div className="audio-title"></div>
                                 <div className="audio-button">
-                                    <audio  src="http://www.9ku.com/play/551954.htm"></audio>
+                                    <audio  onPause={isPlay} style ={{backgroundImage:isPlay?(require('../../assets/img/play.png')):(require('../../assets/img/playing.png'))}} src="http://www.9ku.com/play/551954.htm"></audio>
                                 </div>
                             </div>
                         </div>

@@ -1,6 +1,6 @@
 import React ,{Component} from 'react';
 import Search from '../../components/searchBox/Search'
-
+import  './searchcontent.css'
 class SearchContent extends Component{
 state ={
     readOnly:''
@@ -11,12 +11,23 @@ state ={
     return (
         <div>
              <div className="searchContent">
-           
-            <Search select={readOnly}></Search>
+           <div className="search-content">
+
+            <Search select={readOnly} ></Search>
+            <Show  > </Show>
+           </div>
         </div>
         </div>
        
     )
 }
+}
+
+function  Show (props) {
+    return (
+        <ul>
+
+        </ul>
+    )
 }
 export default SearchContent;
