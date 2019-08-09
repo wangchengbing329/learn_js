@@ -11,7 +11,8 @@ class Discovery extends Component {
     state = {
         disabled: 'disabled',
         bannerList: [],
-        isPlay:true
+        isPlay:true,
+        audioDesc:'60'
     }
 
     componentDidMount() {
@@ -26,7 +27,7 @@ class Discovery extends Component {
     }
     render() {
 
-        let {disabled,isPlay} = this.state
+        let {disabled,isPlay,audioDesc} = this.state
 
 
 
@@ -56,13 +57,19 @@ class Discovery extends Component {
                     </Carousel>
                 </div>
 
-                        <div className="audio-cotent">
+                        <div className="audio-content">
                             <div className="audio-text">
-                                <div className="audio-title"></div>
+                                <div className="audio-header">
+
+                                <div className="audio-title">卖桃者说</div>
+                               <div className="arrow-right"></div>
+                                </div>
                                 <div className="audio-button">
-                                    <audio  onPause={isPlay} style ={{backgroundImage:isPlay?(require('../../assets/img/play.png')):(require('../../assets/img/playing.png'))}} src="http://www.9ku.com/play/551954.htm"></audio>
+                                    <img src={require('../../assets/img/play.png')} alt="" className="audio-img"/>
+                                    <div className="audio-desc"><span>第{audioDesc}期 | </span>最近极客时间发布的几个新功能</div>
                                 </div>
                             </div>
+                            <Avatar src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"></Avatar>
                         </div>
 
 
