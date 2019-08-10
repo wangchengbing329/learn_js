@@ -62,17 +62,27 @@ class Discovery extends Component {
                                 <div className="audio-header">
 
                                 <div className="audio-title">卖桃者说</div>
-                               <div className="arrow-right"></div>
+                               <div className="arrow-right"><Icon type="right"></Icon></div>
                                 </div>
                                 <div className="audio-button">
                                     <img src={require('../../assets/img/play.png')} alt="" className="audio-img"/>
-                                    <div className="audio-desc"><span>第{audioDesc}期 | </span>最近极客时间发布的几个新功能</div>
+                                    <span>第{audioDesc}期 | </span><div className="audio-desc">最近极客时间发布的几个新功能</div>
                                 </div>
                             </div>
-                            <Avatar src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"></Avatar>
+                            <Avatar src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" size={40}></Avatar>
                         </div>
 
+                        <div className="geek-news">
+                        <div className="news-header">
+                            <div className="geek-news title">
+                            <div className="line"></div>
+                            <div className="news-title content">极客新闻</div>
 
+                            </div>
+                            <div className="read-all">查看全部</div>
+                        </div>
+                        
+                        </div>
             </div>
 
         );

@@ -24,7 +24,13 @@
 }
 .audio-content{
     width: 91.6%;
-    height:4rem;
+    height:5rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid #e8e8e8;
 }
 .audio-text{
     width: 80%;
@@ -35,6 +41,7 @@
     width: 80%;
     display: flex;
     justify-content: flex-start;
+    margin-top: 0.8rem;
     
 }
 .audio-title{
@@ -43,11 +50,65 @@
     line-height: 1.5rem;
 }
 .arrow-right{
-    width: 0;
-    height: 0;
-    border-top: 2rem  transpraent dashed;
-    border-right: 2rem  transparent dashed;
-    border-bottom: 2rem  transparent dashed;
-    border-left: 2rem solid black;
+  height: 1.5rem;
+  line-height: 1.5rem;
 
+}
+.audio-button{
+    height: 2.5rem;
+    display: flex;
+    justify-content:flex-start;
+    text-align: center;
+    line-height: 2.5rem;
+
+
+}
+.audio-img{
+    height: 0.8rem;
+    width: 0.8rem;
+  display: flex;
+  align-self: center;
+  margin-right: 0.5rem;
+}
+.audio-desc{
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+width: 11rem;
+}
+
+.geek-news{
+    width: 91.6%;
+    margin: 1rem auto;
+
+
+}
+.news-header{
+    height: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.geek-news.title{
+    width: 60%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 0.8rem;
+}
+.line{
+    height: 1.5rem;
+    width: 0.3rem;
+    border-radius: 10px;
+    background-color: #f4d4b8;
+    margin-right: 0.3rem;
+    margin-top: 0.1rem;
+
+}
+.news-title.content{
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+.read-all{
+    color:#9e9e9e;
 }
