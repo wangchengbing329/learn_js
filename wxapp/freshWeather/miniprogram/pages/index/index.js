@@ -33,7 +33,7 @@ Page({
       success: (res) => {
         // console.log(res)
         let width = res.windowWidth
-        let scale = width/375
+        let scale = width / 375 
         self.setData({
           width,
           scale,
@@ -41,7 +41,9 @@ Page({
         })
       },
       fail: () => {},
-      complete: () => {}
+      complete: () => {
+        
+      }
     });
     this.getLocation()
       
