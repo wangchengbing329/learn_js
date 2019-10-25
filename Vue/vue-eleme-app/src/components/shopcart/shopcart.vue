@@ -39,7 +39,7 @@
               <li class="food" v-for="(food, index) in selectFoods" :key="index">
                 <span class="name">{{food.name}}</span>
                 <div class="price">
-                  <span>￥{{food.price*food.count}}</span>
+                  <span>￥{{food.price * food.count}}</span>
                 </div>
                 <div class="cartcontrol-wrapper">
                   <!-- <cartcontrol @add="addFood" :food="food"></cartcontrol> -->
@@ -84,7 +84,7 @@ export default {
   },
 data () {
     return {
-        
+
         balls:[{
 
           show:false
@@ -104,9 +104,9 @@ data () {
         },],
         dropBalls:[],
         fold:true
-        
-       
-       
+
+
+
     }
 },
 computed:{
@@ -122,7 +122,7 @@ let count =0  ;
 this.selectFoods.forEach((food)=>{
   count += food.count
 })
-return count 
+return count
 },
 payDesc () {
   if (this.totalPrice ===0) {return `￥${this.minPrice}元起送`}else if(this.totalPrice < this.minPrice){
@@ -155,7 +155,7 @@ totalPrice (){
   this.selectFoods.forEach((food)=>{
     total += food.price *food.count
   })
-  return total 
+  return total
 }
 },
 methods : {
@@ -192,8 +192,8 @@ methods : {
            el.addEventListener('transitionsed',done)
 
    })
-     
-      
+
+
   },
   drop (el) {
       for (let i = 0; i < this.balls.length; i++) {
@@ -219,7 +219,7 @@ el.style.display
 
   }
 },
-created () 
+created ()
 {
 
 }

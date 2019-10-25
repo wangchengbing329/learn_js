@@ -13,6 +13,8 @@ exports.main = async (event, context) => {
   //   appid: wxContext.APPID,
   //   unionid: wxContext.UNIONID,
   // }
+  
+
   let getResponse = await got('httpbin.org/get');
   let postResponse = await got('httpbin.org/post',{
     method: 'POST', /**加密 */

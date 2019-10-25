@@ -6,7 +6,7 @@ const tripUser = [
         meta:{
             title:"登录"
         }
-    }
+    }  
 ]
 
 export default tripUser
