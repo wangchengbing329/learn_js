@@ -29,7 +29,7 @@ const commonRoutes = [
 
 let router = new Router({
   base: process.env.BASE_URL,
-  
+
   routes: commonRoutes.concat(User)
 })
 
@@ -39,7 +39,7 @@ router.beforeEach((to, from, next) => {
   if (!tmp && to.name !== "Login") {
     Toast.succeed("您需要先登录！！！", 1500)
     next({ path: "/login" })
-    return
+      
   }
   next()
 })
