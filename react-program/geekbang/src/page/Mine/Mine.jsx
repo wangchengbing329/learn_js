@@ -20,7 +20,7 @@ class Mine extends Component {
     }
     componentDidMount() {
         const { selections } = this.state
-        axios.get('https://www.easy-mock.com/mock/5ca457ff4767c3737055c8c2/example/geekbang/mine')
+        axios.get('http://localhost:3001/mine')
             .then((res) => {
                 this.setState({
                     selections: res.data.data.selections

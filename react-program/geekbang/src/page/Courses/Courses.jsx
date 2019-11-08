@@ -10,14 +10,27 @@ class Courses extends Component {
     }
     componentDidMount() {
         const { nav, list,isFix } = this.state;
-        axios.get('https://www.easy-mock.com/mock/5ca457ff4767c3737055c8c2/example/geekbang/course')
-            .then(res => {
-                console.log(res.data.data)
-                this.setState({
-                    nav: res.data.data.nav,
-                    list: res.data.data.list
-                })
+        // axios.get('https://www.easy-mock.com/mock/5ca457ff4767c3737055c8c2/example/geekbang/course')
+        //     .then(res => {
+        //         console.log(res.data.data)
+        //         this.setState({
+        //             nav: res.data.data.nav,
+        //             list: res.data.data.list
+        //         })
+        //     })
+        axios({
+            url:'http://localhost:3001/course',
+            method:'get',
+            
+            
+        }
+        ).then(res=>{
+            console.log(res)
+            this.setState({
+                nav:res.data.data.nav,
+                list:res.data.data.list
             })
+        })
 
             // window.onscroll()=()=>{
             //     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;

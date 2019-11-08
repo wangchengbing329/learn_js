@@ -27,6 +27,7 @@ const jsonp = (url, data, option) => {
  * baidu.com?a=1&b=2  [a=1, b=2]
  * parse
  */
+
 function buildUrl(url, data) {
   let param = [];
   for (var k in data) {

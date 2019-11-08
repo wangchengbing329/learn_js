@@ -1,0 +1,55 @@
+{
+  "data": {
+    "selections": [{
+        "id": "account",
+        "title": "账户",
+        "detail": "0.0"
+      },
+      {
+        "id": "buy",
+        "title": "已购",
+        "detail": ""
+      },
+      {
+        "id": "shopToggether",
+        "title": "拼团",
+        "detail": ""
+      },
+      {
+        "id": "group",
+        "title": "我的群",
+        "detail": ""
+      },
+      {
+        "id": "oneclss",
+        "title": "我的日一课",
+        "detail": ""
+      },
+      {
+        "id": "ticke",
+        "title": "礼券",
+        "detail": ""
+      },
+      {
+        "id": "share",
+        "title": "分享礼",
+        "detail": ""
+      },
+      {
+        "id": "invit",
+        "title": "邀请友",
+        "detail": "30元"
+      },
+      {
+        "id": "help",
+        "title": "帮助反馈",
+        "detail": ""
+      },
+      {
+        "id": "settig",
+        "title": "设置",
+        "detail": ""
+      }
+    ]
+  }
+}
