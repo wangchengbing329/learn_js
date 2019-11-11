@@ -25,7 +25,7 @@ class Courses extends Component {
             
         }
         ).then(res=>{
-            console.log(res)
+            // console.log(res)
             this.setState({
                 nav:res.data.data.nav,
                 list:res.data.data.list

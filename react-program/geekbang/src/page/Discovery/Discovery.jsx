@@ -17,7 +17,7 @@ class Discovery extends Component {
 
     componentDidMount() {
         const bannerList = this.state.bannerList;
-        axios.get('https://www.easy-mock.com/mock/5ca457ff4767c3737055c8c2/example/geekbang/discovery')
+        axios.get('http://localhost:3001/discovery')
             .then((res) => {
                 this.setState({
                     bannerList: res.data.data.bannerlist

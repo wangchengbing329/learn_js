@@ -26,14 +26,23 @@ class Mine extends Component {
                     selections: res.data.data.selections
                 })
             })
+
+            // document.addEventListener('scroll',this.scroll)
+            console.log(this.avatar.getBoundingClientRect())
+    }
+    scroll(e){
+        console.log(e)
+    }
+    getclientrect (){
+
     }
     render() {
         const { selections } = this.state
 
         return (
-            <div className="mine">
+            <div className="mine"    >
                 {/* 头像账户 */}
-                <div className="avatar">
+                <div className="avatar" ref = { avatar => this.avatar = avatar}>
                     <div className="avatar-wrapper">
 
                         <Avatar size={48} src="https://images.pexels.com/photos/2698844/pexels-photo-2698844.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"></Avatar>

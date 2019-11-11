@@ -7,15 +7,17 @@ const Koarouter = require('koa-router')
 
 const courseRoute = require('../db/router/courseRoute')
 const mineRoute = require('../db/router/mineRoute')
+const discoveryRoute = require('../db/router/discoveryRoute')
 const {connect} = require('../db/db.init');
 const {initSchema} = require('./server.init')
 const app = new Koa();
 const router = new Koarouter();
 app.use(bodyParser())
 app.use(cors());
-
-router.use('/course',courseRoute.routes())
-router.use('/mine',mineRoute.routes())
+    
+router.use('/course',courseRoute.routes());
+router.use('/mine',mineRoute.routes());
+router.use('/discovery',discoveryRoute.routes());
          
 app.use(router.routes())
 app.use(router.allowedMethods())

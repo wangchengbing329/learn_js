@@ -10,7 +10,28 @@ class Study extends Component {
             {id:3,amount:0,category:'收藏'},
             {id:4,amount:0,category:'下载'}
         ],
-        studyContent:[]
+        studyContent:[1,2,34,4]
+     }
+     noOrder(){
+         return (
+             <div className="noOrder">
+
+                 <span>暂无订购内容</span>
+                 <div className="order">订阅</div>
+             </div>
+
+         )
+     }
+     contentShow () {
+         return (
+             <div className="contentShow">
+                 {this.state.studyContent.map((item,index)=>{
+                     return(
+                     <div className="content-box" key ={index }>{item}</div>
+                     )
+                 })}
+             </div>
+         )
      }
     render() { 
         const {hour,second,collection,studyContent} = this.state
@@ -40,8 +61,7 @@ class Study extends Component {
             }</div>
 
             <div className="content-wrapper">
-            <div className="study-content">{studyContent.length === 0?'暂无学习内容':content}</div>
-            <div className="order">订阅</div>
+            <div className="study-content">{studyContent.length === 0?this.noOrder():this.contentShow()}</div>
             </div>
            </div>
          );

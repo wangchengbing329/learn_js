@@ -76,3 +76,7 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
     line-height: 3rem;
 }
+.content-box{
+    width: 2rem;
+    height: 1rem;
+}
