@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+*{
+  margin: 0;
+  padding: 0;
+  font-size:16px;
+}
+@media screen  and (max-width: 760px) {
+body{
+  display: flex;
+}
+#main{
+  position: relative;
+  background-color: blue;
+  height: 200px;
+  width: 200px;
+  margin-left: 400px;
+}
+ .pc-box{
+   display: none;
+ } 
+#slider{
+  /* display: none; */
+  margin-left: -300px;
+
+  position: absolute;
+  background-color: red;
+  height: 100px;
+  width: 300px;
+  /* float: left; */
+  /* z-index:9; */
+  /* transition: all linear; */
+}
+
+}
+@media screen  and  (min-width: 761px){
+  body{
+  /* display: flex; */
+  height: 800px;
+}
+#main{
+  position: relative;
+  background-color: blue;
+  height: 200px;
+  width: 400px;
+  margin-left: 200px;
+  margin-top: 400px;
+}
+#button{
+  display: none;
+  /* position: absolute;
+  left: -46% !important; */
+}
+ .pc-box{
+   display: block;
+ } 
+#slider{
+  display: none;
+  position: absolute;
+  /* left: -46%; */
+  background-color: red;
+  height: 100px;
+  width: 300px;
+  /* float: left; */
+  /* z-index:9; */
+  /* transition: all linear; */
+}
+
+}
+
+</style>
+<body>
+  <div id="slider">
+    <div class="styd">1</div>
+    <div class="styd">2</div>
+    <div class="styd">3</div>
+    <div class="styd">4</div>
+  </div>
+  <div id="main">
+    <div id="button">按钮</div>
+    <div class="pc-box">
+      <div class="study">1</div>
+      <div class="study">2</div>
+      <div class="study">3</div>
+      <div class="study">4</div>
+    </div>
+    
+  </div>
+  <script>
+  const main =document.getElementById('main');
+  const button  = document.getElementById('button');
+  const slider = document.getElementById('slider');
+    let isShow = false;
+    button.addEventListener('click',function (){
+      // main.style = 'tranform:translateX()'
+      // console.log(e)
+      // main.style.display = 'none'
+      if(!isShow){
+        // slider.style.marginLeft = 0;  
+        main.setAttribute('style',"transition:right " + 0.2 + "s" + ' ease-out-back')
+        slider.setAttribute('style',"transition:margin-left " + 0.7 + "s" + ' cubic-bezier(.18,.89,.32,1.27)' + ";margin-left:0px;")
+
+        
+            isShow = true
+      }else {
+        // slider.style.marginLeft = '-200px';  
+        
+        main.setAttribute('style', "left: 0px;transition: right " + 0.5 + "s " + 'ease-out-back;');
+            slider.setAttribute('style', "transition: margin-left " + 0.5 + "s " + 'cubic-bezier(.18,.89,.32,1.27)' + ";margin-left:-400px;");
+
+           
+        isShow = false;
+      }
+    }) 
+
+  
+  
+  </script>
+</body>
+</html>
