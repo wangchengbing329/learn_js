@@ -22,7 +22,7 @@ router.use('/discovery',discoveryRoute.routes());
 app.use(router.routes())
 app.use(router.allowedMethods())
               
- 
+   
 ;(async ()=>{
  await connect();
   initSchema()
