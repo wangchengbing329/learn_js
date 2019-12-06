@@ -9,7 +9,7 @@ exports.connect = () =>{
   } 
   tryConnect();
   let maxConnectCount = 0;
-   
+  
   return new Promise((resolve,reject)=>{
     mongoose.connection.on('disconnected',()=>{
       console.log('******数据库断开连接********');

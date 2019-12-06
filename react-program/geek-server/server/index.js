@@ -14,7 +14,7 @@ const app = new Koa();
 const router = new Koarouter();
 app.use(bodyParser())
 app.use(cors());
-    
+  
 router.use('/course',courseRoute.routes());
 router.use('/mine',mineRoute.routes());
 router.use('/discovery',discoveryRoute.routes());
