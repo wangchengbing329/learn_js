@@ -1,4 +1,4 @@
-<!--pages/goods/goods.wxml-->
+ <!--pages/goods/goods.wxml-->
 <view class="container">
 
 <swiper class="" indicator-dots="true" indicator-color="grey" autoplay="true" 
@@ -25,8 +25,8 @@
 
   <!-- 中间的配件部分 -->
   <view class="gadget" wx:if="item.ownGadget">
-  <view class="gadgetBox"  wx:for={{item.gadget}} wx:for-item="gadget">
-    <image class="gadImg" src={{gadget.img}} mode="aspectFit" lazy-load="false" binderror="" bindload="" />
+  <view class="gadgetBox"  wx:for="{{item.gadget}}" wx:for-item="gadget">
+    <image class="gadImg" src="{{gadget.img}}" mode="aspectFit" lazy-load="false" binderror="" bindload="" />
      <text class="gadName" selectable="false" space="false" decode="false">{{gadget.name}} </text>
        <view class="gadDes">{{gadget.dec}}</view>
     
