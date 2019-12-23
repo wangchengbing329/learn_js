@@ -1,1 +1,34 @@
 /* miniprogram/pages/login/login.wxss */
+.login-wrapper{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: url('https://cdn.pixabay.com/photo/2017/04/12/00/25/microscope-2223268__340.png') no-repeat;
+  background-position: center bottom;
+  /* background-color: rgba(255,255,255,.1); */
+  background-size: 60%;
+}
+.login-box{
+  height: 400rpx;
+  width: 400rpx;
+  margin:300rpx auto;
+  /* background-color: #d3f4ff; */
+}
+.userinfo{
+  height: 200rpx;
+  width: 400rpx;
+  background-color: transparent;
+  border:none;
+}
+.nickname{
+  font-size:26rpx;
+}
+.avatar{
+  width: 40rpx;
+  height: 40rpx;
+}
+.button{
+  display: flex;
+  justify-content: space-around;
+  margin:20rpx;
+}

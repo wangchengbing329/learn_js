@@ -1,2 +1,15 @@
 <!--miniprogram/pages/login/login.wxml-->
-<text>miniprogram/pages/login/login.wxml</text>
+<view class="login-wrapper">
+    <view class="login-box">
+        <view class="userinfo">
+            <view class="avatar">
+                <image class="avatar" src="" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
+            </view>
+            <text class="nickname">{{nickname}}</text>
+        </view>
+        <view class="button">
+            <van-button type="primary" size="small">登陆</van-button>
+            <van-button type="info" size="small">取消</van-button>
+        </view>
+    </view>
+</view>
