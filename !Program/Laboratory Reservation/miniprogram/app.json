@@ -2,7 +2,12 @@
   "pages": [
     "pages/index/index",
     "pages/login/login",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/admin/order/user_order",
+    "pages/user/order/user_order",
+    "pages/user/reserve/reserve",
+    "pages/admin/index/index",
+    "pages/user/index/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

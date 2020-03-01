@@ -1,14 +1,9 @@
 <!--miniprogram/pages/login/login.wxml-->
 <view class="login-wrapper">
     <view class="login-box">
-        <view class="userinfo">
-            <view class="avatar">
-                <image class="avatar" src="" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
-            </view>
-            <text class="nickname">{{nickname}}</text>
-        </view>
+        <view class="appTitle">实验室预定平台</view>
         <view class="button">
-            <van-button type="primary" size="small">登陆</van-button>
+            <van-button type="primary" size="small" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo">授权登陆</van-button>
             <van-button type="info" size="small">取消</van-button>
         </view>
     </view>

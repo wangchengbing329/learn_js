@@ -1,1 +1,43 @@
 /* miniprogram/pages/mine/mine.wxss */
+.mine-wrapper{
+  position: absolute;
+  height: 100%;
+  width:100%;
+}
+.userInfo-wrapper{
+  height: 200rpx;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+.avatar-wrapper{
+  overflow: hidden;
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 50%;
+}
+.avatar{
+  height: 100rpx;
+  width: 100rpx;
+}
+.nickname{
+  margin-right:40rpx;
+}
+.function-list{
+  width: 80%;
+}
+.function{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+.functionName{
+  display: flex;
+  justify-self: flex-start;
+  text-align: start;
+}
+.functionIcon {
+  margin-left: 80rpx;
+}

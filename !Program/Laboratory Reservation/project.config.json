@@ -24,6 +24,7 @@
 	"libVersion": "2.2.5",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -57,6 +58,20 @@
 					"id": -1,
 					"name": "1",
 					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "pages/user/order/user_order",
+					"pathName": "pages/user/order/user_order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "pages/mine/mine",
+					"pathName": "pages/mine/mine",
 					"scene": null
 				}
 			]

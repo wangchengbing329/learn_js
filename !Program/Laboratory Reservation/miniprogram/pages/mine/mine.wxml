@@ -1,2 +1,18 @@
-<!--miniprogram/pages/mine/mine.wxml-->
-<text>miniprogram/pages/mine/mine.wxml</text>
+<view class="mine-wrapper" hover-class="none" hover-stop-propagation="false">
+
+    <view class="userInfo-wrapper" hover-class="none" hover-stop-propagation="false">
+        <view class="avatar-wrapper" hover-class="none" hover-stop-propagation="false">
+            <image class="avatar" src="{{avatar}}" mode="aspectFill" lazy-load="false" binderror="" bindload=""></image>
+        </view>
+        <text class="nickname" selectable="false" space="false" decode="false">{{nickname}}</text>
+    </view>
+
+    <view class="function-list" hover-class="none" hover-stop-propagation="false">
+        <block wx:for="{{functionList}}" wx:key="name">
+            <view class="function" hover-class="none" hover-stop-propagation="false" data-page="{{item.page}}"  bindtap="goToEdit">
+                <van-icon class="functionIcon" name="{{item.icon}}"/>
+                <text class="functionName" selectable="false" space="false" decode="false">{{item.name}}</text>
+            </view>
+        </block>
+    </view>
+</view>
