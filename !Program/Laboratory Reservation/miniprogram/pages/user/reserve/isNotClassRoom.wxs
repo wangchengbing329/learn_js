@@ -1,0 +1,12 @@
+function isClassRoom (notArray,floor,cell) {
+var isClassRoom;
+  if (notArray.length === 0) {
+    isClassRoom = false
+  } else {
+      isClassRoom = notArray.some(function(item) {
+      return  (item.selectedFloor === floor && item.selectedClassRoom === cell) 
+      } )
+  } 
+  return isClassRoom
+} 
+module.exports.isClassRoom = isClassRoom;

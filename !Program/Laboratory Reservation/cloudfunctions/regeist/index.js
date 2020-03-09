@@ -9,24 +9,39 @@ const db = cloud.database({
 })
 // 云函数入口函数
 exports.main = async (event, context) => {
-  const { userInfo } = event;
   const wxContext = cloud.getWXContext()
   const openid = wxContext.OPENID;
   console.log(openid)
-  let ret_code, info;
+  let ret_code,role;
+  let info = {
+    school: '',
+    class: '',
+    enrollment: '',
+    role: '1'
+  }
+  let a = { openid, ...info}
+  console.log(a)
+  let isExit = true;
   await db.collection('lr_user').where({openid}).get().then(res => {
     console.log(res);
     if (!res.data.length) {
-      db.collection('lr_user').add({...userInfo,openid});
-      ret_code = '201',
-      info = null;
+      db.collection('lr_user').add({data:{openid,...info}}).then(resa => {
+        console.log(resa + 'resa')
+      }).catch(err => {
+        console.log(err + 'resa')
+      });
+      isExit = false;
     } else {
-      ret_code = '200' ;
-      info = res.data[0];
+      role = res.data[0].role
     }
   })
+  if (!isExit) {
+    await db.collection('lr_user').where({openid}).get().then(res => {
+      console.log(res);
+      role = res.data[0].role
+    })
+  }
   return {
-    ret_code,
-    info
+    role
   }
 }

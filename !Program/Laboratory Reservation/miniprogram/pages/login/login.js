@@ -15,45 +15,24 @@ Page({
   handleGetUserInfo (e) {
     console.log(e);
     app.globalData.userInfo = e.detail.userInfo;
-    console.log(app.globalData);
-    // if (e.detail.userInfo) {
-      wx.cloud.callFunction({
-        name: 'regeist',
-        data: {userInfo:app.globalData.userInfo} 
-      }).then(res => {
-        console.log(res);
-        if (res.result.ret_code === '201') {
-          this.handleGetUserInfo();
-        } else if (res.result.ret_code === '200') {
-          if (info.role === 1) {
-            wx.setTabBarItem({
-              index: 0,
-              text: '用户首页',
-              iconPath: 'images/index.png',
-              selectedIconPath: 'images/index_active.png',
-            });
-            setTimeout( ()=> {
-              wx.switchTab({
-                url: 'pages/user/index'
-              })
-            },2000)
-          } else if(info.role === 0) {
-            wx.setTabBarItem({
-              index: 0,
-              text: '管理员首页',
-              iconPath: 'images/index.png',
-              selectedIconPath: 'images/index_active.png'
-            })
-            setTimeout(()=> {
-              wx.switchTab({
-                url: 'pages/admin/index'
-              })
-            })
-          }
-        }
-      })
-      
-    // }
+    wx.cloud.callFunction({
+      name: 'regeist',
+      data: {},
+    }).then(res => {
+      app.globalData.role = res.result.role;
+      if(res.result) {
+        wx.showLoading({
+          title: '登陆中...',
+          mask: true
+        });
+        setTimeout(()=>{
+          wx.hideLoading();
+          wx.switchTab({
+            url: '../index/index'
+          })
+        },2000)
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载

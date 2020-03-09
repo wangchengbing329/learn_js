@@ -72,6 +72,21 @@
 					"id": 3,
 					"name": "pages/mine/mine",
 					"pathName": "pages/mine/mine",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user/reserve/reserve",
+					"pathName": "pages/user/reserve/reserve",
+					"query": "",
 					"scene": null
 				}
 			]

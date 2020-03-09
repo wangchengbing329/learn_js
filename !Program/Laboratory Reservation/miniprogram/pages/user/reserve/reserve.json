@@ -1,3 +1,16 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu",
+    "van-dropdown-item": "@vant/weapp/dropdown-item",
+    "van-popup": "@vant/weapp/popup",
+    "van-button": "@vant/weapp/button",
+    "van-picker": "@vant/weapp/picker",
+    "van-datetime-picker": "@vant/weapp/datetime-picker",
+    "van-cell": "@vant/weapp/cell",
+    "van-cell-group": "@vant/weapp/cell-group",
+    "van-tree-select": "@vant/weapp/tree-select",
+    "van-divider": "@vant/weapp/divider",
+    "van-toast": "@vant/weapp/toast"
+
+  }
 }

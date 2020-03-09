@@ -36,8 +36,7 @@
             >
                <view class="tile tile-{{cell.value}}">
                  <view class="tile-inner">{{cell.value}}</view>
-               </view>
-               
+               </view>     
              </view>
           </view>
        </view>

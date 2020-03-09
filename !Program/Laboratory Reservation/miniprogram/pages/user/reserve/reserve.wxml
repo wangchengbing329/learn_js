@@ -1,2 +1,63 @@
 <!--miniprogram/pages/user/reserve/reserve.wxml-->
-<text>miniprogram/pages/user/reserve/reserve.wxml</text>
+<wxs src="./isNotClassRoom.wxs" module="wxs"/>
+<view class="reserve_page" hover-class="none" hover-stop-propagation="false">
+    <view class="reserve-title" hover-class="none" hover-stop-propagation="false">
+        请完善预定信息
+    </view>
+    <van-cell-group>
+        <van-cell >
+            <van-dropdown-menu overlay= "{{true}}">
+                <van-dropdown-item value="{{value1}}" options="{{option}}" catch:change = "handleSelectExperiment"></van-dropdown-item>
+            </van-dropdown-menu>
+        </van-cell>
+        <van-cell title="选择预定日期" is-link catchtap="showDatePicker">
+        <view class="" hover-class="none" hover-stop-propagation="true">
+            <van-popup show="{{isShowPicker}}" custom-style="width:100%;"  >
+                    <van-datetime-picker
+                        type="date"
+                        value="{{currentDate}}"
+                        min-date="{{minDate}}"
+                        cancle-button-text=""
+                        formatter="{{formatterDate}}"
+                        catch:cancel="onCancelPicker"
+                        catch:confirm ="onClosePicker"
+                        >
+                    </van-datetime-picker>
+            </van-popup>
+        </view>
+        </van-cell>
+        <van-cell title="请选择教室以及时间段">
+            <text class="selectTip" selectable="false" space="false" decode="false">*点击数字选择时间段</text>
+        </van-cell>
+    </van-cell-group>
+    
+    <view class="reserve-wrapper" hover-class="none" hover-stop-propagation="false">
+    <view class="grid-row" wx:for="{{floorArr}}"  wx:key="*this" >
+        <view class="grid-col " wx:for="{{room_numArr}}" wx:for-item="cell" wx:key="*this">
+            <view class="title {{wxs.isClassRoom(not_classRoom,item,cell) ? 'selectedclassRoom' : ''}}" hover-class="none" hover-stop-propagation="false" >
+                <view class="title-inner" hover-class="none" hover-stop-propagation="false" bindtap="handleSelectClassRoom" data-floor="{{item}}" data-room="{{cell}}">
+                    {{cell<10?item+'0'+cell : item+''+cell}}
+                     <van-popup show="{{isShowClass}}" custom-style="width:100%;" close-on-click-overlay="{{true}}" catch:click-overlay ="onCloseClass" >
+                    <van-tree-select 
+                        items="{{selectItems}}"
+                        main-active-index="{{mainActiveIndex}}"
+                        active-id="{{activeId}}"
+                        max="{{4}}"
+                        content-active-class="selectedClass"
+                        content-item-class="contentItem"
+                        catch:click-nav="onClickNav"
+                        catch:click-item="onClickItem">
+                    </van-tree-select>
+            </van-popup>
+                </view>
+            </view>
+        </view>
+        </view>
+    </view>
+    <van-toast id="van-toast"/>
+    <van-divider></van-divider>
+        <view class="button-wrapper" hover-class="none" hover-stop-propagation="false">
+            <van-button  type="danger" plain size="small" custom-style="margin-right:40rpx;" bindtap="goBack">取消</van-button>
+            <van-button  type="primary" plain size="small" custom-style="margin-right:40rpx;" bindtap="submit">确认</van-button>
+        </view>
+</view>
