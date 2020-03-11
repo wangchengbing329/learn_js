@@ -19,7 +19,11 @@ Page({
       name: 'regeist',
       data: {},
     }).then(res => {
-      app.globalData.role = res.result.role;
+      console.log(res.result.role)
+      wx.setStorage({
+        key: 'role',
+        data: res.result.role
+      })
       if(res.result) {
         wx.showLoading({
           title: '登陆中...',

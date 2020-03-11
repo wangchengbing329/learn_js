@@ -1,4 +1,6 @@
 // miniprogram/pages/user/order/user_order.js
+import Toast from '../../@vant/weapp/toast/toast';
+
 const app = getApp();
 Page({
 
@@ -7,23 +9,8 @@ Page({
    */
   data: {
     isUser: false,
-    orderList: [
-      {
-        title: '预定申请',
-        orderInfo: [{
-          floor_name: '求知楼',
-          room_num: '203',
-          order_time: '2020-2-21'
-        }]
-      }, {
-        title: '已完成申请',
-        orderInfo: [{
-          floor_name: '博文楼',
-          room_num: '301',
-          order_time: '2019-11-20'
-        }]
-      }
-    ],
+    activeNames:['0'],
+    orderList: [],
     /**
      * ! 这里应当重新设计，需要专门设置标题字段，内容
      */
@@ -31,13 +18,105 @@ Page({
     open_id: 'myyan222',
     nickname: '给自己一个微笑'
   },
+  changeList(e) {
+    this.setData({
+      activeNames:e.detail
+    })
+  },
+  handleCancelOrder(e) {
+    const that = this;
+    const {id} = e.currentTarget.dataset;
+    wx.cloud.callFunction({
+      name:'cancelOrder',
+      data: {
+        _id:id
+      }
+    }).then(res => {
+      if (res.result.ret_code === 200) {
+        Toast.success('取消预定成功');
+        that._initUserIndexData();
+      } else {
+        Toast.fail('取消预定失败');
+      }
+    })
+  },
+  handleModifyOrder(e) {
+    let { order }  = e.currentTarget.dataset;
+    delete order.room_num;
+    console.log(order);
+    wx.setStorage({
+      key: 'orderInfo',
+      data: order,
+      success: function(res){
+        // success
+        wx.redirectTo({
+          url: '/pages/user/reserve/reserve'
+        })
+      }
+    })
+  },
+  /**
+   * todo 初始化用户首页数据
+   */
+  _initUserIndexData() {
+    const that = this;
+    wx.cloud.callFunction({
+      name: 'searchOrder'
+    }).then(res => {
+      const { orderList } = res.result;
+      console.log(orderList)
+      let newOrderList = [{
+        title: '预定申请',
+        orderInfo:[]
+      },{
+        title: '已完成预定',
+        orderInfo:[]
+      }]
+      for (let item of orderList) {
+        if (item.isSolved === 1) {
+          newOrderList[1].orderInfo.push({
+            floor_name:item.floor_name,
+            id:item._id,
+            day:item.selectedRoom.day,
+            month:item.selectedRoom.month + 1,
+            year:item.selectedRoom.year,
+            room_num: item.selectedRoom.selectedClassRoom < 10 
+                      ? item.selectedRoom.selectedFloor + '0' + item.selectedRoom.selectedClassRoom
+                      : + item.selectedRoom.selectedFloor + '' + item.selectedRoom.selectedClassRoom,
+            selectedClassRoom:item.selectedRoom.selectedClassRoom,
+            selectedFloor:item.selectedRoom.selectedFloor,
+            class_id: item.selectedRoom.class_id
+          })
+        } else {
+          newOrderList[0].orderInfo.push({
+            floor_name:item.floor_name,
+            id:item._id,
+            day:item.selectedRoom.day,
+            month:item.selectedRoom.month + 1,
+            year:item.selectedRoom.year,
+            room_num: item.selectedRoom.selectedClassRoom < 10 
+                      ? item.selectedRoom.selectedFloor + '0' + item.selectedRoom.selectedClassRoom
+                      : + item.selectedRoom.selectedFloor + '' + item.selectedRoom.selectedClassRoom,
+            selectedClassRoom:item.selectedRoom.selectedClassRoom,
+            selectedFloor:item.selectedRoom.selectedFloor,
+            class_id: item.selectedRoom.class_id
 
+          })
+        }
+      }
+      that.setData({
+        orderList: newOrderList
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app.globalData.role);
-    if (app.globalData.role === '1') {
+    
+    let role = wx.getStorageSync('role')
+    console.log(role)
+    if (role === '1') {
       this.setData({
         isUser:true
       })
@@ -46,6 +125,7 @@ Page({
         isUser : false
       })
     }
+    this._initUserIndexData();
   },
   reserve() {
     wx.navigateTo({

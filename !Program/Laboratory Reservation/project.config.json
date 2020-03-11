@@ -2,13 +2,16 @@
 	"miniprogramRoot": "miniprogram/",
 	"cloudfunctionRoot": "cloudfunctions/",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
 		"coverView": true,
+		"nodeModules": true,
 		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
@@ -17,7 +20,7 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"nodeModules": true
+		"bundle": true
 	},
 	"appid": "wx037e7afbf24c6604",
 	"projectname": "Laboratory%20Reservation",

@@ -1,18 +1,27 @@
 /* miniprogram/pages/index/index.wxss */
-.user_order-page{
-    background-color: #f1f2f3;
+.user_page{
+    background-color: #ffffff;
     height: 100%;
     width: 100%;
     position: absolute;
 }
-.order-wrapper{
-    
+.reserve_title ,.goReserve, .notice-title{
+    font-weight: bold;
+    margin: 30rpx 16rpx;
 }
-.order-title{
-  font-weight: bold;
-  font-size: 40rpx;
-  color:#758184;
+.van-swipe-cell__right {
+  background-color: #50d890;
+  width: 150rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+.slotRight {
+  color: white;
+  font-size: 34rpx;
+
+}
+
 .order{
   font-size: 32rpx;
   margin-top: 10rpx;
@@ -21,7 +30,9 @@
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .order_button {
-  margin-right: 40rpx;
+  margin-left: 40rpx;
+  display: flex;
+  justify-content: space-around;
 }
 .add-new-order{
   margin-top: 40rpx;
@@ -36,7 +47,15 @@
 .notice-wrapper{
   margin-top: 40rpx;
 }
-.notice-title{
-  color:#758184;
-  margin-bottom: 40rpx;
+
+.clloapseItemBg{
+  background-color: #f3f3f3!important;
+  border: none;
+}
+.van-collapse-item__item {
+  background-color: #f3f3f3!important;
+  
+}
+.titleStyle{
+  font-size:28rpx;
 }

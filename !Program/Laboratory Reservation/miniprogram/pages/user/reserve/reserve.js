@@ -45,22 +45,22 @@ Page({
         children: [
           {
             text: '第一节课',
-            id: 1,
+            id: 0,
             disabled: false 
           },
           {
             text: '第二节课',
-            id: 2,
+            id: 1,
             disabled: false 
           },
           {
             text: '第三节课',
-            id: 3,
+            id: 2,
             disabled: false 
           },
           {
             text: '第四节课',
-            id: 4,
+            id: 3,
             disabled: false 
           }
         ]
@@ -71,21 +71,21 @@ Page({
         children: [
           {
             text: '第一节课',
-            id: 5,
+            id: 4,
             disabled: false 
           },
           {
             text: '第二节课',
-            id: 6,
+            id: 5,
             disabled: false 
           },
           {
             text: '第三节课',
-            id: 7
+            id: 6
           },
           {
             text: '第四节课',
-            id: 8,
+            id: 7,
             disabled: false 
           }
         ]
@@ -96,22 +96,22 @@ Page({
         children: [
           {
             text: '第一节课',
-            id: 9,
+            id: 8,
             disabled: false 
           },
           {
             text: '第二节课',
-            id: 10,
+            id: 9,
             disabled: false 
           },
           {
             text: '第三节课',
-            id: 11,
+            id: 10,
             disabled: false 
           },
           {
             text: '第四节课',
-            id: 12,
+            id: 11,
             disabled: false
           }
         ]
@@ -165,6 +165,41 @@ Page({
     })
   },
   /**
+   * todo 根据相关信息生成对应时间段的数据
+   */
+  _searchClass(year,month,day,floor,cell,floor_name) {
+    let that = this;
+    wx.cloud.callFunction({
+      name: 'searchClass',
+      data: {
+        year,
+        month,
+        day,
+        floor,
+        cell,
+        floor_name
+      }
+    }).then(res => {
+      console.log(res.result)
+      let hasSelectedClass = res.result.hasSelectedClass;
+      let selectItemsCopy = JSON.parse(JSON.stringify(that.data.selectItems));
+      console.log(selectItemsCopy)
+      for (let item of hasSelectedClass) {
+         selectItemsCopy.forEach((item1,index1,arr1) => {
+          item1.children.forEach((item2,index2,arr2)=> {
+            if (item === item2.id) {
+              item2.disabled = true
+            }
+          })
+        })
+      }
+      console.log(selectItemsCopy)
+      that.setData({
+        selectItems:selectItemsCopy
+      })
+    })
+  },
+  /**
    * 
    * @description 打开时间段选择
    */
@@ -172,29 +207,31 @@ Page({
     const oldSelectedFloor = JSON.parse(JSON.stringify(this.data.selectedFloor));
     const oldSelectedClassRoom = JSON.parse(JSON.stringify(this.data.selectedClassRoom));
     console.log(e);
-    let not_classRoom = this.data.not_classRoom;
+    let {not_classRoom, year,month,day,value1,option }= this.data;
+    let floor_name;
+    for (let item of option) {
+      if (item.value === value1) {
+        floor_name = item.text
+      }
+    }
     let { room, floor} = e.currentTarget.dataset;
+    this._searchClass(year,month,day,floor,room,floor_name);
     if (not_classRoom.length !== 0) {
-      for (let item of not_classRoom) {
-        console.log(item);
-        if (item.selectedClassRoom === room && item.selectedFloor === floor) {
-          this.setData({
-            isShowClass: false
-          })
-        } else {
-          this.setData({
-            isShowClass:true
-          })
-        }
+      let isAllowSelect = not_classRoom.some(item => {
+        return (item.selectedFloor === floor && item.selectedClassRoom === room)
+      })
+      if (isAllowSelect) {
+        Toast('这间教室禁止使用')
+      } else {
+            this.setData({
+              isShowClass: true
+            })
       }
     } else {
       this.setData({
         isShowClass:true  
       })
     }
-    // console.log(oldSelectedFloor,oldSelectedClassRoom)
-    // console.log(room, floor);
-    // console.log(this.data.activeId)
     if (oldSelectedClassRoom !== room || oldSelectedFloor !== floor ) {
       this.setData({
         activeId: [],
@@ -296,9 +333,17 @@ Page({
  * @param {*} options 
  */
 goBack() {
-  wx.switchTab({
-    url: '/pages/index/index'
-  });
+  const orderInfo = wx.getStorageSync('orderInfo')
+  if (orderInfo) {
+    wx.removeStorageSync('orderInfo')
+    wx.switchTab({
+      url: '/pages/index/index'
+    });
+  } else {
+    wx.switchTab({
+      url: '/pages/index/index'
+    });
+  }
 },
 /**
  * todo 提交的时候要进行验证
@@ -308,52 +353,125 @@ goBack() {
  */
 submit() {
   let { activeId, year, month, day, selectedClassRoom, selectedFloor, value1, option } = this.data;
-  let room_num = selectedClassRoom < 10
-                    ? selectedFloor + '0' + selectedClassRoom
-                    : selectedFloor + '' + selectedClassRoom
-
+  const orderInfo = wx.getStorageSync('orderInfo')
   if (activeId.length !== 0) {
-    let isAllow =  activeId.reduce((prev,next) => {
-      return prev - next
+    let isAllow =  activeId.reduce((pre,next) => {
+      return pre - next
     })
     const isAllowNum = isAllow + activeId.length
     if (isAllowNum !== 1) {
       Toast('请选择正确的时间段')
     }  
-  } else {
+  } else if (activeId.length === 0){
     Toast('请选择时间段');
+  }  else if(selectedClassRoom === 0 ) {
+    Toast('请选择教室')
+  } else {
+    let floor_name ;
+    for (let item of option) {
+      if (item.value === value1) {
+        floor_name = item.text
+      } 
+    } 
+    console.log(floor_name)
+    if (orderInfo) {
+      wx.cloud.callFunction({
+        name: 'submitOrder',
+        data: {
+          business_code: 'modify',
+          selectedClassRoom,
+          selectedFloor,
+          year,
+          month,
+          day,
+          class_id:activeId,
+          floor_name,
+          id:orderInfo.is
+        }
+      }).then(res => {
+        let {successCode} = res.result;
+        if (successCode === 201) {
+          Toast.success('修改预定成功')
+          wx.removeStorageSync('orderInfo')
+          setTimeout(() => {
+            wx.switchTab({
+              url: '/pages/index/index',
+            })
+          },1500)
+        } else {
+          Toast.fail('修改订单失败')
+        }
+      })
+    } else {
+      wx.cloud.callFunction({
+        name: 'submitOrder',
+        data: {
+          business_code: 'submit',
+          selectedClassRoom,
+          selectedFloor,
+          year,
+          month,
+          day,
+          class_id:activeId,
+          floor_name,
+          id:null
+        }
+      }).then (res => {
+        console.log(res)
+        const { successCode} = res.result;
+        if (successCode === 200) {
+          Toast.success('订单提交成功')
+          setTimeout(()=> {
+            wx.switchTab({
+              url: '/pages/index/index'
+            })
+          },1500)
+        } else if (successCode === 201) {
+          Toast.success('订单修改成功')
+          setTimeout(()=> {
+            wx.switchTab({
+              url: '/pages/index/index'
+            })
+          },1500)
+        }
+      })
+
+    }
+
   }
   
-  if(selectedClassRoom === 0 ) {
-    Toast('请选择教室')
-  }
-  let floor_name ;
-  for (let item of option) {
-    if (item.value === value1) {
-      floor_name = item.text
-    } 
-  } 
-  console.log(floor_name)
-  wx.cloud.callFunction({
-    name: 'submitOrder',
-    data: {
-      business_code: 'submit',
-      room_num: parseInt(room_num),
-      year,
-      month,
-      day,
-      class_id:activeId,
-      floor_name
-    }
-  }).then (res => {
-    console.log(res)
-  })
+  
 },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this._initFloorInfo()
+    const orderInfo =  wx.getStorageSync('orderInfo');
+    if (orderInfo) {
+      console.log(orderInfo)
+      const { class_id ,floor_name, selectedClassRoom,selectedFloor,year,month,day} = orderInfo;
+      const {option} = this.data;
+      let value ;
+      for (let item of option) {
+        if (item.text === floor_name) {
+          value = item.value
+        }
+      }
+      let currentDate = `${year}/${month}/${day} 12:00:00`
+      console.log(currentDate)
+      this.setData({
+        activeId:class_id,
+        selectedFloor,
+        selectedClassRoom,
+        year,
+        month:month -1,
+        day,
+        value1:value,
+        currentDate:new Date(currentDate).getTime()
+      })
+    }
+    
     // console.log(this.data.floorArr,this.data.room_numArr);
   },
 

@@ -1,18 +1,35 @@
 <!--miniprogram/pages/index/index.wxml-->
 <view class="user_page" hover-class="none" hover-stop-propagation="false" wx:if="{{isUser}}">
-     <view class="order-wrapper" hover-class="none" hover-stop-propagation="false" wx:for="{{orderList}}"  wx:key="title">
-            <text class="order-title" selectable="false" space="false" decode="false">{{item.title}}</text>
-            <view class="order" hover-class="none" hover-stop-propagation="false"  wx:for="{{item.orderInfo}}" wx:for-item="order" wx:key="order_time">
-                <text class="order-info" selectable="false" space="false" decode="false">{{order.order_time}}&nbsp;{{order.floor_name}}&nbsp;{{order.room_num}}</text>
-                <view class="order_button" hover-class="none" hover-stop-propagation="false" wx:if="{{item.title === '预定申请'}}"> 
-                <van-button data-userinfo ="{{order.orderInfo}}" bindtap="cancle" type="danger" size="mini">取消</van-button>
-                </view>
-            </view>
+
+    <view class="" hover-class="none" hover-stop-propagation="false">
+        <text class="reserve_title" selectable="false" space="false" decode="false">我的预定</text>        
+        <van-collapse value="{{activeNames}}" bind:change ="changeList" border="{{false}}" custom-class="clloapseItemBg">
+        <block wx:for="{{orderList}}" wx:key="title">
+            <van-collapse-item title="{{item.title}}" name="{{index + ''}}" border="{{false}}" custom-class="clloapseItemBg">
+                    <van-cell-group border="{{false}}">
+                            <block wx:for="{{item.orderInfo}}" wx:for-item="order" wx:key="order_time">
+                                <van-cell title="{{order.year}}-{{order.month}}-{{order.day}}  {{order.floor_name}} {{order.room_num}}" title-class="titleStyle">
+                                    <view class="order_button" hover-class="none" hover-stop-propagation="false" wx:if="{{item.title === '预定申请'}}">
+                                        <van-button size="mini" type="danger" catchtap = "handleCancelOrder" data-id ="{{order.id}}">取消</van-button>
+                                        <van-button size="mini" type="primary" catchtap = "handleModifyOrder" data-order ="{{order}}">修改</van-button>
+                                    </view>
+                                </van-cell>
+                            </block>
+                    </van-cell-group>
+            </van-collapse-item>
+        </block>
+        </van-collapse>
+        
     </view>
 
-    <view class="add-new-order" hover-class="none" hover-stop-propagation="false">
-        <text class="add-info" selectable="false" space="false" decode="false">点击这里可以预定实验室哦!</text>
-        <van-button type="info" size="mini" bindtap="reserve">预定</van-button>
+    <view  hover-class="none" hover-stop-propagation="false">
+        <text class="goReserve" selectable="false" space="false" decode="false">前往预定</text>
+        <van-swipe-cell right-width="{{65}}">
+            <van-cell-group>
+                <van-cell title="往右滑开启预定"></van-cell>
+            </van-cell-group>
+            <view slot="right" class="slotRight" bindtap="reserve">预定</view>    
+        </van-swipe-cell>    
     </view>
 
     <view class="notice-wrapper">
@@ -20,7 +37,8 @@
         <swiper class="" indicator-dots="false" indicator-color="rgba(0,0,0,.3)" autoplay="true" current="0" current-item-id="" interval="5000" duration="1000" circular="false" vertical="false" previous-margin="false" next-margin="0px" display-multiple-items="1" skip-hidden-item-layout="false" bindchange="" bindanimationfinish="">
             <block wx:for="{{notice_tips}}" wx:key="*this">
                 <swiper-item class="" item-id="">
-                    <text class="" selectable="false" space="{{true}}" decode="false">{{item}}</text>
+                    <view class="tipTitle" hover-class="none" hover-stop-propagation="false"></view>
+                    <editor placeholder="请输入" id="userEditor" read-only="{{true}}"></editor>    
                 </swiper-item>
             </block>
         </swiper>
