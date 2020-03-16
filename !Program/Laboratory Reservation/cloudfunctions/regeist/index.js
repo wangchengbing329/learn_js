@@ -15,7 +15,7 @@ exports.main = async (event, context) => {
   let ret_code,role;
   let info = {
     school: '',
-    class: '',
+    department: '',
     enrollment: '',
     role: '1'
   }

@@ -7,12 +7,15 @@
         <text class="nickname" selectable="false" space="false" decode="false">{{nickname}}</text>
     </view>
 
-    <view class="function-list" hover-class="none" hover-stop-propagation="false">
-        <block wx:for="{{functionList}}" wx:key="name">
-            <view class="function" hover-class="none" hover-stop-propagation="false" data-page="{{item.page}}"  bindtap="goToEdit">
-                <van-icon class="functionIcon" name="{{item.icon}}"/>
-                <text class="functionName" selectable="false" space="false" decode="false">{{item.name}}</text>
-            </view>
-        </block>
+    <van-notice-bar text="{{text}}" left-icon="info-o" color="#389afb" backgroundColor="#ecf9ff" speed="{{40}}"></van-notice-bar>
+
+    <view class="functions" hover-class="none" hover-stop-propagation="false">
+        <van-cell-group>
+            <block wx:for="{{functionList}}" wx:key="name">
+                <van-cell title="{{item.name}}" bind:click ="goToCatePage" data-page="{{item.page}}">
+                    <van-icon slot="right-icon" name="{{item.icon}}" size="25px" info="{{item.page === 'message'?infoNum:''}}"></van-icon>
+                </van-cell>
+            </block>
+        </van-cell-group>
     </view>
 </view>

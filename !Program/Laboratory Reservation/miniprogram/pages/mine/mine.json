@@ -1,5 +1,8 @@
 {
   "usingComponents": {
-    "van-icon": "@vant/weapp/icon"
+    "van-icon": "@vant/weapp/icon",
+    "van-cell-group": "@vant/weapp/cell-group",
+    "van-cell":"@vant/weapp/cell",
+    "van-notice-bar":"@vant/weapp/notice-bar"
   }
 }

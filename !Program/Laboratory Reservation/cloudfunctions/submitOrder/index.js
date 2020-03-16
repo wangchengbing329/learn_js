@@ -20,6 +20,8 @@ exports.main = async (event, context) => {
         floor_name,
         openid,
         isSolved: 0,
+        isRead:0,
+        statusChangeTime:new Date().getTime(),
         selectedRoom:
           {
             year,
@@ -39,21 +41,20 @@ exports.main = async (event, context) => {
     await db.collection('lr_order').doc(id).update({
       data: {
         floor_name:_.set(floor_name),
-        selectedRoom: _set({
+        selectedRoom: _.set({
           year,
           month,
           day,
           selectedClassRoom,
           selectedFloor,
           class_id
-        }).then(res => {
+        })
+      }
+    }).then(res => {
           if (res) {
             successCode = 201
           }
         })
-
-      }
-    })
   }
   return {
     successCode

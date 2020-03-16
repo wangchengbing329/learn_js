@@ -1,0 +1,15 @@
+<!--miniprogram/pages/selfInfo/selfInfo.wxml-->
+<view class="question_page" hover-class="none" hover-stop-propagation="false">
+    <view class="question-wrapper" hover-class="none" hover-stop-propagation="false">
+        <van-cell-group>
+            <van-field hold-keyboard="{{true}}" value="{{title}}" label="反馈标题"  placeholder="请输入反馈标题" bind:change="titleChange" confirm-type="完成"></van-field>
+            <van-field hold-keyboard="{{true}}" value="{{content}}" type="textarea" size="large" label="反馈内容"  placeholder="请输入反馈内容" bind:change="contentChange" confirm-type="完成"></van-field>
+        </van-cell-group>
+
+        <view class="button_wrapper" hover-class="none" hover-stop-propagation="false">
+            <van-button type="danger" bindtap="cancelQuestion" size="small">取消</van-button>
+            <van-button type="primary" bindtap="onSubmitQuestion" size="small">确定</van-button>
+        </view>
+    </view>
+    <van-toast id="van-toast"/>
+</view>

@@ -1,51 +1,18 @@
-// miniprogram/pages/login/login.js
-const app =  getApp();
-
+// miniprogram/pages/desc/desc.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    nickname: '给自己一个微笑',
-    openid: '',
-    avatar: '',
-    loginCode: ''
+
   },
-  handleGetUserInfo (e) {
-    console.log(e);
-    app.globalData.userInfo = e.detail.userInfo;
-    wx.setStorage({
-      key: 'userInfo',
-      data: e.detail.userInfo,
-    })
-    wx.cloud.callFunction({
-      name: 'regeist',
-      data: {},
-    }).then(res => {
-      console.log(res.result.role)
-      wx.setStorage({
-        key: 'role',
-        data: res.result.role
-      })
-      if(res.result) {
-        wx.showLoading({
-          title: '登陆中...',
-          mask: true
-        });
-        setTimeout(()=>{
-          wx.hideLoading();
-          wx.switchTab({
-            url: '../index/index'
-          })
-        },2000)
-      }
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
   },
 
   /**
@@ -87,7 +54,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
- 
+
   },
 
   /**

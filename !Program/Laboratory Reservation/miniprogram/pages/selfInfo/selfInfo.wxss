@@ -1,0 +1,6 @@
+/* miniprogram/pages/selfInfo/selfInfo.wxss */
+.selfInfo_button{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 60rpx;
+}

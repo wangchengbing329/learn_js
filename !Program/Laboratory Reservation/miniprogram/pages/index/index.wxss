@@ -1,11 +1,11 @@
 /* miniprogram/pages/index/index.wxss */
-.user_page{
+.user_page,.admin_page{
     background-color: #ffffff;
     height: 100%;
     width: 100%;
     position: absolute;
 }
-.reserve_title ,.goReserve, .notice-title{
+.reserve_title ,.goReserve, .notice-title,.admin-title,.editor_title{
     font-weight: bold;
     margin: 30rpx 16rpx;
 }
@@ -58,4 +58,34 @@
 }
 .titleStyle{
   font-size:28rpx;
+}
+.searchButton {
+  background-color: #1989fa;
+  color: #fff;
+  padding:0rpx 14rpx;
+  border-radius: 2px;
+  font-size:28rpx;
+}
+.cancelButton {
+  background-color: #ee0a24;
+  color: #fff;
+  padding:0rpx 14rpx;
+  border-radius: 2px;
+  font-size:28rpx;
+
+}
+.agreeButton {
+  background-color: #07c160;
+  color: #fff;
+  padding:0rpx 14rpx;
+  border-radius: 2px;
+  font-size:28rpx;
+
+}
+.editor-wrapper {
+  margin-top: 40rpx;
+}
+
+.editor {
+  margin-top: 40rpx;
 }

@@ -7,22 +7,24 @@ cloud.init({
 const db = cloud.database({
   env: 'wcb-1a4bp'
 })
-
 // 云函数入口函数
-const _ = db.command;
 exports.main = async (event, context) => {
-  const {_id} = event;
-  let ret_code
-  await db.collection('lr_order').doc(_id).update({
+  const {floor_name,floor_num,floor_roomNum,not_classRoom } = event;
+  let ret_code;
+  
+  await db.collection('lr_floorInfo').add({
     data: {
-      isSolved:_.set(3),
-      statusChangeTime:_.set(new Date().getTime() )
+      floor_name,
+      floor_num,
+      floor_roomNum,
+      not_classRoom
     }
   }).then(res => {
-    if (res) {
+    console.log(res)
+    if (res.errMsg === 'collection.add:ok') {
       ret_code = 200
     } else {
-      ret_code = 409
+      ret_code = 403
     }
   })
 

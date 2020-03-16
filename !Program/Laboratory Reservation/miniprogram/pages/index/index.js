@@ -11,6 +11,9 @@ Page({
     isUser: false,
     activeNames:['0'],
     orderList: [],
+    eventsList: [],
+    adminActiveNames:[1],
+    isAganist:false,
     /**
      * ! 这里应当重新设计，需要专门设置标题字段，内容
      */
@@ -53,6 +56,11 @@ Page({
           url: '/pages/user/reserve/reserve'
         })
       }
+    })
+  },
+  changeOrderList(e) {
+    this.setData({
+      adminActiveNames: e.detail
     })
   },
   /**
@@ -109,6 +117,141 @@ Page({
       })
     })
   },
+  _initAdminIndexData(){
+    const that = this;
+    wx.cloud.callFunction({
+      name: 'searchOrder'
+    }).then(res => {
+      let { orderList } = res.result;
+      console.log(orderList,'----');
+      let newOrderList = []
+      for (let item of orderList) {
+        if ( item.isSolved === 0 ) {
+          newOrderList.push({
+            _id:item._id,
+            floor_name:item.floor_name,
+            day:item.selectedRoom.day,
+            month:item.selectedRoom.month + 1,
+            year:item.selectedRoom.year,
+            room_num: item.selectedRoom.selectedClassRoom < 10 
+                      ? item.selectedRoom.selectedFloor + '0' + item.selectedRoom.selectedClassRoom
+                      : + item.selectedRoom.selectedFloor + '' + item.selectedRoom.selectedClassRoom,
+            selectedClassRoom:item.selectedRoom.selectedClassRoom,
+            selectedFloor:item.selectedRoom.selectedFloor,
+            statusChangeTime:item.statusChangeTime,
+            class_id: item.selectedRoom.class_id
+          })
+        }
+      }
+      that.setData({
+        eventsList:newOrderList
+      })
+    })
+  },
+  handleSearchReq(e) {
+    const that = this;
+    const { info } = e.currentTarget.dataset;
+    wx.cloud.callFunction({
+      name: 'isFit',
+      data: {
+        info
+      }
+    }).then(res => {
+      const { ret_code } = res.result;
+      if (ret_code === 200) {
+        Toast('符合条件')
+      } else {
+        Toast('不符合条件')
+        that.setData({
+          isAganist:true
+        })
+      }
+    })
+  },
+  handleAgreeReq(e) {
+    const that = this;
+    const { id } = e.currentTarget.dataset;
+    const { isAganist }  = this.data;
+    if (isAganist) {
+      Toast('预定不符合条件，请勿违规操作')
+    } else {
+      wx.cloud.callFunction({
+        name: 'handleOrder',
+        data: {
+          siteName:'agree',
+          _id:id
+        }
+      }).then(res => {
+        const { ret_code } = res.result;
+        if (ret_code === 200) {
+          Toast.success('处理成功')
+          that._initAdminIndexData()
+        } else {
+          Toast.fail('操作失败，请稍后再试')
+        } 
+      })
+
+    }
+  },
+  handleCancelReq(e) {
+    const that = this;
+    const { id } = e.currentTarget.dataset;
+    const { isAganist }  = this.data;
+    wx.cloud.callFunction({
+      name:'handleOrder',
+      data: {
+        _id:id,
+        siteName: 'reject'
+      }
+    }).then(res => {
+      const { ret_code } = res.result;
+      if (ret_code === 200) {
+        Toast.success('处理成功');
+        that._initAdminIndexData();
+        that.setData({
+          isAganist:false
+        })
+      } else {
+        Toast.fail('操作失败，请稍后再试')
+      }
+    })
+  },
+  solveSite() {
+
+  },
+  handleEditNotice() {
+    wx.navigateTo({
+      url: '/pages/editor/editor',
+    })
+  },
+  handleEditRole() {
+    wx.navigateTo({
+      url: '/pages/editRole/editRole',
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
+  },
+  handleEditFloor(){
+    wx.navigateTo({
+      url: '/pages/editFloor/editFloor',
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -120,12 +263,13 @@ Page({
       this.setData({
         isUser:true
       })
+      this._initUserIndexData();
     } else{
       this.setData({
         isUser : false
       })
+      this._initAdminIndexData();
     }
-    this._initUserIndexData();
   },
   reserve() {
     wx.navigateTo({

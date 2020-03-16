@@ -4,10 +4,15 @@
     "pages/index/index",
     "pages/mine/mine",
     "pages/admin/order/user_order",
-    "pages/user/order/user_order",
     "pages/user/reserve/reserve",
     "pages/admin/index/index",
-    "pages/user/index/index"
+    "pages/selfInfo/selfInfo",
+    "pages/message/message",
+    "pages/desc/desc",
+    "pages/question/question",
+    "pages/editor/editor",
+    "pages/editRole/editRole",
+    "pages/editFloor/editFloor"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

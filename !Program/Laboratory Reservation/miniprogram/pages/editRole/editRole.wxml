@@ -1,0 +1,20 @@
+<!--miniprogram/pages/editRole/editRole.wxml-->
+<view class="selectRole-page" hover-class="none" hover-stop-propagation="false">
+    <van-cell-group>
+        <van-field value="{{roleId}}" placeholder="请输入职工号或学号!" label="职工号/学号" bind:change="inputRoleid"></van-field>
+    </van-cell-group>
+    
+    <van-radio-group  value="{{result}}" bind:change="changeRole">
+        <van-cell-group>
+            <van-cell wx:for="{{radioList}}" wx:key="item" title="{{item}}" data-name="{{index}}" bind:click="onSelect" clickable>
+                <van-radio  class="radioes-{{index}}" slot="right-icon" name="{{index}}"></van-radio>
+            </van-cell>
+        </van-cell-group>    
+    </van-radio-group>
+
+    <van-toast id="van-toast"></van-toast>
+    <view class="roleInfo_button" hover-class="none" hover-stop-propagation="false">
+        <van-button type="info" size="small" catchtap = "return">返回</van-button>
+        <van-button type="primary" size="small" catchtap = "submitRoleInfo">确认</van-button>
+    </view>
+</view>

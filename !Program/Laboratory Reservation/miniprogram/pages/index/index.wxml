@@ -13,6 +13,7 @@
                                         <van-button size="mini" type="danger" catchtap = "handleCancelOrder" data-id ="{{order.id}}">取消</van-button>
                                         <van-button size="mini" type="primary" catchtap = "handleModifyOrder" data-order ="{{order}}">修改</van-button>
                                     </view>
+                                    <van-tag wx:else></van-tag>
                                 </van-cell>
                             </block>
                     </van-cell-group>
@@ -26,7 +27,7 @@
         <text class="goReserve" selectable="false" space="false" decode="false">前往预定</text>
         <van-swipe-cell right-width="{{65}}">
             <van-cell-group>
-                <van-cell title="往右滑开启预定"></van-cell>
+                <van-cell title="右滑开启预定"></van-cell>
             </van-cell-group>
             <view slot="right" class="slotRight" bindtap="reserve">预定</view>    
         </van-swipe-cell>    
@@ -48,5 +49,46 @@
 
 <!--  管理员页面 -->
 <view class="admin_page" hover-class="none" hover-stop-propagation="false" wx:else>
+    <text class="admin-title" selectable="false" space="false" decode="false">待处理列表</text>
+    <van-collapse value="{{adminActiveNames}}" bind:change ="changeOrderList" border="{{false}}" custom-class="clloapseItemBg">
+            <van-collapse-item title="申请列表"  border="{{false}}"  name="{{1}}" custom-class="clloapseItemBg">
+                    <van-cell-group border="{{false}}">
+                            <block wx:for="{{eventsList}}"  wx:key="stausChangeTime">
+                                <van-cell title="{{item.year}}-{{item.month}}-{{item.day}}  {{item.floor_name}} {{item.room_num}}" title-class="titleStyle" >
+                                    <view class="order_button" hover-class="none" hover-stop-propagation="false" >
+                                        <text catchtap = "handleSearchReq" data-info ="{{item}}" class="searchButton">查询</text>
+                                        <text catchtap = "handleCancelReq" data-id ="{{item._id}}" class="cancelButton">拒绝</text>
+                                        <text catchtap = "handleAgreeReq" data-id ="{{item._id}}" class="agreeButton">同意</text>
+                                    </view>
+                                </van-cell>
+                            </block>
+                    </van-cell-group>
+            </van-collapse-item>
+        </van-collapse>
+    <van-toast id="van-toast"></van-toast>
+
+    <text class="editor_title" selectable="false" space="false" decode="false">其他功能</text>
+    <view class="editor-wrapper" hover-class="none" hover-stop-propagation="false">
+        <van-swipe-cell right-width="{{65}}">
+            <van-cell-group>
+                <van-cell title="右滑开启编辑通知"></van-cell>
+            </van-cell-group>
+            <view slot="right" class="slotRight" bindtap="handleEditNotice">编辑</view>    
+        </van-swipe-cell>
+
+        <van-swipe-cell right-width="{{65}}">
+            <van-cell-group>
+                <van-cell title="右滑设置用户权限"></van-cell>
+            </van-cell-group>
+            <view slot="right" class="slotRight" bindtap="handleEditRole">设置</view>    
+        </van-swipe-cell>
+
+        <van-swipe-cell right-width="{{65}}">
+            <van-cell-group>
+                <van-cell title="右滑设置楼层信息"></van-cell>
+            </van-cell-group>
+            <view slot="right" class="slotRight" bindtap="handleEditFloor">设置</view>    
+        </van-swipe-cell>
+    </view>
     
 </view>

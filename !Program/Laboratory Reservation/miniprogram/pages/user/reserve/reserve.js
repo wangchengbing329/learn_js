@@ -81,7 +81,8 @@ Page({
           },
           {
             text: '第三节课',
-            id: 6
+            id: 6,
+            disabled:false
           },
           {
             text: '第四节课',
@@ -299,7 +300,9 @@ Page({
     // console.log(detail);
     const {activeId} = this.data;
     const index =activeId.indexOf(detail.id);
+    console.log(detail)
     if (index > -1) {
+      console.log(1111)
       activeId.splice(index,1);
     } else {
       activeId.push(detail.id)
@@ -354,14 +357,12 @@ goBack() {
 submit() {
   let { activeId, year, month, day, selectedClassRoom, selectedFloor, value1, option } = this.data;
   const orderInfo = wx.getStorageSync('orderInfo')
-  if (activeId.length !== 0) {
-    let isAllow =  activeId.reduce((pre,next) => {
-      return pre - next
-    })
-    const isAllowNum = isAllow + activeId.length
-    if (isAllowNum !== 1) {
+  console.log(activeId)
+  let isAllow =  activeId.reduce((pre,next) => {
+    return next - pre
+  })
+  if (activeId.length !== 0 && isAllow !== 1) {   
       Toast('请选择正确的时间段')
-    }  
   } else if (activeId.length === 0){
     Toast('请选择时间段');
   }  else if(selectedClassRoom === 0 ) {
@@ -374,6 +375,7 @@ submit() {
       } 
     } 
     console.log(floor_name)
+    console.log(11111333333)
     if (orderInfo) {
       wx.cloud.callFunction({
         name: 'submitOrder',
@@ -386,13 +388,13 @@ submit() {
           day,
           class_id:activeId,
           floor_name,
-          id:orderInfo.is
+          id:orderInfo.id
         }
       }).then(res => {
         let {successCode} = res.result;
         if (successCode === 201) {
-          Toast.success('修改预定成功')
           wx.removeStorageSync('orderInfo')
+          Toast.success('修改预定成功')
           setTimeout(() => {
             wx.switchTab({
               url: '/pages/index/index',
@@ -426,14 +428,7 @@ submit() {
               url: '/pages/index/index'
             })
           },1500)
-        } else if (successCode === 201) {
-          Toast.success('订单修改成功')
-          setTimeout(()=> {
-            wx.switchTab({
-              url: '/pages/index/index'
-            })
-          },1500)
-        }
+        } 
       })
 
     }

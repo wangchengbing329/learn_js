@@ -24,7 +24,7 @@
 	},
 	"appid": "wx037e7afbf24c6604",
 	"projectname": "Laboratory%20Reservation",
-	"libVersion": "2.2.5",
+	"libVersion": "2.10.3",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
@@ -90,6 +90,54 @@
 					"name": "pages/user/reserve/reserve",
 					"pathName": "pages/user/reserve/reserve",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/selfInfo/selfInfo",
+					"pathName": "pages/selfInfo/selfInfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/desc/desc",
+					"pathName": "pages/desc/desc",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/question/question",
+					"pathName": "pages/question/question",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/editRole/editRole",
+					"pathName": "pages/editRole/editRole",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/editRole/editRole",
+					"pathName": "pages/editRole/editRole",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/editFloor/editFloor",
+					"pathName": "pages/editFloor/editFloor",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/editor/editor",
+					"pathName": "pages/editor/editor",
 					"scene": null
 				}
 			]

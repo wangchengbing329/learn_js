@@ -1,0 +1,5 @@
+<!--miniprogram/pages/desc/desc.wxml-->
+<view class="about-page" hover-class="none" hover-stop-propagation="false">
+    <view class="desc_title" >说明</view>
+    <view class="desc-content">  本小程序仅用于实验室预定，概不从事任何商业活动。本小程序在使用过程中需要用户提供一些基本信息用于学校管理员方便管理预定申请，所收集的用户信息不涉及用户敏感信息，请勿担心信息泄露。如使用过程中有不愉快体验，请您提供反馈!</view>
+</view>

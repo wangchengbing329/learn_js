@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "编辑通知",
+  "disableScroll": false,
+  "usingComponents": {
+    "van-button":"@vant/weapp/button",
+    "van-toast":"@vant/weapp/toast"
+  }
+}

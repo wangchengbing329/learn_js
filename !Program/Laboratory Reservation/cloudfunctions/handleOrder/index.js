@@ -9,23 +9,26 @@ const db = cloud.database({
 })
 
 // 云函数入口函数
-const _ = db.command;
+const _ = db.command
 exports.main = async (event, context) => {
-  const {_id} = event;
-  let ret_code
+  const { siteName, _id } = event;
+  let solveCode, ret_code;
+  if (siteName === 'reject') {
+    solveCode = 1
+  } else if ( siteName === 'agree')  {
+    solveCode = 2
+  } 
   await db.collection('lr_order').doc(_id).update({
     data: {
-      isSolved:_.set(3),
-      statusChangeTime:_.set(new Date().getTime() )
+      isSolved:_.set(solveCode)
     }
   }).then(res => {
     if (res) {
       ret_code = 200
     } else {
-      ret_code = 409
+      ret_code = 404
     }
   })
-
   return {
     ret_code
   }

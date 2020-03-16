@@ -1,0 +1,10 @@
+<!--miniprogram/pages/message/message.wxml-->
+<view class="message-page" hover-class="none" hover-stop-propagation="false">
+    <view class="message-wrapper" hover-class="none" hover-stop-propagation="false">
+        <van-cell-group>
+            <block wx:for="{{messageList}}">
+                <van-cell></van-cell>
+            </block>
+        </van-cell-group>
+    </view>
+</view>

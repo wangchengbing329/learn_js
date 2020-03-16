@@ -1,0 +1,27 @@
+<!--miniprogram/pages/selfInfo/selfInfo.wxml-->
+<view class="selfInfo_page" hover-class="none" hover-stop-propagation="false">
+    <view class="user_info-wrapper" hover-class="none" hover-stop-propagation="false" wx:if="{{isUser}}">
+        <van-cell-group>
+            <van-field type="number" hold-keyboard="{{true}}" value="{{enrollment}}" label="入学年份" error-message="{{enrollmentMessage}}" placeholder="请输入入学年份" bind:change="enrollChange"  ></van-field>
+            <van-field hold-keyboard="{{true}}" value="{{school}}" label="所在学校" error-message="{{schoolMessage}}" placeholder="请输入学校名称" bind:change="schoolChange" confirm-type="完成"></van-field>
+            <van-field hold-keyboard="{{true}}" value="{{className}}" label="所在班级" error-message="{{calssMessage}}" placeholder="请输入所在班级" bind:change="classChange" confirm-type="完成"></van-field>
+            <van-field type="number" hold-keyboard="{{true}}" value="{{studentId}}" label="学生学号"  placeholder="请输入学号" bind:change="idChange" confirm-type="完成"></van-field>
+        </van-cell-group>
+    </view>
+
+    
+    <view class="user_info-wrapper" hover-class="none" hover-stop-propagation="false" wx:else>
+        <van-cell-group>
+            <van-field type="number" hold-keyboard="{{true}}" value="{{enrollment}}" label="入职年份" error-message="{{enrollmentMessage}}" placeholder="请输入入职年份" bind:change="enrollChange"  ></van-field>
+            <van-field hold-keyboard="{{true}}" value="{{school}}" label="所在学校" error-message="{{schoolMessage}}" placeholder="请输入学校名称" bind:change="schoolChange" confirm-type="完成"></van-field>
+            <van-field hold-keyboard="{{true}}" value="{{className}}" label="所在部门" error-message="{{calssMessage}}" placeholder="请输入所在部门名称" bind:change="classChange" confirm-type="完成"></van-field>
+            <van-field type="number" hold-keyboard="{{true}}" value="{{studentId}}" label="职工号"  placeholder="请输入职工号" bind:change="idChange" confirm-type="完成"></van-field>
+        </van-cell-group>
+    </view>
+
+    <van-toast id="van-toast"></van-toast>
+    <view class="selfInfo_button" hover-class="none" hover-stop-propagation="false">
+        <van-button type="info" size="small" catchtap = "return">返回</van-button>
+        <van-button type="primary" size="small" catchtap = "confirmInfo">确认</van-button>
+    </view>
+</view>

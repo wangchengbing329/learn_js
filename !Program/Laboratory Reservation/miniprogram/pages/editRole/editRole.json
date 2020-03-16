@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "van-cell-group":"@vant/weapp/cell-group",
+    "van-field" : "@vant/weapp/field",
+    "van-cell":"@vant/weapp/cell",
+    "van-radio":"@vant/weapp/radio",
+    "van-radio-group":"@vant/weapp/radio-group",
+    "van-button":"@vant/weapp/button",
+    "van-toast":"@vant/weapp/toast"
+  }
+}

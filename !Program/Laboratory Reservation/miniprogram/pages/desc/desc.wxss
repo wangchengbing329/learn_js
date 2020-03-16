@@ -1,0 +1,16 @@
+/* miniprogram/pages/desc/desc.wxss */
+.desc_title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 50rpx;
+    margin-top: 60rpx;
+}
+.about-page {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.desc-content{
+    margin-top: 60rpx;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}

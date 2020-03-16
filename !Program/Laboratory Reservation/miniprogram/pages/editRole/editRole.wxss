@@ -1,0 +1,12 @@
+/* miniprogram/pages/editRole/editRole.wxss */
+.roleInfo_button{
+    margin-top: 80rpx;  
+    display: flex;
+    justify-content: space-around;
+}
+.selectRole-page{
+    position: absolute;
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+}
