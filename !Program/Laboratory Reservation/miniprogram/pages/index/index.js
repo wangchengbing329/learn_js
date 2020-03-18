@@ -17,7 +17,7 @@ Page({
     /**
      * ! 这里应当重新设计，需要专门设置标题字段，内容
      */
-    notice_tips:['       老师好','同学们好'],
+    notice_tips:[],
     open_id: 'myyan222',
     nickname: '给自己一个微笑'
   },
@@ -115,6 +115,38 @@ Page({
       that.setData({
         orderList: newOrderList
       })
+    })
+  },
+  _initNotice(){
+    const that = this;
+    let newNoticeList = [];
+    wx.cloud.callFunction({
+      name:'getNotice'
+    }).then(res => {
+      const {noticeList} = res.result;
+      console.log(noticeList)
+      for (let item of noticeList){
+        newNoticeList.push(item.notice)
+      }
+    })
+    that.setData({
+      notice_tips:newNoticeList
+    })
+  },
+  onEditorReady(e) {
+    const that = this;
+    const {index} = e.currentTarget.dataset;
+    const {id} = e.currentTarget;
+    wx.createSelectorQuery().select(`#${id}`).context(function (res) {
+      that[`editorCtx${index}`] = res.context
+    }).exec()
+  },
+  onSwiperChange(e){
+    console.log(e)
+    const {notice_tips} = this.data;
+    const index = e.detail.value;
+    this[`editorCtx${index}`].setContents({
+      delta:JSON.parse(notice_tips[index])
     })
   },
   _initAdminIndexData(){
@@ -264,6 +296,7 @@ Page({
         isUser:true
       })
       this._initUserIndexData();
+      this._initNotice()
     } else{
       this.setData({
         isUser : false

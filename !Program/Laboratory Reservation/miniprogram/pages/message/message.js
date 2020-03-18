@@ -7,12 +7,43 @@ Page({
   data: {
     messageList:[]
   },
+  _initMessageData() {
+    const that = this;
+    wx.cloud.callFunction({
+      name: 'searchOrder'
+    }).then(res =>{
+      const {orderList} = res.result;
+      console.log(orderList);
+      let newOrderList = [];
+      let message;
+      for (let item of orderList) {
+        let room = item.selectedRoom.selectedClassRoom < 10
+                      ? item.selectedRoom.selectedClassRoom + '0' + item.selectedRoom.selectedFloor
+                      : item.selectedRoom.selectedClassRoom + '' + item.selectedRoom.selectedFloor
+        if (item.isSolved === 3) {
+          message = `${item.selectedRoom.year}-${item.selectedRoom.year}-${item.selectedRoom.year} ${room} 已取消`;
+        } else if (item.isSolved === 2) {
+          message = `${item.selectedRoom.year}-${item.selectedRoom.year}-${item.selectedRoom.year} ${room} 已成功`
+        } else if (item.isSolved === 1) {
+          message = `${item.selectedRoom.year}-${item.selectedRoom.year}-${item.selectedRoom.year} ${room} 已拒绝`
+        }
+        let handleTime = new Date(item.statusChangeTime).toLocaleDateString()
+        newOrderList.push({
+          title:message,
+          label:handleTime
+        })
+      }
+      that.setData({
+        messageList:newOrderList
+      })
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this._initMessageData();
   },
 
   /**

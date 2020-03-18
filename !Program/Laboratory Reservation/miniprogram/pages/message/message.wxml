@@ -2,8 +2,8 @@
 <view class="message-page" hover-class="none" hover-stop-propagation="false">
     <view class="message-wrapper" hover-class="none" hover-stop-propagation="false">
         <van-cell-group>
-            <block wx:for="{{messageList}}">
-                <van-cell></van-cell>
+            <block wx:for="{{messageList}}" wx:key="label">
+                <van-cell title="{{item.title}}" label="{{item.label}} 已处理"></van-cell>
             </block>
         </van-cell-group>
     </view>
