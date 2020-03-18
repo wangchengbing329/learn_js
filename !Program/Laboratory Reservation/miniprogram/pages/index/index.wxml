@@ -1,4 +1,5 @@
 <!--miniprogram/pages/index/index.wxml-->
+<wxs src="./tag.wxs" module="tag"></wxs>
 <view class="user_page" hover-class="none" hover-stop-propagation="false" wx:if="{{isUser}}">
 
     <view class="" hover-class="none" hover-stop-propagation="false">
@@ -13,7 +14,7 @@
                                         <van-button size="mini" type="danger" catchtap = "handleCancelOrder" data-id ="{{order.id}}">取消</van-button>
                                         <van-button size="mini" type="primary" catchtap = "handleModifyOrder" data-order ="{{order}}">修改</van-button>
                                     </view>
-                                    <van-tag wx:else></van-tag>
+                                    <van-tag wx:else type="{{tag.tagTypes(order.year,order.month,order.day,order.isSolved)}}" custom-class="{{tag.tagTypes(order.year,order.month,order.day,order.isSolved) === 'over' ? 'overClass' : '' }}">{{tag.tagNames(order.year,order.month,order.day,order.isSolved)}}</van-tag>
                                 </van-cell>
                             </block>
                     </van-cell-group>

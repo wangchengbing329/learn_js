@@ -81,7 +81,7 @@ Page({
         orderInfo:[]
       }]
       for (let item of orderList) {
-        if (item.isSolved === 1) {
+        if (item.isSolved !== 0) {
           newOrderList[1].orderInfo.push({
             floor_name:item.floor_name,
             id:item._id,
@@ -93,7 +93,8 @@ Page({
                       : + item.selectedRoom.selectedFloor + '' + item.selectedRoom.selectedClassRoom,
             selectedClassRoom:item.selectedRoom.selectedClassRoom,
             selectedFloor:item.selectedRoom.selectedFloor,
-            class_id: item.selectedRoom.class_id
+            class_id: item.selectedRoom.class_id,
+            isSolved:item.isSolved
           })
         } else {
           newOrderList[0].orderInfo.push({
@@ -107,7 +108,8 @@ Page({
                       : + item.selectedRoom.selectedFloor + '' + item.selectedRoom.selectedClassRoom,
             selectedClassRoom:item.selectedRoom.selectedClassRoom,
             selectedFloor:item.selectedRoom.selectedFloor,
-            class_id: item.selectedRoom.class_id
+            class_id: item.selectedRoom.class_id,
+            isSolved:item.isSolved
 
           })
         }
@@ -288,7 +290,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    let year = 2020,month=4,day=12;
+    var time = '' + year + '/' + month + '/' + day + ' ' + '12:00:00';
+    console.log(time, '-----')
+  var handleTime = Date.parse(time);
+  console.log(handleTime, '')
+  var now = Date.now();
+  console.log(now, '')
     let role = wx.getStorageSync('role')
     console.log(role)
     if (role === '1') {
@@ -297,7 +305,7 @@ Page({
       })
       this._initUserIndexData();
       this._initNotice()
-    } else{
+    } else if(role === '0'){
       this.setData({
         isUser : false
       })

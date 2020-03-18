@@ -1,0 +1,38 @@
+function tagTypes (year,month,day,isSolved) {
+var time = '' + year + '/' + month +'/' + day + ' ' +'12:00:00';
+var handleTime = Date.parse(time);
+var now = Date.now();
+var isOver = now -handleTime
+var tagType;
+if (isOver > 0) {
+tagType = 'over'
+} else {
+  switch(isSolved) {
+    case 1: tagType="danger";break;
+    case 2: tagType="success";break;
+    case 3: tagType = "warning";break;
+  }
+}
+return tagType;
+}
+function tagNames(year, month, day, isSolved) {
+  var time = '' + year + '/' + month + '/' + day + ' ' + '12:00:00';
+  var handleTime = Date.parse(time);
+  var now = Date.now();
+  var isOver = now - handleTime
+  var tagName;
+  if (isOver > 0) {
+    tagName = '过期'
+  } else {
+    switch (isSolved) {
+      case 1:  tagName = "失败"; break;
+      case 2:  tagName = "成功"; break;
+      case 3:  tagName = "取消"; break;
+    }
+  }
+  return tagName;
+}
+module.export={
+  tagNames:tagNames,
+  tagTypes:tagTypes
+}

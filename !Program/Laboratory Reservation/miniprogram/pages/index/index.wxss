@@ -89,3 +89,6 @@
 .editor {
   margin-top: 40rpx;
 }
+.overClass{
+  color:#969799;
+}
