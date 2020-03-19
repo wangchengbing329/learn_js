@@ -15,6 +15,7 @@ exports.main = async (event, context) => {
   let hasSelectedClass;
   await db.collection('lr_order').where({
     floor_name,
+    isSolved:2,
     selectedRoom: {
       year, 
       month,

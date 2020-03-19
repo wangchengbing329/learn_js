@@ -19,8 +19,9 @@
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     flex-wrap: nowrap;
-    // overflow:scroll;
+    overflow-x: scroll;
 }
 .grid-row ::-webkit-scrollbar{
     display: none;
@@ -28,13 +29,12 @@
 .grid-col {
     width: 80rpx;
     height: 80rpx;
-    // float: left;
     margin-right: 10rpx;
     border-radius: 4px ;
-    background-color: #1989fa;
+    background-color: #969799;
 }
 .title-inner {
-    color: #f0f0f1;
+    color: white;
     height: 80rpx;
     width: 80rpx;
 }

@@ -29,6 +29,7 @@
         <van-cell title="请选择教室以及时间段">
             <text class="selectTip" selectable="false" space="false" decode="false">*点击数字选择时间段</text>
         </van-cell>
+        <van-cell title="目前选择:  {{year}}-{{month+1}}-{{day}} {{room}}"></van-cell>
     </van-cell-group>
     
     <view class="reserve-wrapper" hover-class="none" hover-stop-propagation="false">
@@ -45,8 +46,8 @@
                         max="{{4}}"
                         content-active-class="selectedClass"
                         content-item-class="contentItem"
-                        catch:click-nav="onClickNav"
-                        catch:click-item="onClickItem">
+                        bind:click-nav="onClickNav"
+                        bind:click-item="onClickItem">
                     </van-tree-select>
             </van-popup>
                 </view>

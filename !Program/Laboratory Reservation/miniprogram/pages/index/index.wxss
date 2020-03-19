@@ -90,5 +90,5 @@
   margin-top: 40rpx;
 }
 .overClass{
-  color:#969799;
+  background-color:#969799!important;
 }

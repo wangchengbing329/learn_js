@@ -32,7 +32,7 @@ function tagNames(year, month, day, isSolved) {
   }
   return tagName;
 }
-module.export={
+module.exports={
   tagNames:tagNames,
   tagTypes:tagTypes
 }

@@ -14,12 +14,7 @@ Page({
     eventsList: [],
     adminActiveNames:[1],
     isAganist:false,
-    /**
-     * ! 这里应当重新设计，需要专门设置标题字段，内容
-     */
-    notice_tips:[],
-    open_id: 'myyan222',
-    nickname: '给自己一个微笑'
+    noticeTips:[]
   },
   changeList(e) {
     this.setData({
@@ -132,7 +127,7 @@ Page({
       }
     })
     that.setData({
-      notice_tips:newNoticeList
+      noticeTips:newNoticeList
     })
   },
   onEditorReady(e) {
@@ -145,10 +140,10 @@ Page({
   },
   onSwiperChange(e){
     console.log(e)
-    const {notice_tips} = this.data;
-    const index = e.detail.value;
+    const {noticeTips} = this.data;
+    const index = e.detail.current;
     this[`editorCtx${index}`].setContents({
-      delta:JSON.parse(notice_tips[index])
+      delta:JSON.parse(noticeTips[index])
     })
   },
   _initAdminIndexData(){

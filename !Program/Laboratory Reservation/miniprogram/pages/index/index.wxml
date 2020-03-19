@@ -36,17 +36,30 @@
 
     <view class="notice-wrapper">
         <text class="notice-title">通知</text>
-        <swiper class="" indicator-dots="{{false}}" indicator-color="rgba(0,0,0,.3)" autoplay="{{true}}" current="0" current-item-id="" interval="5000" duration="1000" circular="false" vertical="false" previous-margin="false" next-margin="0px" skip-hidden-item-layout="false" bindchange="onSwiperChange" bindanimationfinish="">
-            <block wx:for="{{notice_tips}}" wx:key="index">
-                <swiper-item class="" item-id="{{index}}">
-                    <view class="tipTitle" hover-class="none" hover-stop-propagation="false">
-                        <!-- <editor placeholder="请等待" id="userEditor{{index}}" read-only="{{true}}" data-index="{{index}}" bindready="onEditorReady"></editor>     -->
+        <view class="slider">
+            <!-- <swiper class="" indicator-dots="{{false}}" indicator-color="rgba(0,0,0,.3)" autoplay="{{true}}" current="{{0}}" current-item-id="" interval="5000" duration="1000" circular="false" vertical="{{true}}" previous-margin="false" next-margin="0px" skip-hidden-item-layout="false" bindchange="onSwiperChange" bindanimationfinish="">
+            <block wx:for="{{noticeTips}}" wx:key="*this">
+                <swiper-item class="" item-id="{{index}}" >
+                    <view class="" hover-class="none" hover-stop-propagation="false">
+                    {{item}}
                     </view>
-                    <editor read-only="{{true}}" id="userEditor{{index}}" class="ql-container" placeholder="请等待刷新" data-index="{{index}}" bindready="onEditorReady">
-                    </editor>
+                    <editor data-index="{{index}}" id="userEditor{{index}}" bindready="onEditorReady" placeholder="请等待刷新" read-only="{{true}}"></editor>    
                 </swiper-item>
             </block>
-        </swiper>
+            </swiper> -->
+            <swiper class="" indicator-dots="{{false}}" indicator-color="rgba(0,0,0,.3)" autoplay="{{true}}" 
+                current="{{0}}" current-item-id="" interval="5000" duration="1000" circular="false" vertical="{{true}}" 
+            previous-margin="false" next-margin="0px" display-multiple-items="1" skip-hidden-item-layout="false" bindchange="onSwiperChange" bindanimationfinish="">
+                <block wx:for="{{noticeTips}}" wx:key="index">
+                    <swiper-item class="" item-id="{{index}}">
+                       <!-- <editor id="userEditor{{index}}" placeholder="请等待" bindready="onEditorReady" read-only="{{true}}" data-index="{{index}}"></editor>  -->
+                       <text class="" selectable="false" space="false" decode="false">
+                           {{item}}
+                       </text>
+                    </swiper-item>
+                </block>
+            </swiper>
+        </view>
     </view>
 </view>
 

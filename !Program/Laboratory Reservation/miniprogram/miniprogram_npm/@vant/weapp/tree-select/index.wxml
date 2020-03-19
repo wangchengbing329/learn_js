@@ -25,7 +25,7 @@
       wx:key="id"
       class="van-ellipsis content-item-class {{ utils.bem('tree-select__item', { active: wxs.isActive(activeId, item.id), disabled: item.disabled }) }} {{ wxs.isActive(activeId, item.id) ? 'content-active-class' : '' }} {{ item.disabled ? 'content-disabled-class' : '' }}"
       data-item="{{ item }}"
-      catch:tap="onSelectItem"
+      catchtap="onSelectItem"
     >
       {{ item.text}}
       <van-icon

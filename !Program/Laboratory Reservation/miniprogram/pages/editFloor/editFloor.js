@@ -76,7 +76,7 @@ Page({
     let isNullInfo = not_classRoom.some(item=>{
       return (item.selectedClassRoom === '' || item.selectedFloor === '')
     })
-    floor_num= parseInt(floor_num);
+    floor_num = parseInt(floor_num);
     floor_roomNum=parseInt(floor_roomNum)
     let not_classRoomCopy = [] 
     not_classRoom.map(item => {
@@ -91,7 +91,7 @@ Page({
       wx.cloud.callFunction({
         name: 'submitFloorInfo',
         data: {
-          floor_roomNum,
+          floor_num,
           floor_name,
           floor_roomNum,
           not_classRoom:not_classRoomCopy
