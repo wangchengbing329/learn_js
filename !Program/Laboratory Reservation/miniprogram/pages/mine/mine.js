@@ -20,7 +20,7 @@ Page({
     }).then(res => {
       console.log(res)
     const { unReadList } = res.result;
-    if (unReadList === 0) {
+    if (unReadList.length === 0) {
       that.setData({
         infoNum: null
       }) 
@@ -35,8 +35,9 @@ Page({
   },
   goToCatePage(e) {
     let {page} = e.currentTarget.dataset;
+    
     if (page === 'message') {
-      wx.navigateTo({
+      wx.redirectTo({
         url: `/pages/${page}/${page}`,
         success: function(res){
           // success
@@ -133,7 +134,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log(11111)
+    this.searchUnread();
   },
 
   /**

@@ -149,7 +149,7 @@ Page({
   _initAdminIndexData(){
     const that = this;
     wx.cloud.callFunction({
-      name: 'searchOrder'
+      name: 'searchOrderList'
     }).then(res => {
       let { orderList } = res.result;
       console.log(orderList,'----');
@@ -285,13 +285,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let year = 2020,month=4,day=12;
-    var time = '' + year + '/' + month + '/' + day + ' ' + '12:00:00';
-    console.log(time, '-----')
-  var handleTime = Date.parse(time);
-  console.log(handleTime, '')
-  var now = Date.now();
-  console.log(now, '')
+    
     let role = wx.getStorageSync('role')
     console.log(role)
     if (role === '1') {
@@ -328,7 +322,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let role = wx.getStorageSync('role')
+    console.log(role)
+    if (role === '1') {
+      this.setData({
+        isUser:true
+      })
+      this._initUserIndexData();
+      this._initNotice()
+    } else if(role === '0'){
+      this.setData({
+        isUser : false
+      })
+      this._initAdminIndexData();
+    }
   },
 
   /**

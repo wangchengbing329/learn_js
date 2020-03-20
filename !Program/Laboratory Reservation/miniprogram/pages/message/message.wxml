@@ -2,9 +2,12 @@
 <view class="message-page" hover-class="none" hover-stop-propagation="false">
     <view class="message-wrapper" hover-class="none" hover-stop-propagation="false">
         <van-cell-group>
-            <block wx:for="{{messageList}}" wx:key="label">
-                <van-cell title="{{item.title}}" label="{{item.label}} 已处理"></van-cell>
+            <block wx:for="{{messageList}}" wx:key="index">
+                <van-cell title="{{item.title}}" label="{{item.label}}"></van-cell>
             </block>
         </van-cell-group>
+    </view>
+    <view class="messageButton">
+        <van-button type="info" bind:tap="return" size="small" icon="arrow-left">返回</van-button>
     </view>
 </view>

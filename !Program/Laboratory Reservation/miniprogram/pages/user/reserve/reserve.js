@@ -119,23 +119,13 @@ Page({
   },
   _initFloorInfo() {
     const that = this;
-    let newOption = [];
     let { year, month, day, selectItems } = this.data;
     wx.cloud.callFunction({
       name: 'floorInfo',
       data: {}
     }).then(res => {
       const { floorInfo } = res.result;
-      console.log(floorInfo)
-        floorInfo.map((item,index) => {
-           newOption.push({
-            text:item.floor_name,
-            value:index
-          })
-        })
-        that.setData({
-          option:newOption
-        })
+      
         let { value1, option} = this.data;
         console.log(option, value1)
       let floor_name;
@@ -154,9 +144,28 @@ Page({
           that.getRoomId();
         }
       }
+    })
+    
+  },
+  _initFloor() {
+    const that = this;
+    let newOption = [];
+    wx.cloud.callFunction({
+      name: 'floorInfo'
+    }).then(res => {
+      const { floorInfo } = res.result;
+      console.log(floorInfo)
+        floorInfo.map((item,index) => {
+           newOption.push({
+            text:item.floor_name,
+            value:index
+          })
+        })
+        that.setData({
+          option:newOption
+        })
       return newOption
     }).then(res => {
-      console.log(res,'pppppp')
       const orderInfo =  wx.getStorageSync('orderInfo');
       if (orderInfo) {
         console.log(orderInfo)
@@ -170,6 +179,9 @@ Page({
           }
         }
         let currentDate = `${year}/${month}/${day} 12:00:00`
+        let newRoom = selectedClassRoom <10
+                        ? selectedFloor + '0' + selectedClassRoom
+                        : selectedFloor + '' + selectedClassRoom
         console.log(class_id)
         this.setData({
           activeId:class_id,
@@ -179,12 +191,13 @@ Page({
           month:month -1,
           day,
           value1:value,
+          room: newRoom,
           currentDate:new Date(currentDate).getTime()
         })
         console.log(that.data.activeId)
       }
+      this._initFloorInfo();
     })
-    
   },
   /**
    * todo 可以优化
@@ -389,7 +402,8 @@ Page({
     let newDay  = new Date(e.detail).getDate();
     if (oldDay !== newDay || oldMonth !== newMonth || oldYear !== newYear) {
       this.setData({
-        activeId: []
+        activeId: [],
+        room: ''
       })
     }
     this.setData({
@@ -454,7 +468,8 @@ Page({
     const oldExperiment = JSON.parse(JSON.stringify(value1));
     if (oldExperiment !== e.detail) {
       this.setData({
-        activeId: []
+        activeId: [],
+        room: ''
       })
     }
     this.setData({
@@ -494,7 +509,7 @@ submit() {
   console.log(activeId)
 
   if (selectedClassRoom === 0) {
-    Toast('请选择教室')
+    Toast('请选择教室');
   } else if (activeId.length === 0){
     Toast('请选择时间段');
   } else {
@@ -582,8 +597,7 @@ submit() {
   onLoad: function (options) {
     
     
-    this._initFloorInfo()
-    
+    this._initFloor();
     // console.log(this.data.floorArr,this.data.room_numArr);
   },
 

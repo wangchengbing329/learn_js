@@ -28,7 +28,7 @@
         <text class="goReserve" selectable="false" space="false" decode="false">前往预定</text>
         <van-swipe-cell right-width="{{65}}">
             <van-cell-group>
-                <van-cell title="右滑开启预定"></van-cell>
+                <van-cell title="右滑开启预定" size="large"></van-cell>
             </van-cell-group>
             <view slot="right" class="slotRight" bindtap="reserve">预定</view>    
         </van-swipe-cell>    
@@ -88,21 +88,21 @@
     <view class="editor-wrapper" hover-class="none" hover-stop-propagation="false">
         <van-swipe-cell right-width="{{65}}">
             <van-cell-group>
-                <van-cell title="右滑开启编辑通知"></van-cell>
+                <van-cell title="右滑开启编辑通知" size="large"></van-cell>
             </van-cell-group>
             <view slot="right" class="slotRight" bindtap="handleEditNotice">编辑</view>    
         </van-swipe-cell>
 
         <van-swipe-cell right-width="{{65}}">
             <van-cell-group>
-                <van-cell title="右滑设置用户权限"></van-cell>
+                <van-cell title="右滑设置用户权限" size="large"></van-cell>
             </van-cell-group>
-            <view slot="right" class="slotRight" bindtap="handleEditRole">设置</view>    
+            <view slot="right" class="slotRight" bindtap="handleEditRole" size="large">设置</view>    
         </van-swipe-cell>
 
         <van-swipe-cell right-width="{{65}}">
             <van-cell-group>
-                <van-cell title="右滑设置楼层信息"></van-cell>
+                <van-cell title="右滑设置楼层信息" size="large"></van-cell>
             </van-cell-group>
             <view slot="right" class="slotRight" bindtap="handleEditFloor">设置</view>    
         </van-swipe-cell>
