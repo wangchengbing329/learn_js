@@ -14,7 +14,9 @@ Page({
     eventsList: [],
     adminActiveNames:[1],
     isAganist:false,
-    noticeTips:[]
+    noticeTips:app.globalData.newNoticeList,
+    current:0,
+    noticeShow:false
   },
   changeList(e) {
     this.setData({
@@ -124,11 +126,13 @@ Page({
       console.log(noticeList)
       for (let item of noticeList){
         newNoticeList.push(item.notice)
+        console.log(typeof(item.notice), '')
       }
     })
     that.setData({
       noticeTips:newNoticeList
     })
+
   },
   onEditorReady(e) {
     const that = this;
@@ -295,15 +299,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    console.log(options, '')
     let role = wx.getStorageSync('role')
     console.log(role)
     if (role === '1') {
       this.setData({
         isUser:true
       })
-      this._initUserIndexData();
       this._initNotice()
+      this._initUserIndexData();
+      
     } else if(role === '0'){
       this.setData({
         isUser : false
@@ -346,6 +351,13 @@ Page({
       })
       this._initAdminIndexData();
     }
+    let chageStatus = setTimeout(()=> {
+      this.setData({
+        noticeShow:true
+      },()=> {
+        clearTimeout(chageStatus)
+      })
+    },2000)
   },
 
   /**

@@ -12,7 +12,8 @@ App({
         traceUser: true,
       })
     }
-
-    this.globalData = {}
+    
+    this.globalData = {
+    }
   }
 })
