@@ -21,7 +21,18 @@
   font-size: 34rpx;
 
 }
+.van-swipe-cell__left {
+  background-color: #50d890;
+  width: 150rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.slotLeft{
+  color:white;
+  font-size: 34rpx;
+}
 .order{
   font-size: 32rpx;
   margin-top: 10rpx;

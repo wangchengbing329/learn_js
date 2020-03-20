@@ -1,0 +1,28 @@
+
+<view class="editFloor-page" hover-class="none" hover-stop-propagation="false">
+    <van-cell-group>
+        <van-field label="实验楼楼名称" placeholder="请输入实验楼名称" value="{{floor_name}}" input-align="right" bind:change="changeFloorName"></van-field>
+        <van-field type="number" label="实验楼楼层/楼" placeholder="请输入实验楼楼层数" value="{{floor_num}}" input-align="right" bind:change="changeFloorNum"></van-field>
+        <van-field type="number" label="房间数/层" placeholder="请输入实验楼楼层房间数" value="{{floor_roomNum}}" input-align="right" bind:change="changeFloorRoomNum"></van-field>
+    </van-cell-group>
+
+    <van-collapse value="{{activeNames}}" bind:change="isShow">
+        <van-collapse-item name="1" title="非实验室房间">
+            <block wx:for="{{not_classRoom}}" wx:key="index">
+                <van-cell-group title="房间{{index + 1}}：">
+                    <van-field type="number" label="楼层" placeholder="请输入数字楼层" value="{{item.selectedFloor}}" data-index="{{index}}" bind:change="handleNonFloor"></van-field>
+                    <van-field type="number" label="房间号" placeholder="请输入数字房间号" value="{{item.selectedClassRoom}}" data-index="{{index}}" bind:change="handleNonRoomNum"></van-field>
+                </van-cell-group>
+            </block>
+            <view class="addButton" hover-class="none" hover-stop-propagation="false">
+                <van-button type="info" icon="plus" plain  catchtap = "addFloor"></van-button>
+            </view>
+        </van-collapse-item>
+    </van-collapse>
+
+    <van-toast id="van-toast"></van-toast>
+    <view class="editFloor-button" hover-class="none" hover-stop-propagation="false">
+        <van-button type="danger"   catchtap = "return" size="small">取消</van-button>
+        <van-button type="primary"  catchtap = "submitFloorInfo" size="small">提交</van-button>   
+    </view>
+</view>

@@ -100,9 +100,10 @@
             <view slot="right" class="slotRight" bindtap="handleEditRole" size="large">设置</view>    
         </van-swipe-cell>
 
-        <van-swipe-cell right-width="{{65}}">
+        <van-swipe-cell right-width="{{65}}" left-width="{{65}}">
+            <view slot="left" class="slotLeft" bindtap="handleModifyFloor" >编辑</view>
             <van-cell-group>
-                <van-cell title="右滑设置楼层信息" size="large"></van-cell>
+                <van-cell title="滑动设置楼层信息" size="large"></van-cell>
             </van-cell-group>
             <view slot="right" class="slotRight" bindtap="handleEditFloor">设置</view>    
         </van-swipe-cell>
