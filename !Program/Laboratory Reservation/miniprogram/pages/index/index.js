@@ -14,7 +14,7 @@ Page({
     eventsList: [],
     adminActiveNames:[1],
     isAganist:false,
-    noticeTips:app.globalData.newNoticeList,
+    noticeTips:[],
     current:0,
     noticeShow:false
   },
@@ -118,19 +118,21 @@ Page({
   },
   _initNotice(){
     const that = this;
-    let newNoticeList = [];
     wx.cloud.callFunction({
-      name:'getNotice'
+      name:'getNoticeInfo'
     }).then(res => {
       const {noticeList} = res.result;
+      let newNoticeList = []; 
       console.log(noticeList)
-      for (let item of noticeList){
+      // for (let item of noticeList){
+      //   newNoticeList.push(item.notice)
+      // }
+      noticeList.map(item => {
         newNoticeList.push(item.notice)
-        console.log(typeof(item.notice), '')
-      }
-    })
-    that.setData({
-      noticeTips:newNoticeList
+      })
+      that.setData({
+        noticeTips:newNoticeList
+      })
     })
 
   },
@@ -295,6 +297,7 @@ Page({
       complete: ()=>{}
     });
   },
+  
   /**
    * 生命周期函数--监听页面加载
    */
@@ -306,8 +309,8 @@ Page({
       this.setData({
         isUser:true
       })
-      this._initNotice()
       this._initUserIndexData();
+      this._initNotice()
       
     } else if(role === '0'){
       this.setData({
@@ -315,6 +318,7 @@ Page({
       })
       this._initAdminIndexData();
     }
+    
   },
   reserve() {
     wx.navigateTo({
@@ -330,34 +334,34 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    // let chageStatus = setTimeout(()=> {
+    //   this.setData({
+    //     noticeShow:true
+    //   })
+    // },3000)
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let role = wx.getStorageSync('role')
-    console.log(role)
-    if (role === '1') {
-      this.setData({
-        isUser:true
-      })
-      this._initUserIndexData();
-      this._initNotice()
-    } else if(role === '0'){
-      this.setData({
-        isUser : false
-      })
-      this._initAdminIndexData();
-    }
-    let chageStatus = setTimeout(()=> {
-      this.setData({
-        noticeShow:true
-      },()=> {
-        clearTimeout(chageStatus)
-      })
-    },2000)
+
+    // let role = wx.getStorageSync('role')
+    // console.log(role)
+    // if (role === '1') {
+    //   this.setData({
+    //     isUser:true
+    //   })
+    //   this._initUserIndexData();
+    //   this._initNotice()
+    // } else if(role === '0'){
+    //   this.setData({
+    //     isUser : false
+    //   })
+    //   this._initAdminIndexData();
+    // }
+    
   },
 
   /**
