@@ -38,7 +38,14 @@
             <view class="title {{wxs.isClassRoom(not_classRoom,item,cell) ? 'selectedclassRoom' : ''}}" hover-class="none" hover-stop-propagation="false" >
                 <view class="title-inner" hover-class="none" hover-stop-propagation="false" bindtap="handleSelectClassRoom" data-floor="{{item}}" data-room="{{cell}}">
                     {{cell<10?item+'0'+cell : item+''+cell}}
-                     <van-popup show="{{isShowClass}}" custom-style="width:100%;" close-on-click-overlay="{{true}}" catch:click-overlay ="onCloseClass" >
+                    
+                </view>
+            </view>
+        </view>
+        </view>
+    </view>
+
+    <van-popup show="{{isShowClass}}" custom-style="width:100%;" close-on-click-overlay="{{true}}" catch:click-overlay ="onCloseClass" >
                     <van-tree-select 
                         items="{{selectItems}}"
                         main-active-index="{{mainActiveIndex}}"
@@ -49,12 +56,8 @@
                         bind:click-nav="onClickNav"
                         bind:click-item="onClickItem">
                     </van-tree-select>
-            </van-popup>
-                </view>
-            </view>
-        </view>
-        </view>
-    </view>
+    </van-popup>
+    
     <van-toast id="van-toast"/>
     <van-divider></van-divider>
         <view class="button-wrapper" hover-class="none" hover-stop-propagation="false">

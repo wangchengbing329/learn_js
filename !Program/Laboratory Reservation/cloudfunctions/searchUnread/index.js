@@ -9,10 +9,12 @@ const db = cloud.database({
 })
 
 // 云函数入口函数
+const _ = db.command;
 exports.main = async (event, context) => {
   let unReadList = [];
   await db.collection('lr_order').where({
-    isRead: 0
+    isRead: 0,
+    isSolved: _.not(_.eq(0))
   }).get().then(res => {
     unReadList = res.data
   })

@@ -4,7 +4,7 @@
   width: 100%;
   position: absolute;
   background: url('https://cdn.pixabay.com/photo/2017/04/12/00/25/microscope-2223268__340.png') no-repeat;
-  background-position: center bottom;
+  background-position: center 80%;
   /* background-color: rgba(255,255,255,.1); */
   background-size: 60%;
 }

@@ -347,20 +347,20 @@ Page({
    */
   onShow: function () {
 
-    // let role = wx.getStorageSync('role')
-    // console.log(role)
-    // if (role === '1') {
-    //   this.setData({
-    //     isUser:true
-    //   })
-    //   this._initUserIndexData();
-    //   this._initNotice()
-    // } else if(role === '0'){
-    //   this.setData({
-    //     isUser : false
-    //   })
-    //   this._initAdminIndexData();
-    // }
+    let role = wx.getStorageSync('role')
+    console.log(role)
+    if (role === '1') {
+      this.setData({
+        isUser:true
+      })
+      this._initUserIndexData();
+      this._initNotice()
+    } else if(role === '0'){
+      this.setData({
+        isUser : false
+      })
+      this._initAdminIndexData();
+    }
     
   },
 
