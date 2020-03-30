@@ -68,8 +68,8 @@ Page({
         page: 'selfInfo',
       },{
         icon: 'question-o',
-        name: '反馈',
-        page: "question"
+        name: '反馈列表',
+        page: "questionShow"
       }, {
         icon: 'info-o',
         name: '关于',

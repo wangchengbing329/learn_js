@@ -16,7 +16,8 @@ exports.main = async (event, context) => {
   await db.collection('lr_question').add({
     data:{
       title,
-      content
+      content,
+      createTime:new Date().getTime()
     }
   }).then(res => {
     console.log(res)

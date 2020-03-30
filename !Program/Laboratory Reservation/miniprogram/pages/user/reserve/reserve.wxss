@@ -4,6 +4,10 @@
     position: absolute;
     width: 100%;
 }
+.reserve-wrapper {
+    overflow-x: scroll;
+
+}
 .reserve-title {
     text-align: center;
     font-size: 40rpx;
@@ -21,7 +25,6 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: nowrap;
-    overflow-x: scroll;
 }
 .grid-row ::-webkit-scrollbar{
     display: none;
@@ -60,4 +63,5 @@
 .button-wrapper {
     display: flex;
     justify-content: flex-end;
+    margin-bottom: 40rpx;
 }

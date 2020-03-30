@@ -13,7 +13,9 @@
     "pages/editor/editor",
     "pages/editRole/editRole",
     "pages/editFloor/editFloor",
-    "pages/modifyFloor/modifyFloor"
+    "pages/modifyFloor/modifyFloor",
+    "pages/questionShow/questionShow"
+    
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

@@ -28,13 +28,17 @@ exports.main = async (event, context) => {
       ret_code = 200
     } else {
       let isRepeat;
-      for (let item of infoData) {
-        item.selectedRoom.class_id.map(item1 => {
+      infoData.forEach((item,index,arr) => {
+        for (let item1 of item.selectedClassRoom.class_id) {
           isRepeat = class_id.some(item2 => {
             return item1 === item2
           })
-        })
-      }
+          if(isRepeat) {
+            break;
+          }
+        }
+      })
+     
       if (isRepeat) {
         ret_code = 404
       } else {

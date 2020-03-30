@@ -33,15 +33,14 @@
     </van-cell-group>
     
     <view class="reserve-wrapper" hover-class="none" hover-stop-propagation="false">
-    <view class="grid-row" wx:for="{{floorArr}}"  wx:key="*this" >
-        <view class="grid-col " wx:for="{{room_numArr}}" wx:for-item="cell" wx:key="*this">
-            <view class="title {{wxs.isClassRoom(not_classRoom,item,cell) ? 'selectedclassRoom' : ''}}" hover-class="none" hover-stop-propagation="false" >
-                <view class="title-inner" hover-class="none" hover-stop-propagation="false" bindtap="handleSelectClassRoom" data-floor="{{item}}" data-room="{{cell}}">
-                    {{cell<10?item+'0'+cell : item+''+cell}}
-                    
+        <view class="grid-row" wx:for="{{floorArr}}"  wx:key="*this" >
+            <view class="grid-col " wx:for="{{room_numArr}}" wx:for-item="cell" wx:key="*this">
+                <view class="title {{wxs.isClassRoom(not_classRoom,item,cell) ? 'selectedclassRoom' : ''}}" hover-class="none" hover-stop-propagation="false" >
+                    <view class="title-inner" hover-class="none" hover-stop-propagation="false" bindtap="handleSelectClassRoom" data-floor="{{item}}" data-room="{{cell}}">
+                        {{cell<10?item+'0'+cell : item+''+cell}}    
+                    </view>
                 </view>
             </view>
-        </view>
         </view>
     </view>
 
@@ -60,8 +59,8 @@
     
     <van-toast id="van-toast"/>
     <van-divider></van-divider>
-        <view class="button-wrapper" hover-class="none" hover-stop-propagation="false">
-            <van-button  type="danger" plain size="small" custom-style="margin-right:40rpx;" bindtap="goBack">取消</van-button>
-            <van-button  type="primary" plain size="small" custom-style="margin-right:40rpx;" bindtap="submit">确认</van-button>
-        </view>
+    <view class="button-wrapper" hover-class="none" hover-stop-propagation="false">
+        <van-button  type="danger" plain size="small" custom-style="margin-right:40rpx;" bindtap="goBack">取消</van-button>
+        <van-button  type="primary" plain size="small" custom-style="margin-right:40rpx;" bindtap="submit">确认</van-button>
+    </view>
 </view>

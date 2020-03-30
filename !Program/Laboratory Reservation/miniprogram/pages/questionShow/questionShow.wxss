@@ -1,0 +1,26 @@
+/* !Program/Laboratory Reservation/miniprogram/pages/questionShow/questionShow.wxss */
+.questionShow_page{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+}
+.question{
+    width: 96%;
+    margin:20rpx auto;
+    background-color: #f1f9f9;
+    border: 1px solid #e1f2fb;
+    border-radius: 2px;
+    box-shadow: 1px 1px 1px #fefefe;
+    min-height: 200rpx;
+}
+.title{
+    font-weight: bold;
+    font-size: 40rpx;
+    margin-left: 20rpx;
+}
+.content{
+    font-size: 30rpx;
+    margin-left: 20rpx;
+    margin-top: 40rpx;
+}

@@ -4,7 +4,8 @@
         <view class="appTitle">实验室预定平台</view>
         <view class="button">
             <van-button type="primary" size="small" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo">授权登陆</van-button>
-            <van-button type="info" size="small">取消</van-button>
+            <!-- <van-button type="info" size="small">取消</van-button> -->
+            <navigator class="exit" target="miniProgram" open-type="exit">取消</navigator>
         </view>
     </view>
 </view>

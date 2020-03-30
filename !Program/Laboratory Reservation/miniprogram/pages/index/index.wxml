@@ -2,19 +2,31 @@
 <wxs src="./tag.wxs" module="tag"></wxs>
 <view class="user_page" hover-class="none" hover-stop-propagation="false" wx:if="{{isUser}}">
 
-    <view class="" hover-class="none" hover-stop-propagation="false">
-        <text class="reserve_title" selectable="false" space="false" decode="false">我的预定</text>        
+    <view class="" >
+        <text class="reserve_title" >我的预定</text>        
         <van-collapse value="{{activeNames}}" bind:change ="changeList" border="{{false}}" custom-class="clloapseItemBg">
         <block wx:for="{{orderList}}" wx:key="title">
             <van-collapse-item title="{{item.title}}" name="{{index + ''}}" border="{{false}}" custom-class="clloapseItemBg">
                     <van-cell-group border="{{false}}">
                             <block wx:for="{{item.orderInfo}}" wx:for-item="order" wx:key="order_time">
-                                <van-cell title="{{order.year}}-{{order.month}}-{{order.day}}  {{order.floor_name}} {{order.room_num}}" title-class="titleStyle">
-                                    <view class="order_button" hover-class="none" hover-stop-propagation="false" wx:if="{{item.title === '预定申请'}}">
-                                        <van-button size="mini" type="danger" catchtap = "handleCancelOrder" data-id ="{{order.id}}">取消</van-button>
-                                        <van-button size="mini" type="primary" catchtap = "handleModifyOrder" data-order ="{{order}}">修改</van-button>
-                                    </view>
-                                    <van-tag wx:else type="{{tag.tagTypes(order.year,order.month,order.day,order.isSolved)}}" custom-class="{{tag.tagTypes(order.year,order.month,order.day,order.isSolved) === 'over' ? 'overClass' : '' }}">{{tag.tagNames(order.year,order.month,order.day,order.isSolved)}}</van-tag>
+                                <van-cell 
+                                title="{{order.year}}-{{order.month}}-{{order.day}}  {{order.floor_name}} {{order.room_num}}" 
+                                    title-class="titleStyle">
+                                        <view class="order_button"  
+                                            wx:if="{{item.title === '预定申请'}}">
+                                                <van-button size="mini" type="danger" catchtap = "handleCancelOrder" data-id ="{{order.id}}">
+                                                取消
+                                                </van-button>
+                                                <van-button size="mini" type="primary" catchtap = "handleModifyOrder" data-order ="{{order}}">
+                                                修改
+                                                </van-button>
+                                        </view>
+                                    <van-tag 
+                                        wx:else 
+                                        type="{{tag.tagTypes(order.year,order.month,order.day,order.isSolved)}}" 
+                                        custom-class="{{tag.tagTypes(order.year,order.month,order.day,order.isSolved) === 'over' ? 'overClass' : '' }}">
+                                    {{tag.tagNames(order.year,order.month,order.day,order.isSolved)}}
+                                    </van-tag>
                                 </van-cell>
                             </block>
                     </van-cell-group>

@@ -1,0 +1,15 @@
+<view class="questionShow_page">
+    <view class="question_wrapper" wx:if="{{isQuestion}}">
+        <block wx:for="{{questionList}}" wx:key="index">
+            <view class="question">
+                <view class="title">{{item.title}}</view>
+                <view class="content">{{item.content}}</view>
+            </view>
+        </block>
+    </view>
+
+    <view class="noQuestion_page" wx:else>
+        <text>暂时没有反馈</text>
+    </view>
+</view>
+	

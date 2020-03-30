@@ -1,6 +1,7 @@
 // miniprogram/pages/user/reserve/reserve.js
 const app = getApp();
 import Toast from '../../../@vant/weapp/toast/toast';
+import {formateFLoor,overTime} from '../../../util';
 Page({
 
   /**
@@ -134,6 +135,9 @@ Page({
           floor_name = item.text
         }
       }
+      // console.log(formateFLoor(option,value1))
+      // let floor_name = formateFLoor(option,value1)
+      console.log(floor_name)
       for (let item of floorInfo) {
         if (item.floor_name === floor_name) {
           that.setData({
@@ -183,7 +187,7 @@ Page({
                         ? selectedFloor + '0' + selectedClassRoom
                         : selectedFloor + '' + selectedClassRoom
         console.log(class_id)
-        this.setData({
+        that.setData({
           activeId:class_id,
           selectedFloor,
           selectedClassRoom,
@@ -196,7 +200,7 @@ Page({
         })
         console.log(that.data.activeId)
       }
-      this._initFloorInfo();
+      that._initFloorInfo();
     })
   },
   /**
