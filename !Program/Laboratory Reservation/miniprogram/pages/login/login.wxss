@@ -39,13 +39,15 @@
   margin-bottom: 100rpx;
   font-size: 50rpx;
 }
+
 .exit {
-  text-align: center;
-  height: 74rpx;
-  line-height: 74rpx;
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 120rpx;
   background-color: #1989fa;
   color: #fff;
-  font-size: 30rpx;
+  font-size: 28rpx;
   border-radius: 2px;
 }
