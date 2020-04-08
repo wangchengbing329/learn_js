@@ -71,6 +71,14 @@ Page({
         name: '反馈列表',
         page: "questionShow"
       }, {
+        icon: 'warning-o',
+        name: '维护管理',
+        page: 'banReserve'
+      }, {
+        icon: 'records',
+        name: '编辑课表',
+        page: 'schedule'
+      },{
         icon: 'info-o',
         name: '关于',
         page: 'desc'
@@ -88,6 +96,10 @@ Page({
         icon: 'comment-circle-o',
         name: '信息',
         page: 'message',
+      },{
+        icon: 'todo-list-o',
+        name: '课程表',
+        page: 'mySchedule',
       },{
         icon: 'question-o',
         name: '反馈',

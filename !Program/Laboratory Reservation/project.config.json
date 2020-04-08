@@ -159,6 +159,27 @@
 					"id": -1,
 					"name": "pages/questionShow/questionShow",
 					"pathName": "pages/questionShow/questionShow",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/banReserve/banReserve",
+					"pathName": "pages/banReserve/banReserve",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/schedule/schedule",
+					"pathName": "pages/schedule/schedule",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/mySchedule/mySchedule",
+					"pathName": "pages/mySchedule/mySchedule",
 					"scene": null
 				}
 			]

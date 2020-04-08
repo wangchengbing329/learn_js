@@ -317,7 +317,7 @@ Page({
         isUser : false
       })
       this._initAdminIndexData();
-    }
+    } 
     
   },
   reserve() {

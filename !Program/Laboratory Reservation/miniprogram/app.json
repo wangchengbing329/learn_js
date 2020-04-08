@@ -14,8 +14,10 @@
     "pages/editRole/editRole",
     "pages/editFloor/editFloor",
     "pages/modifyFloor/modifyFloor",
-    "pages/questionShow/questionShow"
-    
+    "pages/questionShow/questionShow",
+    "pages/banReserve/banReserve",
+    "pages/schedule/schedule",
+    "pages/mySchedule/mySchedule"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

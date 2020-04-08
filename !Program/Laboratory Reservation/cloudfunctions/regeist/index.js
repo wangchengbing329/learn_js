@@ -17,7 +17,10 @@ exports.main = async (event, context) => {
     school: '',
     department: '',
     enrollment: '',
-    role: '1'
+    role: '1',
+    classNum:1,
+    profession:'',
+    roleId:''
   }
   let a = { openid, ...info}
   console.log(a)

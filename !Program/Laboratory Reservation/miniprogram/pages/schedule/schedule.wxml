@@ -1,0 +1,76 @@
+<view class="schedule-page">
+    <view class="scheduleBase">
+        <van-cell-group>
+            <van-field placeholder ="请输入院系" label="院系" value="{{department}}" bind:change="handleDepartment"></van-field>
+            <van-field placeholder ="请输入专业" label="专业" value="{{profession}}" bind:change="handleProfession"></van-field>
+            <van-field placeholder ="请输入班级" label="班级" value="{{classNum}}" bind:change="handleClass" type="number"></van-field>
+            <!-- <van-cell title="学历" value="{{}}"></van-cell> -->
+            <van-cell title="入学年份" value="{{enrollmentTime}}" bind:tap="handleEnrollment"></van-cell>
+            <van-cell title="开始时间" value="{{label1}}" bind:tap="handleBeginTime"></van-cell>
+            <van-cell title="截至时间" value="{{label2}}" bind:tap="handleOverTime"></van-cell>
+        </van-cell-group>
+    </view>
+
+    <view class="schedule_wrapper">
+
+    <view class="schedule">
+        <block wx:for="{{weekDay}}" wx:key="text">
+            <view class="weekDay" > 
+                <block wx:for="{{item.class}}" wx:for-item="class" wx:for-index="num"  wx:key="num" >
+                    <view class="classTime {{class.state ? 'selected' : ''}} {{index === 0 && num === 0 ? 'title' : ''}}" 
+                    bind:tap="finishClassName"
+                    data-index="{{index}}"
+                    data-num="{{num}}">
+                        {{index === 0 ? class.text : '' }}{{num === 0 ? index === 0 ? '课时/星期' : item.text  : ''}}{{class.className}}
+                        </view>
+                </block>
+            </view>
+            </block>
+    </view>
+    </view>
+
+    <van-popup show="{{showPicker1}}" custom-style="width:100%;">
+        <van-datetime-picker 
+            type="date"
+            value="{{time1}}"
+            min-date="{{minDate1}}"
+            catch:cancel="handleCloseBegin"
+            bind:confirm="handleSelectBegin">
+        </van-datetime-picker>
+    </van-popup>
+
+    <van-popup show="{{showPicker2}}" custom-style="width:100%;">
+        <van-datetime-picker
+            type="date"
+            value="{{time2}}"
+            min-date="{{minDate2}}"
+            catch:cancel="handleCloseOver"
+            bind:confirm="handleSelectOver">
+        </van-datetime-picker>
+    </van-popup>
+
+    <van-popup show="{{showPicker3}}" custom-style="width:100%;">
+        <van-datetime-picker
+            type="year-month"
+            title="选择入学年份"
+            value="{{enrollment}}"
+            catch:cancel="handleCloseEnrollment"
+            bind:confirm="handleSelectEnrollment">
+        </van-datetime-picker>
+    </van-popup>
+    <van-dialog id="van-dialog" use-slot>
+        <van-cell-group>
+            <van-field value="{{className}}" placeholder="请输入课程名称" label="课程名称" bind:change="changeClassName"></van-field>
+            <van-field value="{{floorName}}" placeholder="请输入实验楼名称" label="实验楼" bind:change="changeFloorName"></van-field>
+            <van-field value="{{floor}}" placeholder="请输入楼层" label="楼层" bind:change="changeFloor" type="number"></van-field>
+            <van-field value="{{room}}" placeholder="请输入房间号" label="房间号"bind:change="changeRoom" type="number"></van-field>
+        </van-cell-group>
+    </van-dialog>
+    <van-toast id="van-toast"></van-toast>
+    <van-notify id="van-notify"></van-notify>
+
+    <view class="editSchedule-button" hover-class="none" hover-stop-propagation="false">
+        <van-button type="danger"   catchtap = "return" size="small">取消</van-button>
+        <van-button type="primary"  catchtap = "submitSchedule" size="small">提交</van-button>   
+    </view>
+</view>

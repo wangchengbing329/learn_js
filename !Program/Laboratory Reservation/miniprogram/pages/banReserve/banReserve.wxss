@@ -1,0 +1,12 @@
+/* miniprogram/pages/banReserve/banRerserve.wxss */
+.button-wrapper{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20rpx;
+}
+.opreateButton{
+    display: flex;
+    margin-top: 20rpx;
+    justify-content: center;
+    align-items: center;
+}

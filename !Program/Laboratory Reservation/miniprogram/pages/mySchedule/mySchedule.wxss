@@ -1,0 +1,29 @@
+/* miniprogram/pages/mySchedule/mySchedule.wxss */
+.classTime {
+    height: 80rpx;
+    width: 90rpx;
+    margin-right: 10rpx;
+    margin-top: 10rpx;
+    font-size: 28rpx;
+    border-radius: 4px ;
+    color: white;
+    text-align: center;
+    line-height: 80rpx;
+    background-color: #969799;
+}
+.schedule{
+    display: flex;
+    justify-content: space-between;
+}
+.selected{
+    background-color: #02a8a8 !important;
+}
+.title{
+    font-size: 20rpx !important;
+    /* color:#02a8a8 !important; */
+    font-weight: bold !important;
+    text-align: left !important;
+}
+.schedule_wrapper{
+    overflow-x: scroll;
+}

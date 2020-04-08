@@ -1,0 +1,16 @@
+{
+  "usingComponents": {
+    "van-dropdown-menu":"@vant/weapp/dropdown-menu",
+    "van-dropdown-item":"@vant/weapp/dropdown-item",
+    "van-tree-select":"@vant/weapp/tree-select",
+    "van-button":"@vant/weapp/button",
+    "van-cell-group":"@vant/weapp/cell-group",
+    "van-cell":"@vant/weapp/cell",
+    "van-field":"@vant/weapp/field",
+    "van-datetime-picker":"@vant/weapp/datetime-picker",
+    "van-action-sheet":"@vant/weapp/action-sheet",
+    "van-popup":"@vant/weapp/popup",
+    "van-dialog":"@vant/weapp/dialog",
+    "van-toast":"@vant/weapp/toast"
+  }
+}

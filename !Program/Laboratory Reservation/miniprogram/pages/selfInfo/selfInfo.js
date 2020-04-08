@@ -8,12 +8,20 @@ Page({
   data: {
     enrollment: '',
     school:'',
-    className: '',
+    department:'',
+    profession:'',
+    classNum:'',
     enrollmentMessage: '',
     studentId:'',
     schoolMessage: '',
     classMessage: '',
-    isUser:true
+    isUser:true,
+    isShowClass:false,
+    selectItems:[],
+    mainActiveIndex:0,
+    selectId:[],
+    selectClass:'',
+    isExit:false
   },
   enrollChange(e) {
     
@@ -27,7 +35,7 @@ Page({
       })
     } else {
       this.setData({
-        enrollment: e.detail,
+        enrollment: parseInt(e.detail),
         enrollmentMessage: ''
       })
     }
@@ -38,9 +46,12 @@ Page({
     })
   },
   classChange(e) {
-    this.setData({
-      className:e.detail
-    })
+    // this.setData({
+    //   isShowClass:true
+    // })
+    let {enrollment} = this.data;
+    this._initDepartment(enrollment);
+
   },
   idChange(e) {
     this.setData({
@@ -48,14 +59,16 @@ Page({
     })
   },
   confirmInfo() {
-    let {school,enrollment,studentId,className } = this.data;
+    let {school,enrollment,studentId,classNum,profession,department} = this.data;
     wx.cloud.callFunction({
       name: 'modifyUserInfo',
       data: {
         school,
-        department:className,
+        department,
         enrollment,
-        roleId:studentId
+        roleId:studentId,
+        classNum,
+        profession
       }
     }).then(res => {
       const { ret_code } = res.result;
@@ -81,13 +94,118 @@ getUserInfo() {
   }).then(res => {
     const { roleInfo } = res.result;
     console.log(roleInfo)
+    if (roleInfo.enrollment) {
+      this.setData({
+        isExit:true
+      })
+    }
+    let selectClass =roleInfo.department
+                    ?  roleInfo.department + '/' + roleInfo.profession + roleInfo.classNum
+                    :  ''
     that.setData({
       enrollment:roleInfo.enrollment,
+      classNum:roleInfo.classNum,
+      department:roleInfo.department,
+      selectClass:selectClass,
       school:roleInfo.school,
       studentId:roleInfo.roleId,
-      className:roleInfo.department
+      profession:roleInfo.profession
     })
   })
+},
+onClickNav({detail = {}}){
+
+this.setData({
+  mainActiveIndex:detail.index || 0
+})
+},
+onClickItem({detail = {}}){
+  const {selectId} = this.data;
+  console.log(1);
+  const index =selectId.indexOf(detail.id);
+  console.log(detail)
+  
+  if (index > -1) {
+    console.log(1111)
+    selectId.splice(index,1);
+    this.setData({
+      selectId
+    })
+  } else {
+    let text = detail.text.slice(0,-1);
+   let num = detail.text.slice(-1)
+  //  console.log(text,num)
+    selectId.push(detail.id)
+    this.setData({
+      selectId,
+      profession:text,
+      classNum:parseInt(num) || 1
+    })
+  }
+  
+},
+onCloseClass(){
+  let {mainActiveIndex,selectId,selectItems,profession,classNum} = this.data;
+  if (!selectId.length) {
+    this.setData({
+      isShowClass:false
+    })
+  } else {
+    let department = selectItems[mainActiveIndex].text;
+    let selectClass = department + '/' + profession + classNum;
+    this.setData({
+      isShowClass:false,
+      department,
+      selectClass
+    })
+  }
+this.setData({
+  isShowClass:false
+})
+},
+_initDepartment(enrollment) {
+const that = this;
+let {isExit,profession,department,classNum} = this.data;
+if (!enrollment) {
+  Toast('请先输入入学/入职年份')
+} else {
+  wx.cloud.callFunction({
+    name:'searchDepartment',
+    data:{
+      enrollment
+    }
+  }).then(res => {
+    console.log(res)
+    const {departmentList} = res.result;
+    if (!departmentList.length) {
+      Toast('请输入正确的入学/入职年份')
+    }else {
+      if (isExit) {
+        let index = departmentList.findIndex(item => item.text === department);
+        console.log(index)
+        let selectId = [];
+        for (let item of departmentList[index].children) {
+          if (item.text === profession + classNum) {
+            console.log(item.id)
+            selectId.push(item.id)
+          }
+        }
+        that.setData({
+          selectItems:departmentList,
+          isShowClass:true,
+          selectId,
+          mainActiveIndex:index
+        })  
+      }else {
+      that.setData({
+        selectItems:departmentList,
+        isShowClass:true
+      })
+    }
+    }
+  })
+}
+
 },
   /**
    * 生命周期函数--监听页面加载
@@ -104,7 +222,7 @@ getUserInfo() {
         isUser : false
       })
     }
-    this.getUserInfo()
+    this.getUserInfo();
   },
 
   /**

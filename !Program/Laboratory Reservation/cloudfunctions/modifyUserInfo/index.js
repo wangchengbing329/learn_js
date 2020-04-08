@@ -11,7 +11,7 @@ const db = cloud.database({
 // 云函数入口函数
 const _ = db.command
 exports.main = async (event, context) => {
-  const {enrollment,department,roleId,school} = event;
+  const {enrollment,department,roleId,school,profession,classNum} = event;
   let ret_code;
   await db.collection('lr_user').update({
     data: {
@@ -19,6 +19,8 @@ exports.main = async (event, context) => {
       department:_.set(department),
       roleId:_.set(roleId),
       school:_.set(school),
+      profession:_.set(profession),
+      classNum:_.set(classNum)
     }
   }).then(res => {
     if(res) {

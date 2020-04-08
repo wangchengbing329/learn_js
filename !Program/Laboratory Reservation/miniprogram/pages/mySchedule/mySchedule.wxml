@@ -1,0 +1,23 @@
+<view class="mySchedule">
+    <view class="myScheduleBase">
+        
+    </view>
+    
+    <view class="schedule_wrapper">
+
+    <view class="schedule">
+        <block wx:for="{{weekDay}}" wx:key="text">
+            <view class="weekDay" > 
+                <block wx:for="{{item.class}}" wx:for-item="class" wx:for-index="num"  wx:key="num" >
+                    <view class="classTime {{class.state ? 'selected' : ''}} {{index === 0 && num === 0 ? 'title' : ''}}" 
+                    bind:tap="finishClassName"
+                    data-index="{{index}}"
+                    data-num="{{num}}">
+                        {{index === 0 ? class.text : '' }}{{num === 0 ? index === 0 ? '课时/星期' : item.text  : ''}}{{class.className}}
+                        </view>
+                </block>
+            </view>
+            </block>
+    </view>
+    </view>
+</view>

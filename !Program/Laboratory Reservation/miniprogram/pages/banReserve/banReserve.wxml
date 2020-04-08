@@ -1,0 +1,89 @@
+<view class="banReserve_page">
+    <view class="baseInfo-wrapper">
+        <van-dropdown-menu>
+            <van-dropdown-item value="{{value1}}" options="{{options1}}" bind:change="handleSelectDay"></van-dropdown-item>
+            <van-dropdown-item value="{{value2}}" options="{{options2}}"bind:change="handleSelectFloor"></van-dropdown-item>
+        </van-dropdown-menu>
+        <van-cell-group>
+            <van-cell title="开始时间" value="{{label1}}" bind:tap="handleBeginTime"></van-cell>
+            <van-cell title="截至时间" value="{{label2}}" bind:tap="handleOverTime"></van-cell>
+            <van-cell title="选择实验楼" value="{{floor_name}}" is-link bind:tap="handleExperiment"></van-cell>
+        </van-cell-group>
+    </view>
+    <block wx:if="{{!isFullDay}}">
+        <van-cell title="选择时间段" is-link bind:tap="handleSegment"></van-cell>
+    </block>
+    <block wx:if="{{!isFullFloor}}" >
+        <view class="selectClassRoom" > 
+            <block wx:for="{{forbiddenClass}}" wx:key="index">                   
+                <van-cell-group bind:longpress="delete" data-index="{{index}}" title="教室{{index +1}}">
+                    <van-field value="{{item.floor}}" label="楼层" placeholder="请输入楼层" type="number" bind:change="inputFloor" data-index ="{{index}}"></van-field>
+                    <van-field value="{{item.room}}" label="房间号" placeholder="请输入房间号" type="number" bind:change="inputRoom" data-index="{{index}}"></van-field>
+                    <van-cell title="选择时间段" is-link bind:tap="handleSegment" data-index="{{index}}"></van-cell>
+                </van-cell-group>
+            </block>
+            <view class="opreateButton">
+                <van-button icon="plus" plain type="info" size="small" bind:tap="addClass"></van-button>
+            </view>
+        </view>
+    </block>
+
+    <block wx:if="{{isFullDayAndNotFullFloor}}">
+        <view class="selectClassRoom" >
+            <block wx:for="{{forbiddenClass}}" wx:key="index">
+                <van-cell-group  bind:longpress="delete" data-index="{{index}}" title="教室{{index +1}}">
+                    <van-field value="{{item.floor}}" label="楼层" placeholder="请输入楼层" type="number"  bind:change="inputFloor" data-index ="{{index}}"></van-field>
+                    <van-field value="{{item.room}}" label="房间号" placeholder="请输入房间号" type="number" bind:change="inputRoom" data-index="{{index}}"></van-field>
+                </van-cell-group>
+            </block>
+            <view class="opreateButton">
+                <van-button icon="plus" plain type="info" size="small" bind:tap="addClass"></van-button>
+            </view>
+        </view>
+    </block>
+
+    <van-popup show="{{isShowClass}}" custom-style="width:100%;" close-on-click-overlay bind:close="closeClass">
+        <van-tree-select
+            items="{{selectItems}}"
+            max="{{max}}"
+            main-active-index="{{mainActiveIndex}}"
+            active-id="{{classId}}"
+            bind:click-nav="onclickNav"
+            bind:click-item="onClickItems">    
+        </van-tree-select>
+    </van-popup>
+
+    <van-action-sheet
+      show="{{isShowFloor}}"
+      actions="{{floorActions}}"
+      bind:close="onCloseFloor"
+      bind:select="onSelectFloor">
+    </van-action-sheet>
+
+    <van-popup show="{{showPicker1}}" custom-style="width:100%;">
+        <van-datetime-picker 
+            type="date"
+            value="{{time1}}"
+            min-date="{{minDate1}}"
+            catch:cancel="handleCloseBegin"
+            bind:confirm="handleSelectBegin">
+        </van-datetime-picker>
+    </van-popup>
+
+    <van-popup show="{{showPicker2}}" custom-style="width:100%;">
+        <van-datetime-picker
+            type="date"
+            value="{{time2}}"
+            min-date="{{minDate2}}"
+            catch:cancel="handleCloseOver"
+            bind:confirm="handleSelectOver">
+        </van-datetime-picker>
+    </van-popup>
+
+    <van-dialog id="van-dialog"></van-dialog>
+    <van-toast id="van-toast"></van-toast>
+    <view class="button-wrapper">
+        <van-button type="info" bind:tap="cancel" size="small">取消</van-button>
+        <van-button type="primary" bind:tap="confirm" size="small">确定</van-button>
+    </view>
+</view>
