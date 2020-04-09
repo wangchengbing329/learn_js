@@ -1,4 +1,10 @@
 /* miniprogram/pages/mySchedule/mySchedule.wxss */
+.mySchedule{
+position: absolute;
+width: 100%;
+height: 100%;
+background-color: #fff;
+}
 .classTime {
     height: 80rpx;
     width: 90rpx;
@@ -17,6 +23,10 @@
 }
 .selected{
     background-color: #02a8a8 !important;
+    font-size: 24rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .title{
     font-size: 20rpx !important;
@@ -26,4 +36,12 @@
 }
 .schedule_wrapper{
     overflow-x: scroll;
+}
+.betterSpace{
+    height: 60rpx;
+}
+.myScheduleBase{
+    text-align: center;
+    font-weight: bold;
+    margin: 30rpx 0;
 }

@@ -9,10 +9,45 @@ const db = cloud.database({
 })
 
 // 云函数入口函数
+const _ = db.command;
 exports.main = async (event, context) => {
   const { year, month, day, floor, cell,floor_name} = event;
   console.log(year,month,day,floor,cell,floor_name)
-  let hasSelectedClass;
+  let hasSelectedClass = [],scheduleId = [];
+
+  let orderTime = `${year}/${month+1}/${day} 12:00:00`;
+  let orderStamp = new Date(orderTime).getTime();
+  console.log(orderStamp,orderTime)
+  await db.collection('lr_schedule').where({
+    beginTime:_.lte(orderStamp),
+    overTime:_.gte(orderStamp)
+    // 'schedule.floorName':floor_name,
+    // 'schedule.floor':floor,
+    // 'schedule.room':cell
+  }).get().then(res => {
+    if (!res.data.length) {
+      scheduleId = [];
+    } else {
+      // console.log(res.data)
+      let scheduleList = res.data;
+      let scheduleClass = [];
+      scheduleList.map(item => {
+        scheduleClass.push(item.schedule)
+      })
+      console.log(scheduleClass)
+      let schedule = [].concat(...scheduleClass);
+      console.log(schedule)
+      let scheduleFilter =  schedule.filter(item => {
+        return item.floorName === floor_name && item.floor === floor && item.room === cell
+      })
+      if (scheduleFilter.length) {
+        scheduleFilter.map(item => {
+          scheduleId.push(item.classId)
+        })
+      }
+      console.log(scheduleFilter)
+    }
+  })
   await db.collection('lr_order').where({
     floor_name,
     isSolved:2,
@@ -43,6 +78,6 @@ exports.main = async (event, context) => {
   })
 
   return {
-    hasSelectedClass
+    hasSelectedClass:hasSelectedClass.concat(scheduleId)
   }
 }

@@ -13,7 +13,8 @@ exports.main = async (event, context) => {
   let successCode;
   const wxContext = cloud.getWXContext()
   const openid = wxContext.OPENID;
-  const { year, month, day, business_code, selectedFloor,selectedClassRoom,class_id,floor_name,id } = event;
+  const { year, month, day, business_code, selectedFloor,selectedClassRoom,class_id,floor_name,id,
+  personNum } = event;
   if (business_code === 'submit') {
     await db.collection('lr_order').add({
       data: {
@@ -21,6 +22,7 @@ exports.main = async (event, context) => {
         openid,
         isSolved: 0,
         isRead:0,
+        personNum,
         statusChangeTime:new Date().getTime(),
         selectedRoom:
           {

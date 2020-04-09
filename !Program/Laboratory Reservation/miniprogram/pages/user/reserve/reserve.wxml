@@ -10,26 +10,13 @@
                 <van-dropdown-item value="{{value1}}" options="{{option}}" catch:change = "handleSelectExperiment"></van-dropdown-item>
             </van-dropdown-menu>
         </van-cell>
-        <van-cell title="选择预定日期" is-link catchtap="showDatePicker">
-        <view class="" hover-class="none" hover-stop-propagation="true">
-            <van-popup show="{{isShowPicker}}" custom-style="width:100%;"  >
-                    <van-datetime-picker
-                        type="date"
-                        value="{{currentDate}}"
-                        min-date="{{minDate}}"
-                        cancle-button-text=""
-                        formatter="{{formatterDate}}"
-                        catch:cancel="onCancelPicker"
-                        catch:confirm ="onClosePicker"
-                        >
-                    </van-datetime-picker>
-            </van-popup>
-        </view>
+        <van-cell title="选择预定日期" value="{{year}}-{{month+1}}-{{day}}"  catchtap="showDatePicker">
         </van-cell>
-        <van-cell title="请选择教室以及时间段">
-            <text class="selectTip" selectable="false" space="false" decode="false">*点击数字选择时间段</text>
+        <van-field type="number" value="{{personNum}}" label="预定人数" placeholder="人数最多为20人" catch:tap="changePerson"></van-field>
+
+        <van-cell title="请选择教室以及时间段" value="{{room}}" label="*点击数字选择时间段">
         </van-cell>
-        <van-cell title="目前选择:  {{year}}-{{month+1}}-{{day}} {{room}}"></van-cell>
+       
     </van-cell-group>
     
     <view class="reserve-wrapper" hover-class="none" hover-stop-propagation="false">
@@ -57,6 +44,21 @@
                     </van-tree-select>
     </van-popup>
     
+    <view class="" hover-class="none" hover-stop-propagation="true">
+            <van-popup show="{{isShowPicker}}" custom-style="width:100%;"  >
+                    <van-datetime-picker
+                        type="date"
+                        value="{{currentDate}}"
+                        min-date="{{minDate}}"
+                        cancle-button-text=""
+                        formatter="{{formatterDate}}"
+                        catch:cancel="onCancelPicker"
+                        catch:confirm ="onClosePicker"
+                        >
+                    </van-datetime-picker>
+            </van-popup>
+    </view>
+
     <van-toast id="van-toast"/>
     <van-divider></van-divider>
     <view class="button-wrapper" hover-class="none" hover-stop-propagation="false">

@@ -1,12 +1,15 @@
 // miniprogram/pages/mySchedule/mySchedule.js
 import {weekday} from '../../util';
+import Dialog from '../../miniprogram_npm/@vant/weapp/dialog/dialog';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    weekDay:[]
+    weekDay:[],
+    schedule:[],
+    className:''
   },
   _initClass() {
     let weekDay = [],classTime = [];
@@ -51,6 +54,10 @@ Page({
       return roleInfo;
     }).then(res1 => {
       console.log(res1)
+      let className = res1.enrollment + '级' + res1.profession + res1.classNum + '班'
+      that.setData({
+        className
+      })
       wx.cloud.callFunction({
         name:'searchSchedule',
         data: {
@@ -66,18 +73,43 @@ Page({
         if (schedule.beginTime <= time && schedule.overTime >= time) {
           let scheduleInfo = schedule.schedule;
           let {weekDay} = that.data;
+          console.log(weekDay)
+          let newWeekDay = JSON.parse(JSON.stringify(weekDay))      
           scheduleInfo.forEach(item => {
-            // let index = parseInt(item.classId) + parseInt('1');
-            weekday[item.classDay].class[item.classId].className = item.className
+            newWeekDay[item.classDay].class[item.classId + 1].className = item.className;
+            newWeekDay[item.classDay].class[item.classId + 1].state = true;
           })
-          this.setData({
-            weekDay
+         
+          that.setData({
+            weekDay:newWeekDay,
+            schedule:scheduleInfo
           })
         }
       }).catch(err => {
         console.log(err)
       })
     })
+  },
+  readInfo(e){
+    const {index,num,state} = e.currentTarget.dataset;
+    if (state) {
+      const {schedule,weekDay} = this.data;
+      schedule.forEach(item => {
+        if (item.classDay === index && item.classId + 1 === num ) {
+          let info = item.room < 10
+                    ? item.floor + '0' + item.room
+                    : item.floor + '' + item.room;
+          Dialog.alert({
+            message:item.className + '  '+ item.floorName + '  ' + info,
+            closeOnClickOverlay:true,
+            showConfirmButton:false
+          })
+        }
+
+      })
+    } else {
+      return 0
+    }
   },
   /**
    * 生命周期函数--监听页面加载

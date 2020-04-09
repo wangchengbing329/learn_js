@@ -16,6 +16,7 @@ Page({
     room:'',
     room_num:0,
     not_classRoom:[],
+    personNum:'',
     floorArr:[],
     room_numArr:[],
     isShowPicker: false,
@@ -219,6 +220,11 @@ Page({
     that.setData({
       floorArr,
       room_numArr
+    })
+  },
+  changePerson(e){
+    this.setData({
+      personNum:parseInt(e.detail)
     })
   },
   /**
@@ -508,7 +514,7 @@ goBack() {
  * ? activeId, year, month, day, room_num 
  */
 submit() {
-  let { activeId, year, month, day, selectedClassRoom, selectedFloor, value1, option } = this.data;
+  let { activeId, year, month, day, selectedClassRoom, selectedFloor, value1, option,personNum } = this.data;
   const orderInfo = wx.getStorageSync('orderInfo')
   console.log(activeId)
 
@@ -516,6 +522,8 @@ submit() {
     Toast('请选择教室');
   } else if (activeId.length === 0){
     Toast('请选择时间段');
+  } else if(!personNum || personNum > 20) {
+    Toast('请确保人数正确')
   } else {
     let floor_name,isAllow;
     activeId.sort((a,b) => {
