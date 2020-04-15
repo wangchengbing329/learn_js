@@ -8,6 +8,8 @@
     "van-collapse-item":"@vant/weapp/collapse-item",
     "van-button":"@vant/weapp/button",
     "van-toast":"@vant/weapp/toast",
-    "van-action-sheet":"@vant/weapp/action-sheet"
+    "van-action-sheet":"@vant/weapp/action-sheet",
+    "van-dialog":"@vant/weapp/dialog"
+
   }
 }

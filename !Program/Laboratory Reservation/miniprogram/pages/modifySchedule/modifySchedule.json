@@ -9,7 +9,7 @@
     "van-popup":"@vant/weapp/popup",
     "van-dialog":"@vant/weapp/dialog",
     "van-toast":"@vant/weapp/toast",
-    "van-notify":"@vant/weapp/notify"
-    
+    "van-notify":"@vant/weapp/notify",
+    "van-tree-select":"@vant/weapp/tree-select"
   }
 }

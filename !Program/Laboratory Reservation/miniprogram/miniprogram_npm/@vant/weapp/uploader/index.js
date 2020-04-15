@@ -91,6 +91,7 @@ component_1.VantComponent({
             var _a = this.data, _b = _a.fileList, fileList = _b === void 0 ? [] : _b, maxCount = _a.maxCount;
             var lists = fileList.map(function (item) { return (__assign(__assign({}, item), { isImage: typeof item.isImage === 'undefined' ? utils_1.isImageFile(item) : item.isImage })); });
             this.setData({ lists: lists, isInCount: lists.length < maxCount });
+            console.log(lists)
         },
         startUpload: function () {
             var _this = this;

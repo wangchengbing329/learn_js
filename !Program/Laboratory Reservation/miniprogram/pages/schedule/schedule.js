@@ -20,12 +20,12 @@ Page({
     enrollmentTime:'',
     showPicker1:false,
     time1:new Date().getTime(),
-    minDate1:new Date().getTime(),
+    minDate1:new Date().getTime()-365*24*60*60*1000,
     // 时间选择器2
     showPicker2:false,
     showDialog:false,
     time2:new Date().getTime(),
-    minDate2:new Date().getTime(),
+    minDate2:new Date().getTime()-365*24*60*60*1000,
     // 时间选择器3
     showPicker3:false,
     // 课程表
@@ -224,7 +224,7 @@ Page({
         title:'课程信息'
       }).then(()=> {
         let {className,floorName,floor,room} = that.data;
-        if(!className || !className ||!floor ||!room) {
+        if(!className || !className  ||(!floor && floor !== 0) || (!room && room !==0)) {
           console.log(className,className,floor,room)
           Notify({type:'warning',message:'请保持信息完整且正确！'})
         } else {
@@ -294,6 +294,9 @@ Page({
     if (!department || !classNum ||!profession ||!beginTime || !overTime ||!schedule.length) {
       Toast('请保持课程表信息完整')
     } else {
+      if (beginTime > overTime) {
+        Toast('请选择正确的开始结束时间')
+      } else {
       const that = this;
       wx.cloud.callFunction({
         name:'submitSchedule',
@@ -315,11 +318,15 @@ Page({
               url:'/pages/mine/mine'
             })
           })
-        } else {
+        } else if(ret_code === 403) {
+          Toast.fail('请勿重复设置该班级')
+        }
+         else {
           Toast.fail('设置失败')
         }
       })
     }
+  }
   },
   return () {
     wx.switchTab({

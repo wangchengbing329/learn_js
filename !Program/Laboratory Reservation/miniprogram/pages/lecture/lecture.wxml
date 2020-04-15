@@ -1,0 +1,20 @@
+<view class="lecture">
+    <view class="upload">
+
+    <van-cell-group>
+        <van-uploader 
+            name="lecture"
+            file-list="{{fileList}}"
+            max-count="{{1}}"
+            bind:after-read="afterRead">
+        </van-uploader>
+        <van-field type="textarea" value="{{desc}}" placeholder="请输入描述" bind:change="changeDesc"></van-field>
+    </van-cell-group>
+    </view>
+
+    <van-toast id="van-toast"></van-toast>
+    <view class="editLecture" hover-class="none" hover-stop-propagation="false">
+        <van-button type="danger"   catchtap = "return" size="small">取消</van-button>
+        <van-button type="primary"  catchtap = "submit" size="small">提交</van-button>   
+    </view>
+</view>

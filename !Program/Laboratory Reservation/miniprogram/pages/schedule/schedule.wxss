@@ -23,6 +23,10 @@
 }
 .selected{
     background-color: #02a8a8 !important;
+    font-size: 24rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .title{
     font-size: 20rpx !important;

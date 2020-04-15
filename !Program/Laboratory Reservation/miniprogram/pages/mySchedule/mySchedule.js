@@ -45,7 +45,7 @@ Page({
       weekDay
     })
   },
-  _initSchedule() {
+ _initSchedule() {
     const that = this;
     wx.cloud.callFunction({
       name:'getUserInfo'

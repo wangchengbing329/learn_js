@@ -1,4 +1,5 @@
 // 云函数入口文件
+
 const cloud = require('wx-server-sdk')
 
 cloud.init({
@@ -11,42 +12,30 @@ const db = cloud.database({
 // 云函数入口函数
 const _ = db.command;
 exports.main = async (event, context) => {
-  let ret_code,isExit;
+  let ret_code;
   const {department,beginTime,overTime,classNum,profession,schedule,enrollment} = event;
   await db.collection('lr_schedule').where({
     enrollment,
     department,
     profession,
     classNum
-  }).get().then(res => {
-    if(!res.data.length) {
-      isExit = false;
-    } else {
-      isExit = true;
-    }
-  })
-  if (isExit) {
-    ret_code = 403
-  } else {
-  await db.collection('lr_schedule').add({
+  }).update({
     data:{
-      department,
-      profession,
-      classNum,
-      enrollment,
-      beginTime,
-      overTime,
-      schedule
+      beginTime:_.set(beginTime),
+      overTime:_.set(overTime),
+      schedule:_.set(schedule)
     }
   }).then(res => {
-    if (res.errMsg === 'collection.add:ok') {
+    console.log(res)
+
+    if (res.errMsg === 'collection.update:ok') {
       ret_code = 200
     } else {
-      ret_code = 400
+      ret_code = 404
     }
   })
-  }
+
   return {
-   ret_code
+    ret_code
   }
 }

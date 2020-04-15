@@ -1,0 +1,15 @@
+<view class="myLecture">
+    <view class="lecture">
+
+    <block wx:for="{{lectureInfo}}" wx:key="index">
+        <view class="custCard">
+            <view class="image">
+                <image src="{{item.url}}" lazy-load="{{true}}" class="custImage" />
+            </view>
+            <view class="desc">
+                {{item.desc}}
+            </view>
+        </view>
+    </block>
+    </view>
+</view>

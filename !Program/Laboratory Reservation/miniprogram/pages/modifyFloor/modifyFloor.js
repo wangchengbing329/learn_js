@@ -1,5 +1,6 @@
 
 import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast';
+import Dialog from '../../miniprogram_npm/@vant/weapp/dialog/dialog';
 Page({
 
   /**
@@ -78,6 +79,26 @@ Page({
     wx.switchTab({
       url: '/pages/index/index'
     })
+  },
+  delete(e) {
+    const {index} = e.currentTarget.dataset;
+    let {not_classRoom} = this.data;
+    const that = this;
+    Dialog.confirm({
+      title:'删除',
+      message:`确认删除教室${index + 1}`
+    }).then(()=>{
+      not_classRoom.splice(index,1);
+      that.setData({
+        not_classRoom
+      },()=>{
+        Dialog.close()
+      })
+
+    }).catch(()=>{
+      Dialog.close()
+    }
+    )
   },
   submitFloorInfo(){
     let {not_classRoom,floor_name,floor_num,floor_roomNum, newIndex,floorInfo } = this.data;

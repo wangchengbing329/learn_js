@@ -1,12 +1,10 @@
 {
   "usingComponents": {
+    "van-uploader":"@vant/weapp/uploader",
     "van-cell-group":"@vant/weapp/cell-group",
-    "van-collapse":"@vant/weapp/collapse",
     "van-cell":"@vant/weapp/cell",
     "van-field":"@vant/weapp/field",
-    "van-collapse-item":"@vant/weapp/collapse-item",
     "van-button":"@vant/weapp/button",
-    "van-toast":"@vant/weapp/toast",
-    "van-dialog":"@vant/weapp/dialog"
+    "van-toast":"@vant/weapp/toast"
   }
 }

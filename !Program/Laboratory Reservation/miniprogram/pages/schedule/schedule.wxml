@@ -29,7 +29,7 @@
     </view>
     </view>
 
-    <van-popup show="{{showPicker1}}" custom-style="width:100%;">
+   <van-popup show="{{showPicker1}}" custom-style="width:100%;">
         <van-datetime-picker 
             type="date"
             value="{{time1}}"
@@ -61,7 +61,7 @@
     <van-dialog id="van-dialog" use-slot>
         <van-cell-group>
             <van-field value="{{className}}" placeholder="请输入课程名称" label="课程名称" bind:change="changeClassName"></van-field>
-            <van-field value="{{floorName}}" placeholder="请输入实验楼名称" label="实验楼" bind:change="changeFloorName"></van-field>
+            <van-field value="{{floorName}}" placeholder="请输入教学楼名称" label="教学楼" bind:change="changeFloorName"></van-field>
             <van-field value="{{floor}}" placeholder="请输入楼层" label="楼层" bind:change="changeFloor" type="number"></van-field>
             <van-field value="{{room}}" placeholder="请输入房间号" label="房间号"bind:change="changeRoom" type="number"></van-field>
         </van-cell-group>

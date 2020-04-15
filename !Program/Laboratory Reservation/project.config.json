@@ -180,6 +180,27 @@
 					"id": -1,
 					"name": "pages/mySchedule/mySchedule",
 					"pathName": "pages/mySchedule/mySchedule",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/modifySchedule/modifySchedule",
+					"pathName": "pages/modifySchedule/modifySchedule",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/lecture/lecture",
+					"pathName": "pages/lecture/lecture",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/myLecture/myLecture",
+					"pathName": "pages/myLecture/myLecture",
 					"scene": null
 				}
 			]

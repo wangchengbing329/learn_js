@@ -75,10 +75,18 @@ Page({
         name: '维护管理',
         page: 'banReserve'
       }, {
-        icon: 'records',
-        name: '编辑课表',
+        icon: 'description',
+        name: '编辑课程表',
         page: 'schedule'
       },{
+        icon: 'records',
+        name: '修改课程表',
+        page: 'modifySchedule'
+      }, {
+        icon: 'volume-o',
+        name: '讲座',
+        page: 'lecture'
+      },  {
         icon: 'info-o',
         name: '关于',
         page: 'desc'
@@ -100,6 +108,10 @@ Page({
         icon: 'todo-list-o',
         name: '课程表',
         page: 'mySchedule',
+      },{
+        icon: 'volume-o',
+        name: '讲座',
+        page: 'myLecture'
       },{
         icon: 'question-o',
         name: '反馈',
