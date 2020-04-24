@@ -223,6 +223,7 @@ Page({
     })
   },
   changePerson(e){
+    console.log(e.detail)
     this.setData({
       personNum:parseInt(e.detail)
     })
@@ -517,7 +518,7 @@ submit() {
   let { activeId, year, month, day, selectedClassRoom, selectedFloor, value1, option,personNum } = this.data;
   const orderInfo = wx.getStorageSync('orderInfo')
   console.log(activeId)
-
+  console.log(personNum)
   if (selectedClassRoom === 0) {
     Toast('请选择教室');
   } else if (activeId.length === 0){
@@ -554,7 +555,8 @@ submit() {
             day,
             class_id:activeId,
             floor_name,
-            id:orderInfo.id
+            id:orderInfo.id,
+            personNum
           }
         }).then(res => {
           let {successCode} = res.result;
@@ -582,7 +584,8 @@ submit() {
             day,
             class_id:activeId,
             floor_name,
-            id:null
+            id:null,
+            personNum
           }
         }).then (res => {
           console.log(res)

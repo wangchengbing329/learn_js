@@ -96,9 +96,12 @@ Page({
       const {schedule,weekDay} = this.data;
       schedule.forEach(item => {
         if (item.classDay === index && item.classId + 1 === num ) {
-          let info = item.room < 10
-                    ? item.floor + '0' + item.room
-                    : item.floor + '' + item.room;
+          let info = item.room === 0 && item.floor === 0 
+                  ? ''
+                  : item.room < 10
+                  ? item.floor + '0' + item.room
+                  : item.floor + '' + item.room;
+          
           Dialog.alert({
             message:item.className + '  '+ item.floorName + '  ' + info,
             closeOnClickOverlay:true,

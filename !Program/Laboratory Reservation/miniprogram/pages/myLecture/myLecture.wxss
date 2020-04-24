@@ -6,11 +6,12 @@
     background-color: #fff;
 }
 .lecture{
-
+    height: 100%;
+    width: 100%;
 }
 .custCard{
     width: 80%;
-    height: 400rpx;
+    min-height: 600rpx;
     margin: 20rpx auto;
     border-radius: 4px;
 

@@ -40,9 +40,9 @@ Page({
             ] 
           }else {
             switch(item.isSolved) {
-              case 3: message = `${item.selectedRoom.year}-${item.selectedRoom.month}-${item.selectedRoom.day} ${room} 已取消`;break;
-              case 2: message = `${item.selectedRoom.year}-${item.selectedRoom.month}-${item.selectedRoom.day} ${room} 已成功`;break;
-              case 1: message = `${item.selectedRoom.year}-${item.selectedRoom.month}-${item.selectedRoom.day} ${room} 已拒绝`;break;
+              case 3: message = `${item.selectedRoom.year}-${item.selectedRoom.month + 1}-${item.selectedRoom.day} ${room} 已取消`;break;
+              case 2: message = `${item.selectedRoom.year}-${item.selectedRoom.month + 1}-${item.selectedRoom.day} ${room} 已成功`;break;
+              case 1: message = `${item.selectedRoom.year}-${item.selectedRoom.month + 1}-${item.selectedRoom.day} ${room} 已拒绝`;break;
               case 0: continue ;break;
             }
             // if (item.isSolved === 3) {
@@ -62,7 +62,7 @@ Page({
         }            
       console.log(newOrderList)
       that.setData({
-        messageList:newOrderList
+        messageList:newOrderList.reverse()
       })
     })
   },

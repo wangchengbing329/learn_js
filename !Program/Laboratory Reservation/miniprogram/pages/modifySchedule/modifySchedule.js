@@ -205,10 +205,7 @@ Page({
       onClickItem({detail = {}}){
         const {selectId} = this.data;
         const selectIdCopy = JSON.parse(JSON.stringify(selectId))
-        console.log(1);
         const index =selectId.indexOf(detail.id);
-        console.log(detail)
-        
         if (index > -1) {
           console.log(1111)
           selectId.splice(index,1);
@@ -218,7 +215,6 @@ Page({
         } else {
           let text = detail.text.slice(0,-1);
          let num = detail.text.slice(-1)
-        //  console.log(text,num)
           selectId.push(detail.id)
           this.setData({
             selectIdCopy,

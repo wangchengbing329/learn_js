@@ -11,9 +11,11 @@ const db = cloud.database({
 // 云函数入口函数
 const _ = db.command
 exports.main = async (event, context) => {
+  const wxContext = cloud.getWXContext()
+  const openid = wxContext.OPENID;
   const {enrollment,department,roleId,school,profession,classNum} = event;
   let ret_code;
-  await db.collection('lr_user').update({
+  await db.collection('lr_user').where({openid}).update({
     data: {
       enrollment:_.set(enrollment),
       department:_.set(department),
