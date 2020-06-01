@@ -123,10 +123,6 @@ Page({
     }).then(res => {
       const {noticeList} = res.result;
       let newNoticeList = []; 
-      console.log(noticeList)
-      // for (let item of noticeList){
-      //   newNoticeList.push(item.notice)
-      // }
       noticeList.map(item => {
         newNoticeList.push(item.notice)
       })

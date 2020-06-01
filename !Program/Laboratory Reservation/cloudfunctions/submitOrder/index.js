@@ -49,7 +49,8 @@ exports.main = async (event, context) => {
           day,
           selectedClassRoom,
           selectedFloor,
-          class_id
+          class_id,
+          personNum
         })
       }
     }).then(res => {

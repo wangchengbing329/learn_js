@@ -9,7 +9,7 @@ var LRUCache =function(capacity){
     this.arr = []
 }
 LRUCache.prototype.get = function(key){
-    let val  =this.obj[key];
+    let val  = this.obj[key];
     if (val >0){
         // 最近最少使用
         var index = this.arr.indexOf(key);

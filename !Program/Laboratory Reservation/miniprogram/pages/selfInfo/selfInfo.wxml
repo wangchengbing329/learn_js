@@ -14,7 +14,7 @@
         <van-cell-group>
             <van-field type="number" hold-keyboard="{{true}}" value="{{enrollment}}" label="入职年份" error-message="{{enrollmentMessage}}" placeholder="请输入入学年份" bind:change="enrollChange"  ></van-field>
             <van-field hold-keyboard="{{true}}" value="{{school}}" label="所在学校" error-message="{{schoolMessage}}" placeholder="请输入学校名称" bind:change="schoolChange" confirm-type="完成"></van-field>
-            <van-cell  title="所在组织" value="{{selectClass}}"  bind:tap="classChange" ></van-cell>
+            <!-- <van-cell  title="所在组织" value="{{selectClass}}"  bind:tap="classChange" ></van-cell> -->
             <van-field type="number" hold-keyboard="{{true}}" value="{{studentId}}" label="职工工号"  placeholder="请输入学号" bind:change="idChange" confirm-type="完成"></van-field>
         </van-cell-group>
     </view>
@@ -25,7 +25,7 @@
         <van-button type="primary" size="small" catchtap = "confirmInfo">确认</van-button>
     </view>
 
-        <van-popup show="{{isShowClass}}" custom-style="width:100%;" close-on-click-overlay="{{true}}" catch:click-overlay ="onCloseClass" >
+        <!-- <van-popup show="{{isShowClass}}" custom-style="width:100%;" close-on-click-overlay="{{true}}" catch:click-overlay ="onCloseClass" >
                     <van-tree-select 
                         items="{{selectItems}}"
                         main-active-index="{{mainActiveIndex}}"
@@ -36,5 +36,5 @@
                         bind:click-nav="onClickNav"
                         bind:click-item="onClickItem">
                     </van-tree-select>
-    </van-popup>
+    </van-popup> -->
 </view>

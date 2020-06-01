@@ -53,6 +53,7 @@ ret[i] = new LinkedNode(ans[i]);//值部分
 for(let i =0,len = ans.length;i<len-1;i++){
     ret[i].next = ret[i+1]//指针
 }
+console.log(ret)
  return ret[0]
 
 }
@@ -70,7 +71,7 @@ b2 =new LinkedNode(5),
 b3 =new LinkedNode(6);
 b1.next = b2;
 b2.next = b3;
-let node = a1;
+// let node = a1;hh
 // while(node){
 //     console.log(node.val)
 // node = node.next
