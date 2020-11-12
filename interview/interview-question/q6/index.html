@@ -28,9 +28,9 @@
                         timer = setTimeout(()=>{
                             previous = now
                             fn.apply(this,args) //因为要传参，参数的个数不固定  
-                            },time)
+                        },time)
                   
-                    }else{
+                }else{
                         previous = now 
                         fn.apply(this,args)
                 }  
@@ -42,7 +42,8 @@
     function test(){
         console.log('提交成功')
        
-       
+    //    我修改了
+    
     }
     
     </script>
